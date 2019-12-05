@@ -10,25 +10,20 @@ import { Link } from 'gatsby'
 import Sidebar from '../../components/Sidebar'
 import Burger from '../../components/Burger'
 import Circle from '../../components/Circle'
+import Dash from '../../components/Dash'
 
 /**
  * Import Styles
  */
-import {
-  StyleWrapper,
-  StyleContentWrapper,
-  StyleDash,
-  StyleLinkWrapper,
-  StyleCircle,
-} from './style'
+import { StyleWrapper, StyleContentWrapper, StyleLinkWrapper } from './style'
 import { GlobalStyle } from '../../shared/styles/index'
 
 /**
  * Import Interfaces
  */
-import { State } from './interfaces'
+import { State, Props } from './interfaces'
 
-class MainLayout extends React.Component<{}, State> {
+class MainLayout extends React.Component<Props, State> {
   constructor(props) {
     super(props)
 
@@ -44,7 +39,7 @@ class MainLayout extends React.Component<{}, State> {
   }
 
   render() {
-    const { children } = this.props
+    const { children, linkText, linkTo } = this.props
     const { isSidebarActive } = this.state
 
     return (
@@ -52,12 +47,15 @@ class MainLayout extends React.Component<{}, State> {
         <GlobalStyle />
         <StyleContentWrapper>
           <Circle top="0" left="24px" withDot={false} />
-          <StyleDash></StyleDash>
+          <Dash top="0" left="0" dashWidth="24px" dashHeight="1px" />
+          <Dash top="0" left="32px" dashWidth="1px" dashHeight="24px" />
           <div>{children}</div>
           <StyleLinkWrapper>
+            <Dash top="50%" left="-9px" dashWidth="18px" dashHeight="1px" />
+            <Dash top="12px" left="16px" dashWidth="1px" dashHeight="24px" />
             <Circle withDot={true} top="50%" left="8.5px" />
             <Circle withDot={true} top="150%" left="50%" />
-            <Link to="/what-we-do">Czym się zajmujemy</Link>
+            <Link to={linkTo}>{linkText}</Link>
           </StyleLinkWrapper>
         </StyleContentWrapper>
         <Burger

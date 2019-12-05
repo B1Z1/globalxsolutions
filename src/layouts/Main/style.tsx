@@ -19,27 +19,6 @@ const StyleContentWrapper = styled.main`
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     margin-left: 120px;
   }
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    background-color: ${styleVariables.colors.main};
-  }
-  &:before {
-    left: 0;
-    width: 24px;
-    height: 1px;
-  }
-`
-
-const StyleDash = styled.div`
-  position: absolute;
-  top: 0;
-  left: 32px;
-  width: 1px;
-  height: 24px;
-  background-color: ${styleVariables.colors.main};
 `
 
 const StyleLinkWrapper = styled.div`
@@ -48,30 +27,6 @@ const StyleLinkWrapper = styled.div`
   margin-top: 64px;
   padding-left: 32px;
   transform: translateY(50%);
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    background-color: ${styleVariables.colors.main};
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -9px;
-    width: 18px;
-    height: 1px;
-    transform: translateY(-50%);
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 16px;
-    width: 1px;
-    height: 24px;
-    transform: translateY(80%);
-  }
 `
 
-export { StyleWrapper, StyleContentWrapper, StyleDash, StyleLinkWrapper }
+export { StyleWrapper, StyleContentWrapper, StyleLinkWrapper }

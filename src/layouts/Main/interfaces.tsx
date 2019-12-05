@@ -2,4 +2,9 @@ interface State {
   isSidebarActive: boolean
 }
 
-export { State }
+interface Props {
+  linkTo: string
+  linkText: string
+}
+
+export { State, Props }

@@ -16,6 +16,10 @@ const StyleCircle = styled.div`
   border-radius: 50%;
   transform: translateY(-50%);
   z-index: 4;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: ${styleVariables.colors.operate};
+  }
   ${(props: PropsStyleCircles) => {
     if (props.withDot)
       return `&:after {
