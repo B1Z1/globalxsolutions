@@ -13,7 +13,6 @@ import {
   StyleNavigationElement,
   StyleNavigationLink,
 } from './styled'
-import { ThemeProvider } from 'styled-components'
 
 class Sidebar extends React.Component<Props, {}> {
   generateImages(elements) {
