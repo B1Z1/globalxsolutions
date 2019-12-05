@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { styleVariables } from './variables'
 
 export const GlobalStyle = createGlobalStyle`
   html, 
@@ -6,6 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;  
     overflow-y: auto;
+    @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
+      font-size: ${styleVariables.fontSizes.normal.lg}px;
+    }
   }
 
   * {

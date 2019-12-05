@@ -9,7 +9,10 @@ export const styleVariables = {
   fontSizes: {
     h1: `${20 / mainFontSize}rem`,
     h2: `${18 / mainFontSize}rem`,
-    normal: mainFontSize,
+    normal: {
+      xs: mainFontSize,
+      lg: mainFontSize * 1.2,
+    },
   },
   fontFamilys: {
     main: ['Montserrat', 'Arial', 'sans'].join(','),
