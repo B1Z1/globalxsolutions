@@ -11,6 +11,7 @@ import Sidebar from '../../components/Sidebar'
 import Burger from '../../components/Burger'
 import Circle from '../../components/Circle'
 import Dash from '../../components/Dash'
+import SocialMedia from '../../components/SocialMedia'
 
 /**
  * Import Styles
@@ -66,6 +67,7 @@ class MainLayout extends React.Component<Props, State> {
           active={isSidebarActive}
         />
         <Sidebar active={isSidebarActive} />
+        <SocialMedia />
       </StyleWrapper>
     )
   }
