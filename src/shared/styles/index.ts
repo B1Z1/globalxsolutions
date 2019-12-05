@@ -6,14 +6,9 @@ export const GlobalStyle = createGlobalStyle`
   body{
     box-sizing: border-box;
     margin: 0;  
-    overflow-y: auto;
     @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
       font-size: ${styleVariables.fontSizes.normal.lg}px;
     }
-  }
-
-  * {
-    box-sizing: inherit;
   }
 
   ul {
@@ -41,6 +36,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${styleVariables.fontSizes.h1}
+    font-size: ${styleVariables.fontSizes.h1};
   }
 `
