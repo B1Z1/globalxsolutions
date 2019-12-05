@@ -2,10 +2,10 @@ import React from 'react'
 
 import Sidebar from '../../components/Sidebar'
 import Burger from '../../components/Burger'
+import Particles from '../../components/Particles'
 
 import { StyledWrapper } from './style'
 import { GlobalStyle } from '../../shared/styles/index'
-
 import { State } from './interfaces'
 
 class MainLayout extends React.Component<{}, State> {
@@ -30,6 +30,7 @@ class MainLayout extends React.Component<{}, State> {
     return (
       <StyledWrapper>
         <GlobalStyle />
+        <Particles />
         <div>{children}</div>
         <Burger
           onClick={() => {

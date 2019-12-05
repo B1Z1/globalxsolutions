@@ -3,7 +3,6 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { Props } from './interfaces'
-
 import {
   StyleLogos,
   StyleSidebar,
