@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
-const StyledWrapper = styled.div`
+const StyleWrapper = styled.div`
   position: relative;
-  margin: 32px;
-  overflow-x: hidden;
+  padding: 32px;
 `
 
-export { StyledWrapper }
+const StyleContentWrapper = styled.main`
+  position: relative;
+  max-width: 736px;
+  margin-top: 298px;
+  margin-left: 128px;
+`
+
+export { StyleWrapper, StyleContentWrapper }

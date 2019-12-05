@@ -3,7 +3,7 @@ import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import Burger from '../../components/Burger'
 
-import { StyledWrapper } from './style'
+import { StyleWrapper, StyleContentWrapper } from './style'
 import { GlobalStyle } from '../../shared/styles/index'
 
 import { State } from './interfaces'
@@ -28,9 +28,9 @@ class MainLayout extends React.Component<{}, State> {
     const { isSidebarActive } = this.state
 
     return (
-      <StyledWrapper>
+      <StyleWrapper>
         <GlobalStyle />
-        <div>{children}</div>
+        <StyleContentWrapper>{children}</StyleContentWrapper>
         <Burger
           onClick={() => {
             this.toggleSidebar()
@@ -38,7 +38,7 @@ class MainLayout extends React.Component<{}, State> {
           active={isSidebarActive}
         />
         <Sidebar active={isSidebarActive} />
-      </StyledWrapper>
+      </StyleWrapper>
     )
   }
 }
