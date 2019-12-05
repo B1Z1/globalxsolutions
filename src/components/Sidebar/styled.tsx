@@ -33,6 +33,7 @@ const StyleSidebar = styled.aside`
   overflow: auto;
   transform: translateX(${(props: any) => (props.active ? '0' : '100%')});
   transition: transform 0.3s ease-in-out;
+  z-index: 20;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     right: 32px;
     width: 36%;

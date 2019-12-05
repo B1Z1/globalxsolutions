@@ -12,7 +12,7 @@ const StyleIcon = styled.svg`
     //@ts-ignore
     props.active ? styleVariables.colors.operate : styleVariables.colors.main};
   cursor: pointer;
-  z-index: 10;
+  z-index: 30;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     display: none;
   }

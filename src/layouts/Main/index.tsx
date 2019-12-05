@@ -52,7 +52,8 @@ class MainLayout extends React.Component<Props, State> {
           <div>{children}</div>
           <StyleLinkWrapper>
             <Dash top="50%" left="-9px" dashWidth="18px" dashHeight="1px" />
-            <Dash top="12px" left="16px" dashWidth="1px" dashHeight="24px" />
+            <Dash top="12px" left="16px" dashWidth="1px" dashHeight="30px" />
+            <Dash bottom="-14px" left="16px" dashWidth="50%" dashHeight="1px" />
             <Circle withDot={true} top="50%" left="8.5px" />
             <Circle withDot={true} top="150%" left="50%" />
             <Link to={linkTo}>{linkText}</Link>
