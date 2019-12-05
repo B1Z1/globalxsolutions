@@ -7,6 +7,8 @@ import { PropsStyleCircles } from './interface'
 const StyleCircle = styled.div`
   position: absolute;
   top: ${(props: PropsStyleCircles) => props.top};
+  right: ${(props: PropsStyleCircles) => props.right};
+  bottom: ${(props: PropsStyleCircles) => props.bottom};
   left: ${(props: PropsStyleCircles) => props.left};
   width: 16px;
   height: 16px;

@@ -51,6 +51,7 @@ class MainLayout extends React.Component<{}, State> {
       <StyleWrapper>
         <GlobalStyle />
         <StyleContentWrapper>
+          <Circle top="0" left="24px" withDot={false} />
           <StyleDash></StyleDash>
           <div>{children}</div>
           <StyleLinkWrapper>

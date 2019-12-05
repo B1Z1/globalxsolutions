@@ -6,9 +6,17 @@ import { Props } from './interface'
 
 class Circle extends React.Component<Props, {}> {
   render() {
-    const { top, left, withDot } = this.props
+    const { top, right, left, bottom, withDot } = this.props
 
-    return <StyleCircle withDot={withDot} top={top} left={left} />
+    return (
+      <StyleCircle
+        withDot={withDot}
+        top={top}
+        right={right}
+        bottom={bottom}
+        left={left}
+      />
+    )
   }
 }
 

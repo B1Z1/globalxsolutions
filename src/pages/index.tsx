@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import SEO from '../components/seo'
 import Title from '../components/Title'
+import Circle from '../components/Circle'
 
 import MainLayout from '../layouts/Main'
 
@@ -24,13 +25,6 @@ const StyleContentContainer = styled.div`
     width: calc(100% + 8px);
     height: 1px;
   }
-  &:after {
-    right: 0;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    transform: translateY(50%);
-  }
 `
 
 class IndexPage extends React.Component {
@@ -45,6 +39,7 @@ class IndexPage extends React.Component {
             i nowatorskich rozwiązań, a wnoszą do projektu swoja najlepszą
             wiedzę.
           </p>
+          <Circle top="100%" right="0" withDot={false} />
         </StyleContentContainer>
       </MainLayout>
     )

@@ -31,13 +31,6 @@ const StyleContentWrapper = styled.main`
     width: 24px;
     height: 1px;
   }
-  &:after {
-    left: 24px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    transform: translateY(calc(-50% + 0.5px));
-  }
 `
 
 const StyleDash = styled.div`
