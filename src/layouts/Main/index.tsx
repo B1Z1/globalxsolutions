@@ -54,11 +54,18 @@ class MainLayout extends React.Component<Props, State> {
         <GlobalStyle />
         <StyleContentWrapper>
           <Circle top="0" left="24px" withDot={false} />
-          <Dash top="0" left="0" dashWidth="1px" dashHeight="calc(100% - 13px)" />
+          <Dash
+            top="0"
+            left="0"
+            dashWidth="1px"
+            dashHeight="calc(100% - 13px)"
+          />
           <Dash top="0" left="0" dashWidth="24px" dashHeight="1px" />
           <Dash top="0" left="32px" dashWidth="1px" dashHeight="24px" />
           <StyleTitle>
-            <TextOnBlack withMargin={titleWithMargin}>{title}</TextOnBlack>
+            <TextOnBlack paddingRight="32px" withMargin={titleWithMargin}>
+              {title}
+            </TextOnBlack>
           </StyleTitle>
           <div>{children}</div>
           <StyleLinkWrapper>

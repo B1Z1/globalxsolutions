@@ -8,7 +8,7 @@ const StyleTextOnBlack = styled.span`
   background-color: ${styleVariables.colors.main};
   margin-top: 0;
   margin-bottom: ${(props: StyleProps) => (props.withMargin ? '32px' : '0')};
-  padding-right: 32px;
+  padding-right: ${(props: StyleProps) => props.paddingRight};
 `
 
 export { StyleTextOnBlack }

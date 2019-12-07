@@ -6,6 +6,7 @@ const StyleWrapper = styled.div`
   padding: 16px;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     padding: 32px;
+    padding-bottom: 128px;
   }
 `
 

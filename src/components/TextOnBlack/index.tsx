@@ -6,9 +6,11 @@ import { Props } from './interfaces'
 
 class TextOnBlack extends React.Component<Props, {}> {
   render() {
-    const { children, withMargin } = this.props
+    const { children, withMargin, paddingRight } = this.props
     return (
-      <StyleTextOnBlack withMargin={withMargin}>{children}</StyleTextOnBlack>
+      <StyleTextOnBlack withMargin={withMargin} paddingRight={paddingRight}>
+        {children}
+      </StyleTextOnBlack>
     )
   }
 }
