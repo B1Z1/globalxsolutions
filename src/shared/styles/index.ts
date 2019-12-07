@@ -11,6 +11,34 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  html {
+    overflow-y: auto;
+  }
+
+  body {
+    @media only screen and (orientation: landscape) and (max-width: ${styleVariables.breakPoints.md}) {
+      &:before{
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: ${styleVariables.colors.main2};
+        z-index: 9999;
+      }
+      &:after{
+        content: "Prosimy przewrócić urządzenie";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        color: ${styleVariables.colors.main};
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+      }
+    }
+  }
+
   ul {
     margin-left: 0;
   }
