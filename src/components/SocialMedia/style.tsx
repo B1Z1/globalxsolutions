@@ -53,7 +53,10 @@ const StyleCircle = styled.div`
 `
 
 const StyleLink = styled.a`
+  display: inline-block;
   position: relative;
+  width: 24px;
+  height: 24px;
   color: ${styleVariables.colors.main};
   transition: color 0.3s ease-in-out;
   &:hover {
@@ -67,4 +70,20 @@ const StyleLink = styled.a`
   }
 `
 
-export { StyleList, StyleItem, StyleLink, StyleDash, StyleCircle }
+const StyleSocialSvg = styled.svg`
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease-in-out;
+  &:hover {
+    fill: ${styleVariables.colors.operate};
+  }
+`
+
+export {
+  StyleList,
+  StyleItem,
+  StyleLink,
+  StyleDash,
+  StyleCircle,
+  StyleSocialSvg,
+}

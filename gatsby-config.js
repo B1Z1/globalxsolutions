@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `GlobalXSolutions`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@illiamishkin`,
     menuLinks: [
       {
         name: 'Czym się zajmujemy',
