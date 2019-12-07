@@ -28,7 +28,7 @@ class WhatWeDoPage extends React.Component {
   render() {
     return (
       <MainLayout
-        linkTo="/what-we-do"
+        linkTo="/technologies"
         linkText="Technologie"
         title="Czym się zajmujemy"
         titleWithMargin={true}

@@ -9,7 +9,6 @@ import { styleVariables } from '../shared/styles/variables'
  * Import Components
  */
 import SEO from '../components/seo'
-import Title from '../components/TextOnBlack'
 import Circle from '../components/Circle'
 import Dash from '../components/Dash'
 
