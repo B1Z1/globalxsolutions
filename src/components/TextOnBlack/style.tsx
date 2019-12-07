@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { styleVariables } from '../../shared/styles/variables'
 import { StyleProps } from './interfaces'
 
-const StyleTitle = styled.h3`
+const StyleTextOnBlack = styled.span`
   display: inline-block;
   color: ${styleVariables.colors.main2};
   background-color: ${styleVariables.colors.main};
@@ -11,4 +11,4 @@ const StyleTitle = styled.h3`
   padding-right: 32px;
 `
 
-export { StyleTitle }
+export { StyleTextOnBlack }

@@ -9,7 +9,7 @@ import { styleVariables } from '../shared/styles/variables'
  * Import Components
  */
 import SEO from '../components/seo'
-import Title from '../components/Title'
+import Title from '../components/TextOnBlack'
 import Circle from '../components/Circle'
 import Dash from '../components/Dash'
 
@@ -27,9 +27,13 @@ const StyleContentContainer = styled.div`
 class IndexPage extends React.Component {
   render() {
     return (
-      <MainLayout linkTo="/what-we-do" linkText="Czym się zajmujemy">
+      <MainLayout
+        linkTo="/what-we-do"
+        linkText="Czym się zajmujemy"
+        title="Stawiamy na wiedzę i doświadczenie"
+        titleWithMargin={false}
+      >
         <SEO title="Główna strona" />
-        <Title withMargin={false}>Stawiamy na wiedzę i doświadczenie</Title>
         <StyleContentContainer>
           <Dash
             bottom="0"
