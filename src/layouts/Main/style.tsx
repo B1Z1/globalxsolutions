@@ -3,10 +3,14 @@ import { styleVariables } from '../../shared/styles/variables'
 
 const StyleWrapper = styled.div`
   position: relative;
-  padding: 16px;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-bottom: 128px;
+  padding-left: 16px;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
-    padding: 32px;
-    padding-bottom: 128px;
+    padding-top: 32px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 `
 
