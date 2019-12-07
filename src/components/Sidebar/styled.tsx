@@ -25,9 +25,9 @@ const AnimationLink = keyframes`
 const StyleSidebar = styled.aside`
   position: fixed;
   top: 0;
+  left: 0;
+  bottom: 0;
   right: 0;
-  width: 100%;
-  height: 100vh;
   padding: 32px;
   background-color: ${styleVariables.colors.main2};
   overflow: auto;
