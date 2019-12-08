@@ -1,4 +1,4 @@
-interface Props {
+interface IPropsCircles {
   top?: string
   right?: string
   bottom?: string
@@ -6,12 +6,4 @@ interface Props {
   withDot: boolean
 }
 
-interface PropsStyleCircles {
-  top?: string
-  right?: string
-  bottom?: string
-  left?: string
-  withDot: boolean
-}
-
-export { Props, PropsStyleCircles }
+export { IPropsCircles }

@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 import { styleVariables } from '../../shared/styles/variables'
 
-import { PropsStyleCircles } from './interface'
+import { IPropsCircles } from './interface'
 
 const StyleCircle = styled.div`
   position: absolute;
-  top: ${(props: PropsStyleCircles) => props.top};
-  right: ${(props: PropsStyleCircles) => props.right};
-  bottom: ${(props: PropsStyleCircles) => props.bottom};
-  left: ${(props: PropsStyleCircles) => props.left};
+  top: ${(props: IPropsCircles) => props.top};
+  right: ${(props: IPropsCircles) => props.right};
+  bottom: ${(props: IPropsCircles) => props.bottom};
+  left: ${(props: IPropsCircles) => props.left};
   width: 16px;
   height: 16px;
   background-color: ${styleVariables.colors.main};
@@ -20,7 +20,7 @@ const StyleCircle = styled.div`
   &:hover {
     background-color: ${styleVariables.colors.operate};
   }
-  ${(props: PropsStyleCircles) => {
+  ${(props: IPropsCircles) => {
     if (props.withDot)
       return `&:after {
         content: '';

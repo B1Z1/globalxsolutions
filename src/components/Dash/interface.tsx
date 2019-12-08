@@ -1,4 +1,4 @@
-interface Props {
+interface IPropsDash {
   top?: string
   right?: string
   bottom?: string
@@ -7,13 +7,4 @@ interface Props {
   dashHeight: string
 }
 
-interface StyleProps {
-  top?: string
-  right?: string
-  bottom?: string
-  left?: string
-  dashWidth: string
-  dashHeight: string
-}
-
-export { Props, StyleProps }
+export { IPropsDash }

@@ -2,21 +2,50 @@
  * Import Components from another Libraries
  */
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { styleVariables } from '../shared/styles/variables'
+
+/**
+ * Import Interface
+ */
+import { ICardProps } from '../components/Card/interface'
 
 /**
  * Import Components
  */
 import SEO from '../components/seo'
+import Card from '../components/Card'
 
 /**
  * Import Layouts
  */
 import MainLayout from '../layouts/Main'
 
-class Technologies extends React.Component {
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        technologyCards: ICardProps[]
+      }
+    }
+  }
+}
+
+class Technologies extends React.Component<IProps, {}> {
+  generateCards(cards: ICardProps[]) {
+    return cards.map((card, index: number) => (
+      <Card
+        key={index}
+        icon={require(`../images/TechnologyIcons/${card.icon}`)}
+        title={card.title}
+      />
+    ))
+  }
+
   render() {
+    const { data } = this.props
+    const cards = this.generateCards(data.site.siteMetadata.technologyCards)
     return (
       <MainLayout
         linkTo="/strategy-and-creation"
@@ -25,9 +54,26 @@ class Technologies extends React.Component {
         titleWithMargin={false}
       >
         <SEO title="Technologie" />
+        {cards}
       </MainLayout>
     )
   }
 }
 
-export default Technologies
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query TechnologyQuery {
+        site {
+          siteMetadata {
+            technologyCards {
+              icon
+              title
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Technologies data={data} {...props} />}
+  />
+)

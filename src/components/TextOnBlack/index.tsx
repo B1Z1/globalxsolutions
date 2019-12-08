@@ -2,9 +2,9 @@ import React from 'react'
 
 import { StyleTextOnBlack } from './style'
 
-import { Props } from './interfaces'
+import { IPropsTextOnBlack } from './interfaces'
 
-class TextOnBlack extends React.Component<Props, {}> {
+class TextOnBlack extends React.Component<IPropsTextOnBlack, {}> {
   render() {
     const { children, withMargin, paddingRight } = this.props
     return (

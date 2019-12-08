@@ -3,6 +3,36 @@ module.exports = {
     title: `GlobalXSolutions`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@illiamishkin`,
+    technologyCards: [
+      {
+        icon: 'www.svg',
+        title: 'Strony www',
+      },
+      {
+        icon: 'km.svg',
+        title: 'Kokpity menedżerskie',
+      },
+      {
+        icon: 'phone.svg',
+        title: 'Aplikacje mobilne (iOS i Android)',
+      },
+      {
+        icon: 'ml.svg',
+        title: 'Uczenie maszynowe',
+      },
+      {
+        icon: 'man.svg',
+        title: 'Usługi kognitywne',
+      },
+      {
+        icon: 'switch.svg',
+        title: 'Układy analogowe',
+      },
+      {
+        icon: 'analog.svg',
+        title: 'Układy cyfrowe',
+      },
+    ],
     menuLinks: [
       {
         name: 'Czym się zajmujemy',

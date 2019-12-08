@@ -1,8 +1,8 @@
 type onClick = () => any
 
-interface Props {
+interface IBurgerProps {
   onClick: onClick
   active: boolean
 }
 
-export { Props }
+export { IBurgerProps }

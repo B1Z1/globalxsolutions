@@ -15,9 +15,9 @@ import { StyleDash } from './style'
 /**
  * Import Interfaces
  */
-import { Props } from './interface'
+import { IPropsDash } from './interface'
 
-class Dash extends React.Component<Props, {}> {
+class Dash extends React.Component<IPropsDash, {}> {
   render() {
     const { top, right, bottom, left, dashWidth, dashHeight } = this.props
 

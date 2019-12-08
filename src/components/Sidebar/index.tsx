@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
-import { Props } from './interfaces'
+import { IPropsSidebar } from './interfaces'
 
 import {
   StyleLogos,
@@ -14,7 +14,7 @@ import {
   StyleNavigationLink,
 } from './styled'
 
-class Sidebar extends React.Component<Props, {}> {
+class Sidebar extends React.Component<IPropsSidebar, {}> {
   generateImages(elements) {
     return elements.map(image => (
       <StyleLogoElement key={image.id}>

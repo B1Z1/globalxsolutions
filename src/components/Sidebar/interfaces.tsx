@@ -10,7 +10,7 @@ interface ImageQuery {
   }
 }
 
-export interface Props {
+export interface IPropsSidebar {
   data: {
     site: {
       siteMetadata: {

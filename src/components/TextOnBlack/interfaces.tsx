@@ -1,9 +1,6 @@
-export interface Props {
+interface IPropsTextOnBlack {
   withMargin: boolean
   paddingRight?: string
 }
 
-export interface StyleProps {
-  withMargin: boolean
-  paddingRight?: string
-}
+export { IPropsTextOnBlack }

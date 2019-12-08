@@ -14,6 +14,7 @@ import { styleVariables } from '../shared/styles/variables'
 import MainLayout from '../layouts/Main'
 
 const StyleP = styled.p`
+  margin-bottom: 16px;
   span {
     transition: background-color 0.3s ease-in-out;
   }

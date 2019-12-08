@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { StyleIcon } from './style'
-import { Props } from './interfaces'
+import { IBurgerProps } from './interfaces'
 
-class Burger extends React.Component<Props, {}> {
+class Burger extends React.Component<IBurgerProps, {}> {
   render() {
     const { onClick, active } = this.props
- 
+
     return (
       //@ts-ignore
       <StyleIcon
