@@ -22,6 +22,7 @@ class IndexPage extends React.Component {
         linkText="Czym się zajmujemy"
         title="Stawiamy na wiedzę i doświadczenie"
         titleWithMargin={false}
+        isDarkMode={false}
       >
         <SEO title="Główna strona" />
         <StyleContentContainer>
@@ -30,13 +31,14 @@ class IndexPage extends React.Component {
             left="-8px"
             dashWidth="calc(100% + 8px)"
             dashHeight="1px"
+            isDarkMode={false}
           />
           <p style={{ marginBottom: 0 }}>
             Ale przede wszystkim na profesjonalistów, którzy nie boją się wyzwań
             i nowatorskich rozwiązań, a wnoszą do projektu swoja najlepszą
             wiedzę.
           </p>
-          <Circle top="100%" right="0" withDot={false} />
+          <Circle top="100%" right="0" withDot={false} isDarkMode={false} />
         </StyleContentContainer>
       </MainLayout>
     )

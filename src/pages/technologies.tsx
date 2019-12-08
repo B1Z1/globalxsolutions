@@ -66,6 +66,7 @@ class Technologies extends React.Component<IProps, {}> {
         linkText="Strategia i kreacja"
         title="Technologie"
         titleWithMargin={true}
+        isDarkMode={false}
       >
         <SEO title="Technologie" />
         <StyleCardsWrapper>{$Cards}</StyleCardsWrapper>

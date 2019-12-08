@@ -23,10 +23,16 @@ class SocialMedia extends React.Component<{}, {}> {
             target="_blank"
           >
             <StyleDash>
-              <Dash top="0" left="0" dashWidth="1px" dashHeight="16px" />
+              <Dash
+                isDarkMode={false}
+                top="0"
+                left="0"
+                dashWidth="1px"
+                dashHeight="16px"
+              />
             </StyleDash>
             <StyleCircle>
-              <Circle top="0" left="0" withDot={true} />
+              <Circle isDarkMode={false} top="0" left="0" withDot={true} />
             </StyleCircle>
             <StyleSocialSvg viewBox="0 0 64 64">
               <path
@@ -43,10 +49,16 @@ class SocialMedia extends React.Component<{}, {}> {
             target="_blank"
           >
             <StyleDash>
-              <Dash top="0" left="0" dashWidth="1px" dashHeight="16px" />
+              <Dash
+                isDarkMode={false}
+                top="0"
+                left="0"
+                dashWidth="1px"
+                dashHeight="16px"
+              />
             </StyleDash>
             <StyleCircle>
-              <Circle top="0" left="0" withDot={true} />
+              <Circle isDarkMode={false} top="0" left="0" withDot={true} />
             </StyleCircle>
             <StyleSocialSvg viewBox="0 0 64 64">
               <path

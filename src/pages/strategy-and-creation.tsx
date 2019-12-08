@@ -15,16 +15,20 @@ class StrategyAndCreation extends React.Component {
         linkText="Zespół"
         title="Strategia i Kreacja"
         titleWithMargin={true}
+        isDarkMode={false}
       >
         <SEO title="Strategia i kreacja" />
         <p>
-          <TextOnBlack withMargin={false}>Wszelkie</TextOnBlack> działania,
-          dobór narzędzi, marketing, mają swoje poparcie w strategii. Podczas
-          etapu kreacji tworzymy unikalne widoki, które następnie w ramach
-          implementacji stają się w pełni interaktywnym i gotowym projektem.
+          <TextOnBlack isDarkMode={false} withMargin={false}>
+            Wszelkie
+          </TextOnBlack>{' '}
+          działania, dobór narzędzi, marketing, mają swoje poparcie w strategii.
+          Podczas etapu kreacji tworzymy unikalne widoki, które następnie w
+          ramach implementacji stają się w pełni interaktywnym i gotowym
+          projektem.
         </p>
         <h4 style={{ marginBottom: '16px' }}>
-          <TextOnBlack withMargin={false}>
+          <TextOnBlack isDarkMode={false} withMargin={false}>
             Pomożemy zaprojektować Ci:
           </TextOnBlack>
         </h4>
