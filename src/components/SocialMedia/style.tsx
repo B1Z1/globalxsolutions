@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { IPropsSocialMedia } from './interface'
 import { styleVariables } from '../../shared/styles/variables'
 
 const StyleList = styled.ul`
@@ -73,6 +74,10 @@ const StyleLink = styled.a`
 const StyleSocialSvg = styled.svg`
   width: 24px;
   height: 24px;
+  fill: ${(props: IPropsSocialMedia) =>
+    props.isDarkMode
+      ? styleVariables.colors.main2
+      : styleVariables.colors.main};
   transition: fill 0.3s ease-in-out;
   &:hover {
     fill: ${styleVariables.colors.operate};

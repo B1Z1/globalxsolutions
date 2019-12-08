@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
-import { styleVariables } from '../shared/styles/variables'
 
 import SEO from '../components/seo'
+import ChatBot from '../components/ChatBot'
 
 import MainLayout from '../layouts/Main'
 
@@ -17,6 +16,7 @@ class Team extends React.Component {
         isDarkMode={true}
       >
         <SEO title="Nasz zespół" />
+        <ChatBot />
       </MainLayout>
     )
   }

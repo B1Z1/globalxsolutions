@@ -124,7 +124,7 @@ class MainLayout extends React.Component<IPropsMain, IStateMain> {
           active={isSidebarActive}
         />
         <Sidebar active={isSidebarActive} />
-        <SocialMedia />
+        <SocialMedia isDarkMode={isDarkMode} />
       </StyleWrapper>
     )
   }
