@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   html, 
   body{
     box-sizing: border-box;
-    margin: 0;  
+    margin: 0;
     @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
       font-size: ${styleVariables.fontSizes.normal.lg}px;
     }

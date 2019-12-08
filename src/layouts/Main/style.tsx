@@ -29,6 +29,7 @@ const StyleTitle = styled.h3`
 
 const StyleWrapper = styled.div`
   position: relative;
+  min-height: 100vh;
   padding-top: 16px;
   padding-right: 16px;
   padding-bottom: 128px;
