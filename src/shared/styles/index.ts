@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    @media only screen and (orientation: landscape) and (max-width: ${styleVariables.breakPoints.md}) {
+    @media only screen and (orientation: landscape) and (max-device-width: ${styleVariables.breakPoints.lg}) and (max-device-height: 768px) {
       &:before{
         content: "";
         position: fixed;

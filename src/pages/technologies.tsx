@@ -20,14 +20,30 @@ interface IProps {
   }
 }
 
+const StyleCardsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -16px;
+  margin-left: -16px;
+`
+
+const StyleCardElement = styled.div`
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding-right: 16px;
+  padding-left: 16px;
+`
+
 class Technologies extends React.Component<IProps, {}> {
   generateCards(cards: ICardProps[]) {
     return cards.map((card, index: number) => (
-      <Card
-        key={index}
-        icon={require(`../images/TechnologyIcons/${card.icon}`)}
-        title={card.title}
-      />
+      <StyleCardElement key={index}>
+        <Card
+          icon={require(`../images/TechnologyIcons/${card.icon}`)}
+          title={card.title}
+        />
+      </StyleCardElement>
     ))
   }
 
@@ -39,10 +55,10 @@ class Technologies extends React.Component<IProps, {}> {
         linkTo="/strategy-and-creation"
         linkText="Strategia i kreacja"
         title="Technologie"
-        titleWithMargin={false}
+        titleWithMargin={true}
       >
         <SEO title="Technologie" />
-        {cards}
+        <StyleCardsWrapper>{cards}</StyleCardsWrapper>
       </MainLayout>
     )
   }

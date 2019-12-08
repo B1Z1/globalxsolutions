@@ -1,5 +1,6 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+
+import { StyleCard, StyleImage } from './style'
 
 import { ICardProps } from './interface'
 
@@ -8,12 +9,10 @@ class Card extends React.Component<ICardProps, {}> {
     const { title, icon } = this.props
 
     return (
-      <div>
-        <figure>
-          <img src={icon} alt="Ikona" />
-          <figcaption>{title}</figcaption>
-        </figure>
-      </div>
+      <StyleCard>
+        <StyleImage src={icon} alt={title} />
+        <figcaption>{title}</figcaption>
+      </StyleCard>
     )
   }
 }

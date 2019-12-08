@@ -16,13 +16,14 @@ const StyleWrapper = styled.div`
 
 const StyleContentWrapper = styled.main`
   position: relative;
-  max-width: 736px;
+  max-width: 100%;
   margin-top: 64px;
   padding-top: 24px;
   padding-left: 8px;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     margin-top: 298px;
     margin-left: 120px;
+    max-width: 50%;
   }
 `
 
