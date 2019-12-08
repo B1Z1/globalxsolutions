@@ -29,10 +29,18 @@ const StyleCardsWrapper = styled.div`
 `
 
 const StyleCardElement = styled.div`
-  flex: 0 0 25%;
-  max-width: 25%;
+  flex: 0 0 100%;
+  max-width: 100%;
   padding-right: 16px;
   padding-left: 16px;
+  @media only screen and (min-width: ${styleVariables.breakPoints.sm}) {
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+  @media only screen and (min-width: ${styleVariables.breakPoints.md}) {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 `
 
 class Technologies extends React.Component<IProps, {}> {
