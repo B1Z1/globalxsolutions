@@ -1,15 +1,8 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
 
-/**
- * Import Components
- */
 import Dash from '../Dash'
 import Circle from '../Circle'
 
-/**
- * Import Styles
- */
 import {
   StyleList,
   StyleItem,

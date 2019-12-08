@@ -1,12 +1,6 @@
-/**
- * Import Components from another Libraries
- */
 import React from 'react'
 import { Link } from 'gatsby'
 
-/**
- * Import Components
- */
 import Sidebar from '../../components/Sidebar'
 import Burger from '../../components/Burger'
 import Circle from '../../components/Circle'
@@ -14,9 +8,6 @@ import Dash from '../../components/Dash'
 import SocialMedia from '../../components/SocialMedia'
 import TextOnBlack from '../../components/TextOnBlack'
 
-/**
- * Import Styles
- */
 import {
   StyleWrapper,
   StyleContentWrapper,
@@ -25,9 +16,6 @@ import {
 } from './style'
 import { GlobalStyle } from '../../shared/styles/index'
 
-/**
- * Import Interfaces
- */
 import { IStateMain, IPropsMain } from './interfaces'
 
 class MainLayout extends React.Component<IPropsMain, IStateMain> {

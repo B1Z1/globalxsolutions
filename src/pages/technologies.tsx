@@ -1,25 +1,13 @@
-/**
- * Import Components from another Libraries
- */
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { styleVariables } from '../shared/styles/variables'
 
-/**
- * Import Interface
- */
 import { ICardProps } from '../components/Card/interface'
 
-/**
- * Import Components
- */
 import SEO from '../components/seo'
 import Card from '../components/Card'
 
-/**
- * Import Layouts
- */
 import MainLayout from '../layouts/Main'
 
 interface IProps {

@@ -1,16 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-/**
- * Import Components
- */
 import SEO from '../components/seo'
 import TextOnBlack from '../components/TextOnBlack'
 import { styleVariables } from '../shared/styles/variables'
 
-/**
- * Import Layouts
- */
 import MainLayout from '../layouts/Main'
 
 const StyleP = styled.p`

@@ -1,20 +1,11 @@
-/**
- * Import Components from another Libraries
- */
 import React from 'react'
 import styled from 'styled-components'
 import { styleVariables } from '../shared/styles/variables'
 
-/**
- * Import Components
- */
 import SEO from '../components/seo'
 import Circle from '../components/Circle'
 import Dash from '../components/Dash'
 
-/**
- * Import Layouts
- */
 import MainLayout from '../layouts/Main'
 
 const StyleContentContainer = styled.div`

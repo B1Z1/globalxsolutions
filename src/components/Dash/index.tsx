@@ -1,20 +1,7 @@
-/**
- * Import Components from another Libraries
- */
 import React from 'react'
 
-/**
- * Import Components
- */
-
-/**
- * Import Styles
- */
 import { StyleDash } from './style'
 
-/**
- * Import Interfaces
- */
 import { IPropsDash } from './interface'
 
 class Dash extends React.Component<IPropsDash, {}> {
