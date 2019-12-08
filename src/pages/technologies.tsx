@@ -58,7 +58,8 @@ class Technologies extends React.Component<IProps, {}> {
 
   render() {
     const { data } = this.props
-    const cards = this.generateCards(data.site.siteMetadata.technologyCards)
+    const $Cards = this.generateCards(data.site.siteMetadata.technologyCards)
+
     return (
       <MainLayout
         linkTo="/strategy-and-creation"
@@ -67,7 +68,7 @@ class Technologies extends React.Component<IProps, {}> {
         titleWithMargin={true}
       >
         <SEO title="Technologie" />
-        <StyleCardsWrapper>{cards}</StyleCardsWrapper>
+        <StyleCardsWrapper>{$Cards}</StyleCardsWrapper>
       </MainLayout>
     )
   }
