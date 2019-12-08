@@ -1,12 +1,12 @@
-interface State {
+interface IStateMain {
   isSidebarActive: boolean
 }
 
-interface Props {
+interface IPropsMain {
   linkTo: string
   linkText: string
   title: string
   titleWithMargin: boolean
 }
 
-export { State, Props }
+export { IStateMain, IPropsMain }

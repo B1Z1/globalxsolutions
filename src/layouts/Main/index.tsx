@@ -28,9 +28,9 @@ import { GlobalStyle } from '../../shared/styles/index'
 /**
  * Import Interfaces
  */
-import { State, Props } from './interfaces'
+import { IStateMain, IPropsMain } from './interfaces'
 
-class MainLayout extends React.Component<Props, State> {
+class MainLayout extends React.Component<IPropsMain, IStateMain> {
   constructor(props) {
     super(props)
 
