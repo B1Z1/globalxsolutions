@@ -33,6 +33,7 @@ const StyleCardElement = styled.div`
   max-width: 100%;
   padding-right: 16px;
   padding-left: 16px;
+  margin-bottom: 32px;
   @media only screen and (min-width: ${styleVariables.breakPoints.sm}) {
     flex: 0 0 33%;
     max-width: 33%;
