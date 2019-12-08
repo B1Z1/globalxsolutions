@@ -5,8 +5,14 @@ import { IPropsTextOnBlack } from './interfaces'
 const StyleTextOnBlack = styled.span`
   display: inline-block;
   position: relative;
-  color: ${styleVariables.colors.main2};
-  background-color: ${styleVariables.colors.main};
+  color: ${(props: IPropsTextOnBlack) =>
+    props.isDarkMode
+      ? styleVariables.colors.main
+      : styleVariables.colors.main2};
+  background-color: ${(props: IPropsTextOnBlack) =>
+    props.isDarkMode
+      ? styleVariables.colors.main2
+      : styleVariables.colors.main};
   margin-top: 0;
   margin-bottom: ${(props: IPropsTextOnBlack) =>
     props.withMargin ? '32px' : '0'};
@@ -18,7 +24,10 @@ const StyleTextOnBlack = styled.span`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${styleVariables.colors.main2};
+    background-color: ${(props: IPropsTextOnBlack) =>
+      props.isDarkMode
+        ? styleVariables.colors.main
+        : styleVariables.colors.main2};
     animation: toggleLine 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     animation-delay: 0.4s;
     animation-fill-mode: forwards;

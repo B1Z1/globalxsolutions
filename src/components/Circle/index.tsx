@@ -6,7 +6,7 @@ import { IPropsCircles } from './interface'
 
 class Circle extends React.Component<IPropsCircles, {}> {
   render() {
-    const { top, right, left, bottom, withDot } = this.props
+    const { top, right, left, bottom, withDot, isDarkMode } = this.props
 
     return (
       <StyleCircle
@@ -15,6 +15,7 @@ class Circle extends React.Component<IPropsCircles, {}> {
         right={right}
         bottom={bottom}
         left={left}
+        isDarkMode={isDarkMode}
       />
     )
   }

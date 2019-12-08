@@ -1,18 +1,7 @@
 import styled from 'styled-components'
 import { styleVariables } from '../../shared/styles/variables'
 
-const StyleWrapper = styled.div`
-  position: relative;
-  padding-top: 16px;
-  padding-right: 16px;
-  padding-bottom: 128px;
-  padding-left: 16px;
-  @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
-    padding-top: 32px;
-    padding-right: 32px;
-    padding-left: 32px;
-  }
-`
+import { IPropsStyleMain } from './interfaces'
 
 const StyleContentWrapper = styled.main`
   position: relative;
@@ -36,6 +25,29 @@ const StyleLinkWrapper = styled.div`
 
 const StyleTitle = styled.h3`
   margin-bottom: 0;
+`
+
+const StyleWrapper = styled.div`
+  position: relative;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-bottom: 128px;
+  padding-left: 16px;
+  @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
+    padding-top: 32px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+  ${(props: IPropsStyleMain) => {
+    const { isDarkMode } = props
+    if (isDarkMode)
+      return `
+        background-color: ${styleVariables.colors.main};
+        ${StyleContentWrapper} {
+          color: ${styleVariables.colors.main2};
+        }
+      `
+  }}
 `
 
 export { StyleWrapper, StyleContentWrapper, StyleLinkWrapper, StyleTitle }

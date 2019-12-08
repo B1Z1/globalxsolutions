@@ -34,34 +34,86 @@ class MainLayout extends React.Component<IPropsMain, IStateMain> {
   }
 
   render() {
-    const { children, linkText, linkTo, title, titleWithMargin } = this.props
+    const {
+      children,
+      linkText,
+      linkTo,
+      title,
+      titleWithMargin,
+      isDarkMode,
+    } = this.props
     const { isSidebarActive } = this.state
 
     return (
-      <StyleWrapper>
+      <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
         <StyleContentWrapper>
-          <Circle top="0" left="24px" withDot={false} />
+          <Circle isDarkMode={isDarkMode} top="0" left="24px" withDot={false} />
           <Dash
+            isDarkMode={isDarkMode}
             top="0"
             left="0"
             dashWidth="1px"
             dashHeight="calc(100% - 13px)"
           />
-          <Dash top="0" left="0" dashWidth="24px" dashHeight="1px" />
-          <Dash top="0" left="32px" dashWidth="1px" dashHeight="24px" />
+          <Dash
+            isDarkMode={isDarkMode}
+            top="0"
+            left="0"
+            dashWidth="24px"
+            dashHeight="1px"
+          />
+          <Dash
+            isDarkMode={isDarkMode}
+            top="0"
+            left="32px"
+            dashWidth="1px"
+            dashHeight="24px"
+          />
           <StyleTitle>
-            <TextOnBlack paddingRight="32px" withMargin={titleWithMargin}>
+            <TextOnBlack
+              isDarkMode={isDarkMode}
+              paddingRight="32px"
+              withMargin={titleWithMargin}
+            >
               {title}
             </TextOnBlack>
           </StyleTitle>
           <div>{children}</div>
           <StyleLinkWrapper>
-            <Dash top="50%" left="-8px" dashWidth="18px" dashHeight="1px" />
-            <Dash top="25%" left="16px" dashWidth="1px" dashHeight="126%" />
-            <Dash bottom="-14px" left="16px" dashWidth="45%" dashHeight="1px" />
-            <Circle withDot={true} top="50%" left="8.5px" />
-            <Circle withDot={true} top="150%" left="50%" />
+            <Dash
+              isDarkMode={isDarkMode}
+              top="50%"
+              left="-8px"
+              dashWidth="18px"
+              dashHeight="1px"
+            />
+            <Dash
+              isDarkMode={isDarkMode}
+              top="25%"
+              left="16px"
+              dashWidth="1px"
+              dashHeight="126%"
+            />
+            <Dash
+              isDarkMode={isDarkMode}
+              bottom="-14px"
+              left="16px"
+              dashWidth="45%"
+              dashHeight="1px"
+            />
+            <Circle
+              isDarkMode={isDarkMode}
+              withDot={true}
+              top="50%"
+              left="8.5px"
+            />
+            <Circle
+              isDarkMode={isDarkMode}
+              withDot={true}
+              top="150%"
+              left="50%"
+            />
             <Link to={linkTo}>{linkText}</Link>
           </StyleLinkWrapper>
         </StyleContentWrapper>

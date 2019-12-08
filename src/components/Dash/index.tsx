@@ -6,7 +6,15 @@ import { IPropsDash } from './interface'
 
 class Dash extends React.Component<IPropsDash, {}> {
   render() {
-    const { top, right, bottom, left, dashWidth, dashHeight } = this.props
+    const {
+      top,
+      right,
+      bottom,
+      left,
+      dashWidth,
+      dashHeight,
+      isDarkMode,
+    } = this.props
 
     return (
       <StyleDash
@@ -16,6 +24,7 @@ class Dash extends React.Component<IPropsDash, {}> {
         left={left}
         dashWidth={dashWidth}
         dashHeight={dashHeight}
+        isDarkMode={isDarkMode}
       />
     )
   }

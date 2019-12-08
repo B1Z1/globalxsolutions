@@ -11,7 +11,10 @@ const StyleDash = styled.div`
   left: ${(props: IPropsDash) => props.left};
   width: ${(props: IPropsDash) => props.dashWidth};
   height: ${(props: IPropsDash) => props.dashHeight};
-  background-color: ${styleVariables.colors.main};
+  background-color: ${(props: IPropsDash) =>
+    props.isDarkMode
+      ? styleVariables.colors.main2
+      : styleVariables.colors.main};
 `
 
 export { StyleDash }

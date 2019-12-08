@@ -1,5 +1,6 @@
 interface IPropsTextOnBlack {
   withMargin: boolean
+  isDarkMode: boolean
   paddingRight?: string
 }
 

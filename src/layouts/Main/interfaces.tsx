@@ -7,6 +7,11 @@ interface IPropsMain {
   linkText: string
   title: string
   titleWithMargin: boolean
+  isDarkMode: boolean
 }
 
-export { IStateMain, IPropsMain }
+interface IPropsStyleMain {
+  isDarkMode: boolean
+}
+
+export { IStateMain, IPropsMain, IPropsStyleMain }

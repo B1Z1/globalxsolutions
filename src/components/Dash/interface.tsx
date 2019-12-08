@@ -5,6 +5,7 @@ interface IPropsDash {
   left?: string
   dashWidth: string
   dashHeight: string
+  isDarkMode: boolean
 }
 
 export { IPropsDash }

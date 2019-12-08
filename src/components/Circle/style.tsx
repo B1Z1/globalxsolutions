@@ -12,7 +12,10 @@ const StyleCircle = styled.div`
   left: ${(props: IPropsCircles) => props.left};
   width: 16px;
   height: 16px;
-  background-color: ${styleVariables.colors.main};
+  background-color: ${(props: IPropsCircles) =>
+    props.isDarkMode
+      ? styleVariables.colors.main2
+      : styleVariables.colors.main};
   border-radius: 50%;
   transform: translateY(-50%);
   z-index: 4;
@@ -29,7 +32,11 @@ const StyleCircle = styled.div`
         left: 50%;
         width: 6px;
         height: 6px;
-        background-color: ${styleVariables.colors.main2};
+        background-color: ${
+          props.isDarkMode
+            ? styleVariables.colors.main
+            : styleVariables.colors.main2
+        };
         border-radius: 50%;
         transform: translate(-50%, -50%);
       }`
