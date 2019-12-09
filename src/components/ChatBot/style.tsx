@@ -14,4 +14,16 @@ const StyleInput = styled.input`
   color: ${styleVariables.colors.main2};
 `
 
-export { StyleMessage, StyleInput }
+const StyleInputWrapper = styled.div`
+  position: relative;
+`
+
+const StyleInputPlaceholder = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: ${styleVariables.colors.main2};
+  opacity: 0.32;
+`
+
+export { StyleMessage, StyleInput, StyleInputWrapper, StyleInputPlaceholder }

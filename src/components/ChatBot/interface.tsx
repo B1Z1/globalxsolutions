@@ -1,14 +1,29 @@
+import { IImageFixed } from '../../shared/interfaces/image-fixed'
+
 interface IHero {
   name: string
-  image: string
   profession: string
-  description: string
+  id: string
+  description: {
+    description: string
+  }
+  photo: {
+    fixed: IImageFixed
+  }
+}
+
+interface IPropsChatBot {
+  data: {
+    allContentfulTeam: {
+      nodes: IHero[]
+    }
+  }
 }
 
 interface IStateChatBot {
   message: string
-  heroes: IHero[]
+  messagePlaceholder: string
   messages: any[]
 }
 
-export { IStateChatBot }
+export { IStateChatBot, IPropsChatBot }

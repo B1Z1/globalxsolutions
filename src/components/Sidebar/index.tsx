@@ -37,6 +37,7 @@ class Sidebar extends React.Component<IPropsSidebar, {}> {
     const { data, active } = this.props
     const $Links = this.generateLinks(data.site.siteMetadata.menuLinks)
     const $Images = this.generateImages(data.images.nodes)
+    console.log(this.props)
     return (
       //@ts-ignore
       <StyleSidebar active={active}>
