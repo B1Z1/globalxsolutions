@@ -5,10 +5,9 @@ import { IBurgerProps } from './interfaces'
 
 class Burger extends React.Component<IBurgerProps, {}> {
   render() {
-    const { onClick, active } = this.props
+    const { onClick, active, isDarkMode } = this.props
 
     return (
-      //@ts-ignore
       <StyleIcon
         onClick={() => {
           onClick()
@@ -17,6 +16,7 @@ class Burger extends React.Component<IBurgerProps, {}> {
         y="0px"
         viewBox="0 0 60.123 60.123"
         active={active}
+        isDarkMode={isDarkMode}
       >
         <path d="M57.124,51.893H16.92c-1.657,0-3-1.343-3-3s1.343-3,3-3h40.203c1.657,0,3,1.343,3,3S58.781,51.893,57.124,51.893z" />
         <path d="M57.124,33.062H16.92c-1.657,0-3-1.343-3-3s1.343-3,3-3h40.203c1.657,0,3,1.343,3,3C60.124,31.719,58.781,33.062,57.124,33.062z" />
