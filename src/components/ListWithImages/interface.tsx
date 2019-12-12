@@ -1,0 +1,6 @@
+interface IPropsListWithImages {
+  
+  }
+  
+  export { IPropsListWithImages }
+  

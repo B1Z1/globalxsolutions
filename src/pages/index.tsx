@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { styleVariables } from '../shared/styles/variables'
 
 import SEO from '../components/seo'
 import Circle from '../components/Circle'
