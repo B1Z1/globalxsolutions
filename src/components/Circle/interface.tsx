@@ -1,4 +1,4 @@
-interface IPropsCircles {
+interface IPropsCircle {
   top?: string
   right?: string
   bottom?: string
@@ -7,4 +7,4 @@ interface IPropsCircles {
   withDot: boolean
 }
 
-export { IPropsCircles }
+export { IPropsCircle }

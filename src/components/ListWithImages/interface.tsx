@@ -1,6 +1,19 @@
-interface IPropsListWithImages {
-  
+interface IProductElement {
+  name: string
+  slug: string
+  mainImage: {
+    fluid: {
+      src: string
+      base64: string
+      srcSet: string
+    }
   }
-  
-  export { IPropsListWithImages }
-  
+}
+}
+
+interface IPropsListWithImages {
+  elements: IProductElement[]
+  parentRoot: string
+}
+
+export { IPropsListWithImages, IProductElement }

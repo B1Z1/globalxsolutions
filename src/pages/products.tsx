@@ -1,36 +1,58 @@
 import React from 'react'
-import styled from 'styled-components'
-import { styleVariables } from '../shared/styles/variables'
+import { StaticQuery, graphql } from 'gatsby'
+
+import { IProductElement } from '../components/ListWithImages/interface'
 
 import SEO from '../components/seo'
-import Circle from '../components/Circle'
-import Dash from '../components/Dash'
+import ListWithImages from '../components/ListWithImages'
 
 import MainLayout from '../layouts/Main'
 
-const StyleContentContainer = styled.div`
-  position: relative;
-  max-width: 512px;
-  padding-bottom: 32px;
-`
+interface IProductsProps {
+  data: {
+    allContentfulProducts: {
+      elements: IProductElement[]
+    }
+  }
+}
 
-class Products extends React.Component {
+class Products extends React.Component<IProductsProps, {}> {
   render() {
+    const { elements } = this.props.data.allContentfulProducts
     return (
       <MainLayout
         linkTo="/conceptions"
         linkText="Koncepcje"
         title="Produkty"
         titleWithMargin={true}
-        isDarkMode={true}
+        isDarkMode={false}
       >
         <SEO title="Główna strona" />
-        <StyleContentContainer>
-
-        </StyleContentContainer>
+        <ListWithImages parentRoot="/products/" elements={elements} />
       </MainLayout>
     )
   }
 }
 
-export default Products
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query ProductsQuery {
+        allContentfulProducts {
+          elements: nodes {
+            name: productName
+            slug: productSlug
+            mainImage: productMainImage {
+              fluid {
+                src
+                base64
+                srcSet
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Products data={data} {...props} />}
+  />
+)

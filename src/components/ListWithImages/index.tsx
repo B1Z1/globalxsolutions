@@ -1,12 +1,27 @@
 import React from 'react'
-  import { IPropsListWithImages } from './interface'
-  import {} from './style'
-  
-  class ListWithImages extends React.Component<IPropsListWithImages, {}> {
-    render() {
-      return <div></div>
-    }
+import { IPropsListWithImages, IProductElement } from './interface'
+import { Link } from 'gatsby'
+import {} from './style'
+
+import { StyleListElementWithDots } from '../../shared/styles/components/List'
+
+class ListWithImages extends React.Component<IPropsListWithImages, {}> {
+  generateItems(elements: IProductElement[]) {
+    return elements.map(element => (
+      <StyleListElementWithDots>
+        <Link to={`${this.props.parentRoot}${element.slug}`}>
+          {element.name}
+        </Link>
+      </StyleListElementWithDots>
+    ))
   }
-  
-  export default ListWithImages
-  
+
+  render() {
+    const { elements } = this.props
+    const $Items = this.generateItems(elements)
+
+    return <ul>{$Items}</ul>
+  }
+}
+
+export default ListWithImages

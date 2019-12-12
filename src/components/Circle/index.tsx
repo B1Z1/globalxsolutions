@@ -2,9 +2,9 @@ import React from 'react'
 
 import { StyleCircle } from './style'
 
-import { IPropsCircles } from './interface'
+import { IPropsCircle } from './interface'
 
-class Circle extends React.Component<IPropsCircles, {}> {
+class Circle extends React.Component<IPropsCircle, {}> {
   render() {
     const { top, right, left, bottom, withDot, isDarkMode } = this.props
 
