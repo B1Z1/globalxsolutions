@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 module.exports = {
   siteMetadata: {
     title: `GlobalXSolutions`,
@@ -53,8 +51,16 @@ module.exports = {
         path: '/team',
       },
       {
-        name: 'Produkty i Koncepcje',
-        path: '/products-and-conceptions',
+        name: 'Produkty',
+        path: '/products',
+      },
+      {
+        name: 'Koncepcje',
+        path: '/conceptions',
+      },
+      {
+        name: 'Rozwiązania',
+        path: '/solutions',
       },
       {
         name: 'Rozwiązania',
