@@ -2,12 +2,12 @@ import React from 'react'
 
 import SEO from '../../components/seo'
 
-import PostLayout from '../../layouts/Post'
+import WrapperLayout from '../../layouts/Wrapper'
 
 class ProductPostTemplate extends React.Component {
   render() {
     return (
-      <PostLayout
+      <WrapperLayout
         linkTo="/conceptions"
         linkText="Koncepcje"
         title="Produkty"
@@ -15,7 +15,7 @@ class ProductPostTemplate extends React.Component {
         isDarkMode={false}
       >
         <SEO title="Główna strona" />
-      </PostLayout>
+      </WrapperLayout>
     )
   }
 }

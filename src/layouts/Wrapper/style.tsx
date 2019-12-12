@@ -1,7 +1,18 @@
 import styled from 'styled-components'
 import { styleVariables } from '../../shared/styles/variables'
 
-import { IPropsMain } from './interfaces'
+import { IPropsStyleWrapper } from './interfaces'
+
+const StyleTitle = styled.h3`
+  margin-bottom: 0;
+`
+
+const StyleLinkWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+  margin-top: 64px;
+  padding-left: 32px;
+`
 
 const StyleContentWrapper = styled.main`
   position: relative;
@@ -28,7 +39,7 @@ const StyleWrapper = styled.div`
     padding-right: 32px;
     padding-left: 32px;
   }
-  ${(props: IPropsMain) => {
+  ${(props: IPropsStyleWrapper) => {
     const { isDarkMode } = props
     if (isDarkMode)
       return `
@@ -40,4 +51,4 @@ const StyleWrapper = styled.div`
   }}
 `
 
-export { StyleWrapper, StyleContentWrapper }
+export { StyleWrapper, StyleContentWrapper, StyleLinkWrapper, StyleTitle }

@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 import Circle from '../components/Circle'
 import Dash from '../components/Dash'
 
-import MainLayout from '../layouts/Main'
+import WrapperLayout from '../layouts/Wrapper'
 
 const StyleContentContainer = styled.div`
   position: relative;
@@ -16,7 +16,7 @@ const StyleContentContainer = styled.div`
 class IndexPage extends React.Component {
   render() {
     return (
-      <MainLayout
+      <WrapperLayout
         linkTo="/what-we-do"
         linkText="Czym się zajmujemy"
         title="Stawiamy na wiedzę i doświadczenie"
@@ -39,7 +39,7 @@ class IndexPage extends React.Component {
           </p>
           <Circle top="100%" right="0" withDot={false} isDarkMode={false} />
         </StyleContentContainer>
-      </MainLayout>
+      </WrapperLayout>
     )
   }
 }

@@ -6,7 +6,7 @@ import { IProductElement } from '../components/ListWithImages/interface'
 import SEO from '../components/seo'
 import ListWithImages from '../components/ListWithImages'
 
-import MainLayout from '../layouts/Main'
+import WrapperLayout from '../layouts/Wrapper'
 
 interface IProductsProps {
   data: {
@@ -20,7 +20,7 @@ class Products extends React.Component<IProductsProps, {}> {
   render() {
     const { elements } = this.props.data.allContentfulProducts
     return (
-      <MainLayout
+      <WrapperLayout
         linkTo="/conceptions"
         linkText="Koncepcje"
         title="Produkty"
@@ -29,7 +29,7 @@ class Products extends React.Component<IProductsProps, {}> {
       >
         <SEO title="Główna strona" />
         <ListWithImages parentRoot="/products/" elements={elements} />
-      </MainLayout>
+      </WrapperLayout>
     )
   }
 }

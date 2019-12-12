@@ -3,21 +3,21 @@ import React from 'react'
 import SEO from '../components/seo'
 import ChatBot from '../components/ChatBot'
 
-import MainLayout from '../layouts/Main'
+import WrapperLayout from '../layouts/Wrapper'
 
 class Team extends React.Component {
   render() {
     return (
-      <MainLayout
-        linkText="Produkty i koncepcje"
-        linkTo="/products-and-conceptions"
+      <WrapperLayout
+        linkText="Produkty"
+        linkTo="/products"
         title="Zapoznaj się z zespołem"
         titleWithMargin={true}
         isDarkMode={true}
       >
         <SEO title="Nasz zespół" />
         <ChatBot />
-      </MainLayout>
+      </WrapperLayout>
     )
   }
 }

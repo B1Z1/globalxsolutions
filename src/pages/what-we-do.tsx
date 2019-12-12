@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 import TextOnBlack from '../components/TextOnBlack'
 import { styleVariables } from '../shared/styles/variables'
 
-import MainLayout from '../layouts/Main'
+import WrapperLayout from '../layouts/Wrapper'
 
 const StyleP = styled.p`
   margin-bottom: 16px;
@@ -22,7 +22,7 @@ const StyleP = styled.p`
 class WhatWeDoPage extends React.Component {
   render() {
     return (
-      <MainLayout
+      <WrapperLayout
         linkTo="/technologies"
         linkText="Technologie"
         title="Czym się zajmujemy"
@@ -87,7 +87,7 @@ class WhatWeDoPage extends React.Component {
           </TextOnBlack>
           &nbsp;szczegółowego planu wdrożenia innowacji.
         </StyleP>
-      </MainLayout>
+      </WrapperLayout>
     )
   }
 }

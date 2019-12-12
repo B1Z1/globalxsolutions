@@ -3,14 +3,14 @@ import React from 'react'
 import SEO from '../components/seo'
 import TextOnBlack from '../components/TextOnBlack'
 
-import MainLayout from '../layouts/Main'
+import WrapperLayout from '../layouts/Wrapper'
 
 import { StyleListElementWithDots } from '../shared/styles/components/List'
 
 class StrategyAndCreation extends React.Component {
   render() {
     return (
-      <MainLayout
+      <WrapperLayout
         linkTo="/team"
         linkText="Zespół"
         title="Strategia i Kreacja"
@@ -47,7 +47,7 @@ class StrategyAndCreation extends React.Component {
             Strategię wizualną
           </StyleListElementWithDots>
         </ul>
-      </MainLayout>
+      </WrapperLayout>
     )
   }
 }

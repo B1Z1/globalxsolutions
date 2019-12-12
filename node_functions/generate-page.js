@@ -13,12 +13,12 @@ if (pageName === undefined) {
   
   import SEO from '../components/seo'
 
-  import MainLayout from '../layouts/Main'
+  import WrapperLayout from '../layouts/Wrapper'
 
   class ${pageName}Page extends React.Component {
     render() {
       return (
-        <MainLayout
+        <WrapperLayout
           linkTo="/${pageName}"
           linkText=""
           title=""
@@ -26,7 +26,7 @@ if (pageName === undefined) {
           isDarkMode={false}
         >
           <SEO title="" />
-        </MainLayout>
+        </WrapperLayout>
       )
     }
   }

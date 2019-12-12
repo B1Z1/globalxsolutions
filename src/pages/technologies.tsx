@@ -8,7 +8,7 @@ import { ICardProps } from '../components/Card/interface'
 import SEO from '../components/seo'
 import Card from '../components/Card'
 
-import MainLayout from '../layouts/Main'
+import WrapperLayout from '../layouts/Wrapper'
 
 interface IProps {
   data: {
@@ -61,7 +61,7 @@ class Technologies extends React.Component<IProps, {}> {
     const $Cards = this.generateCards(data.site.siteMetadata.technologyCards)
 
     return (
-      <MainLayout
+      <WrapperLayout
         linkTo="/strategy-and-creation"
         linkText="Strategia i kreacja"
         title="Technologie"
@@ -70,7 +70,7 @@ class Technologies extends React.Component<IProps, {}> {
       >
         <SEO title="Technologie" />
         <StyleCardsWrapper>{$Cards}</StyleCardsWrapper>
-      </MainLayout>
+      </WrapperLayout>
     )
   }
 }
