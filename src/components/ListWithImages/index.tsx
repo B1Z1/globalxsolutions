@@ -7,8 +7,8 @@ import { StyleListElementWithDots } from '../../shared/styles/components/List'
 
 class ListWithImages extends React.Component<IPropsListWithImages, {}> {
   generateItems(elements: IProductElement[]) {
-    return elements.map(element => (
-      <StyleListElementWithDots>
+    return elements.map((element, index) => (
+      <StyleListElementWithDots key={index}>
         <Link to={`${this.props.parentRoot}${element.slug}`}>
           {element.name}
         </Link>

@@ -1,9 +1,9 @@
-import { IImageFixed } from '../../shared/interfaces/image-fixed'
+import { FixedObject } from 'gatsby-image'
 
 interface IPropsHeroCard {
   name: string
   description: string
-  photo: IImageFixed
+  photo: FixedObject
   profession: string
 }
 

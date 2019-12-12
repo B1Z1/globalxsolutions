@@ -5,28 +5,30 @@ exports.createPages = ({ graphql, actions }) => {
 
   const productPost = path.resolve('./src/templates/ProductPost/index.tsx')
   return graphql(`
-    query ProductsFullQuery {
+    query ProductsQuery {
       allContentfulProducts {
-        nodes {
-          name: productName
-          slug: productSlug
-          mainImage: productMainImage {
-            fluid {
-              src
-              base64
-              srcSet
+        edges {
+          node {
+            name: productName
+            slug: productSlug
+            content: productContent {
+              childContentfulRichText {
+                html
+              }
             }
-          }
-          content: productContent {
-            childContentfulRichText {
-              html
+            mainImage: productMainImage {
+              fluid {
+                base64
+                src
+                srcSet
+              }
             }
-          }
-          gallery: productGallery {
-            fluid {
-              src
-              base64
-              srcSet
+            gallery: productGallery {
+              fluid(maxWidth: 320) {
+                base64
+                src
+                srcSet
+              }
             }
           }
         }
@@ -37,13 +39,27 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    const posts = result.data.allContentfulProducts.nodes
+    const posts = result.data.allContentfulProducts.edges
 
     posts.forEach((post, index) => {
-      const { name, slug, mainImage, content, gallery } = post
+      const next = index === posts.length - 1 ? null : posts[index + 1].node
+      const { name, slug, content } = post.node
+      let { gallery, mainImage } = post.node
+
+      mainImage = mainImage.fluid
+
+      if (gallery !== null) {
+        gallery = gallery.map(image => {
+          return {
+            base64: image.fluid.base64,
+            src: image.fluid.src,
+            srcSet: image.fluid.srcSet,
+          }
+        })
+      }
 
       createPage({
-        path: `/products/${post.slug}`,
+        path: `/products/${slug}`,
         component: productPost,
         context: {
           name,
@@ -51,6 +67,8 @@ exports.createPages = ({ graphql, actions }) => {
           mainImage,
           content,
           gallery,
+          next,
+          parentPath: '/products',
         },
       })
     })

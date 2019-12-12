@@ -1,4 +1,4 @@
-import { IImageFixed } from '../../shared/interfaces/image-fixed'
+import { FixedObject } from 'gatsby-image'
 
 interface IHero {
   name: string
@@ -8,7 +8,7 @@ interface IHero {
     description: string
   }
   photo: {
-    fixed: IImageFixed
+    fixed: FixedObject
   }
 }
 

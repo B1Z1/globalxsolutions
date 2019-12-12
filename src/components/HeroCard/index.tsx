@@ -8,7 +8,6 @@ import { IPropsHeroCard } from './interface'
 class HeroCard extends React.Component<IPropsHeroCard> {
   render() {
     const { name, profession, description, photo } = this.props
-
     return (
       <div>
         <figure>

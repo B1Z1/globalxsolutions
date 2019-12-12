@@ -122,6 +122,15 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
       links: dashesData.link.map((el, index) => <Dash key={index} {...el} />),
     }
 
+    const $LinkWrapper =
+      linkTo === null ? null : (
+        <StyleLinkWrapper>
+          {$Dashes.links}
+          {$Circles.links}
+          <Link to={linkTo}>{linkText}</Link>
+        </StyleLinkWrapper>
+      )
+
     return (
       <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
@@ -138,11 +147,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
             </TextOnBlack>
           </StyleTitle>
           {children}
-          <StyleLinkWrapper>
-            {$Dashes.links}
-            {$Circles.links}
-            <Link to={linkTo}>{linkText}</Link>
-          </StyleLinkWrapper>
+          {$LinkWrapper}
         </StyleContentWrapper>
         <Burger
           onClick={() => {
