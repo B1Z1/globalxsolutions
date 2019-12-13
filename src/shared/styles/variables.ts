@@ -13,6 +13,7 @@ export const styleVariables = {
       xs: mainFontSize,
       lg: mainFontSize * 1.2,
     },
+    mini: `${12 / mainFontSize}rem`,
   },
   fontFamilys: {
     main: ['Montserrat', 'Arial', 'sans'].join(','),

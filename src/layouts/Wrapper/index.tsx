@@ -123,12 +123,14 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
     }
 
     const $LinkWrapper =
-      linkTo === null ? null : (
+      linkTo && linkText ? (
         <StyleLinkWrapper>
           {$Dashes.links}
           {$Circles.links}
           <Link to={linkTo}>{linkText}</Link>
         </StyleLinkWrapper>
+      ) : (
+        <Circle isDarkMode={isDarkMode} withDot={true} bottom="0" left="-8px" />
       )
 
     return (

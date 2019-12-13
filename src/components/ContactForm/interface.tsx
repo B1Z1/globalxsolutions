@@ -1,4 +1,6 @@
-interface IPropsContactForm {}
+interface IPropsContactForm {
+  isDarkMode: boolean
+}
 
 interface IStateContactForm {
   name: string

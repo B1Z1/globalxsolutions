@@ -8,16 +8,26 @@ import WrapperLayout from '../layouts/Wrapper'
 
 class ContactPage extends React.Component {
   render() {
+    const isDarkMode = true
+
     return (
       <WrapperLayout
         linkTo="/contact"
         linkText=""
-        title="Jest nam miło skontaktować się z tobą"
+        title="Kontakt"
         titleWithMargin={true}
-        isDarkMode={true}
+        isDarkMode={isDarkMode}
       >
         <SEO title="Kontakt" />
-        <ContactForm />
+        <ContactForm isDarkMode={isDarkMode} />
+        <p>Poniedziałek – Piątek pomiędzy 09:00 – 17:00</p>
+        <p>
+          Skontaktuj się z nami: +48 789 421 478 <br /> lub napisz
+          office@globalxsolutions.pl
+        </p>
+        <p style={{ paddingBottom: '32px' }}>
+          © 2018 globalxsolutions.pl All rights reserved.
+        </p>
       </WrapperLayout>
     )
   }

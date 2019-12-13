@@ -6,8 +6,8 @@ interface IStateWrapper {
 }
 
 interface IPropsWrapper {
-  linkTo: string | null
-  linkText: string | null
+  linkTo?: string
+  linkText?: string
   title: string
   titleWithMargin: boolean
   isDarkMode: boolean
