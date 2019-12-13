@@ -3,10 +3,7 @@ const path = require('path')
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const productPostPath = path.resolve(
-    './src/templates/RealisationsPost/index.tsx'
-  )
-  const conceptionPostPath = path.resolve(
+  const realisationTemplatePath = path.resolve(
     './src/templates/RealisationsPost/index.tsx'
   )
 
@@ -23,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             mainImage: productMainImage {
-              fluid {
+              fluid(quality: 100) {
                 base64
                 src
                 srcSet
@@ -32,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             gallery: productGallery {
-              fluid(maxWidth: 320) {
+              fluid(maxWidth: 320, quality: 100) {
                 base64
                 src
                 srcSet
@@ -54,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             mainImage {
-              fluid {
+              fluid(quality: 100) {
                 base64
                 src
                 srcSet
@@ -63,7 +60,38 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             gallery {
-              fluid {
+              fluid(maxWidth: 320, quality: 100) {
+                base64
+                src
+                srcSet
+                sizes
+                aspectRatio
+              }
+            }
+          }
+        }
+      }
+      allContentfulSolutions {
+        edges {
+          node {
+            name
+            slug
+            content {
+              childContentfulRichText {
+                html
+              }
+            }
+            mainImage {
+              fluid(quality: 100) {
+                base64
+                src
+                srcSet
+                sizes
+                aspectRatio
+              }
+            }
+            gallery {
+              fluid(maxWidth: 320, quality: 100) {
                 base64
                 src
                 srcSet
@@ -82,9 +110,11 @@ exports.createPages = ({ graphql, actions }) => {
 
     const productPosts = result.data.allContentfulProducts.edges
     const conceptionPosts = result.data.allContentfulConceptions.edges
+    const solutionsPosts = result.data.allContentfulSolutions.edges
+
     generatePosts(
       productPosts,
-      productPostPath,
+      realisationTemplatePath,
       '/products',
       {
         name: 'Koncepcje',
@@ -94,11 +124,21 @@ exports.createPages = ({ graphql, actions }) => {
     )
     generatePosts(
       conceptionPosts,
-      conceptionPostPath,
+      realisationTemplatePath,
       '/conceptions',
       {
         name: 'Rozwiązania',
         slug: '/solutions',
+      },
+      createPage
+    )
+    generatePosts(
+      solutionsPosts,
+      realisationTemplatePath,
+      '/solutions',
+      {
+        name: 'Newsroom',
+        slug: '/newsroom',
       },
       createPage
     )

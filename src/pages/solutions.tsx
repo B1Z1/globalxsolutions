@@ -8,27 +8,27 @@ import ListWithImages from '../components/ListWithImages'
 
 import WrapperLayout from '../layouts/Wrapper'
 
-interface IProductsProps {
+interface ISolutionsProps {
   data: {
-    allContentfulProducts: {
+    allContentfulSolutions: {
       elements: IElementWithImage[]
     }
   }
 }
 
-class ProductsPage extends React.Component<IProductsProps, {}> {
+class SolutionsPage extends React.Component<ISolutionsProps, {}> {
   render() {
-    const { elements } = this.props.data.allContentfulProducts
+    const { elements } = this.props.data.allContentfulSolutions
     return (
       <WrapperLayout
-        linkTo="/conceptions"
-        linkText="Koncepcje"
-        title="Produkty"
+        linkTo="/newsroom"
+        linkText="Newsroom"
+        title="Rozwiązania"
         titleWithMargin={true}
         isDarkMode={false}
       >
-        <SEO title="Główna strona" />
-        <ListWithImages parentRoot="/products/" elements={elements} />
+        <SEO title="Rozwiązania" />
+        <ListWithImages parentRoot="/solutions/" elements={elements} />
       </WrapperLayout>
     )
   }
@@ -37,12 +37,12 @@ class ProductsPage extends React.Component<IProductsProps, {}> {
 export default props => (
   <StaticQuery
     query={graphql`
-      query ProductsQuery {
-        allContentfulProducts {
+      query SolutionsQuery {
+        allContentfulSolutions {
           elements: nodes {
-            name: productName
-            slug: productSlug
-            mainImage: productMainImage {
+            name
+            slug
+            mainImage {
               fluid {
                 base64
                 src
@@ -55,6 +55,6 @@ export default props => (
         }
       }
     `}
-    render={data => <ProductsPage data={data} {...props} />}
+    render={data => <SolutionsPage data={data} {...props} />}
   />
 )
