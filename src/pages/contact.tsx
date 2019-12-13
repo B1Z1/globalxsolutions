@@ -23,8 +23,8 @@ class ContactPage extends React.Component {
           data-netlify-recaptcha="true"
         >
           <div data-netlify-recaptcha="true"></div>
-          <input name="fistname" type="text" />
-          <button>Send</button>
+          <input name="name" type="text" />
+          <button type="submit">Send</button>
         </form>
       </WrapperLayout>
     )
