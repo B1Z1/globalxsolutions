@@ -7,6 +7,7 @@ import SocialMedia from '../../components/SocialMedia'
 import Circle from '../../components/Circle'
 import Dash from '../../components/Dash'
 import TextOnBlack from '../../components/TextOnBlack'
+import Preloader from '../../components/Preloader'
 
 import {
   StyleWrapper,
@@ -136,6 +137,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
     return (
       <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
+        {!window.sessionStorage.getItem('preload') ? <Preloader /> : null}
         <StyleContentWrapper>
           {$Circles.main}
           {$Dashes.main}
