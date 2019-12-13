@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import SEO from '../components/seo'
+import ContactForm from '../components/ContactForm'
 
 import WrapperLayout from '../layouts/Wrapper'
 
@@ -16,16 +17,7 @@ class ContactPage extends React.Component {
         isDarkMode={true}
       >
         <SEO title="Kontakt" />
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-recaptcha="true"
-        >
-          <div data-netlify-recaptcha="true"></div>
-          <input name="name" type="text" />
-          <button type="submit">Send</button>
-        </form>
+        <ContactForm />
       </WrapperLayout>
     )
   }
