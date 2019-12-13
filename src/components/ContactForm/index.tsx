@@ -2,7 +2,6 @@ import React from 'react'
 import { IPropsContactForm, IStateContactForm } from './interface'
 import {} from './style'
 import { encode } from 'querystring'
-import Recaptcha from 'react-recaptcha'
 
 class ContactForm extends React.Component<
   IPropsContactForm,
@@ -77,10 +76,6 @@ class ContactForm extends React.Component<
           />
           <button type="submit">Send</button>
         </form>
-        <Recaptcha
-          sitekey="6Lfbp8cUAAAAAIoM44MiaZ5oGt5q2KticGVh2z0O"
-          size="visible"
-        />
       </div>
     )
   }
