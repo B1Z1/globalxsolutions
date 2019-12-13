@@ -1,4 +1,4 @@
-import React, { UIEventHandler, UIEvent } from 'react'
+import React from 'react'
 import { IPropsContactForm, IStateContactForm } from './interface'
 import {} from './style'
 import { encode } from 'querystring'
@@ -28,7 +28,8 @@ class ContactForm extends React.Component<
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
     })
-      .then(() => {
+      .then(res => {
+        console.log(res)
         alert('Success!')
       })
       .catch(error => alert(error))
