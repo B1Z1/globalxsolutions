@@ -44,9 +44,11 @@ export default props => (
             slug: productSlug
             mainImage: productMainImage {
               fluid {
-                src
                 base64
+                src
                 srcSet
+                sizes
+                aspectRatio
               }
             }
           }

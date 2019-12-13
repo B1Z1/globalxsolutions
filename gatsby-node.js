@@ -21,6 +21,8 @@ exports.createPages = ({ graphql, actions }) => {
                 base64
                 src
                 srcSet
+                sizes
+                aspectRatio
               }
             }
             gallery: productGallery {
@@ -28,6 +30,8 @@ exports.createPages = ({ graphql, actions }) => {
                 base64
                 src
                 srcSet
+                sizes
+                aspectRatio
               }
             }
           }
@@ -54,6 +58,8 @@ exports.createPages = ({ graphql, actions }) => {
             base64: image.fluid.base64,
             src: image.fluid.src,
             srcSet: image.fluid.srcSet,
+            sizes: image.fluid.sizes,
+            aspectRatio: image.fluid.aspectRatio,
           }
         })
       }

@@ -11,6 +11,7 @@ import {
   StyleContentWrapper,
   StylePostWrapper,
   StyleGalleryWrapper,
+  StyleImage,
 } from './style'
 
 class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
@@ -24,12 +25,15 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
       parentPath,
     } = this.props.pageContext
     const html = content.childContentfulRichText.html
-    const $Gallery = gallery.map((image: FluidObject, index: number) => (
-      <Img key={index} fluid={image} />
-    ))
     let nextLink =
         next !== null ? '/conceptions' : `${parentPath}/${next.slug}`,
       nextTitle = next !== null ? 'Koncepcje' : next.name
+
+    const $Gallery = gallery.map((image: FluidObject, index: number) => (
+      <StyleImage key={index}>
+        <Img fluid={image} />
+      </StyleImage>
+    ))
 
     return (
       <WrapperLayout

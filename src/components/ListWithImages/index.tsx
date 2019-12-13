@@ -1,24 +1,29 @@
 import React from 'react'
-import { IPropsListWithImages, IProductElement } from './interface'
 import { Link } from 'gatsby'
-import {} from './style'
+import Img from 'gatsby-image'
 
+import { StyleImage, StyleElementWrapper, StyleLink } from './style'
 import { StyleListElementWithDots } from '../../shared/styles/components/List'
 
-class ListWithImages extends React.Component<IPropsListWithImages, {}> {
-  generateItems(elements: IProductElement[]) {
-    return elements.map((element, index) => (
-      <StyleListElementWithDots key={index}>
-        <Link to={`${this.props.parentRoot}${element.slug}`}>
-          {element.name}
-        </Link>
-      </StyleListElementWithDots>
-    ))
-  }
+import { IPropsListWithImages } from './interface'
 
+class ListWithImages extends React.Component<IPropsListWithImages, {}> {
   render() {
     const { elements } = this.props
-    const $Items = this.generateItems(elements)
+    const $Items = elements.map((element, index) => (
+      <StyleListElementWithDots key={index}>
+        <StyleElementWrapper>
+          <StyleLink>
+            <Link to={`${this.props.parentRoot}${element.slug}`}>
+              {element.name}
+            </Link>
+          </StyleLink>
+          <StyleImage>
+            <Img fluid={element.mainImage.fluid} />
+          </StyleImage>
+        </StyleElementWrapper>
+      </StyleListElementWithDots>
+    ))
 
     return <ul>{$Items}</ul>
   }

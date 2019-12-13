@@ -1,14 +1,11 @@
+import { FluidObject } from 'gatsby-image'
+
 interface IProductElement {
   name: string
   slug: string
   mainImage: {
-    fluid: {
-      src: string
-      base64: string
-      srcSet: string
-    }
+    fluid: FluidObject
   }
-}
 }
 
 interface IPropsListWithImages {
