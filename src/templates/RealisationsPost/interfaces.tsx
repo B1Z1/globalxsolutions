@@ -1,6 +1,6 @@
 import { FluidObject } from 'gatsby-image'
 
-interface IPropsConceptionsPost {
+interface IPropsProductPost {
   pageContext: {
     name: string
     parentPath: string
@@ -15,8 +15,9 @@ interface IPropsConceptionsPost {
     next: {
       name: string
       slug: string
+      path: string
     }
   }
 }
 
-export { IPropsConceptionsPost }
+export { IPropsProductPost }

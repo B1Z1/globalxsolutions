@@ -5,7 +5,7 @@ import SEO from '../../components/seo'
 
 import WrapperLayout from '../../layouts/Wrapper'
 
-import { IPropsConceptionsPost } from './interfaces'
+import { IPropsProductPost } from './interfaces'
 
 import {
   StyleContentWrapper,
@@ -14,24 +14,11 @@ import {
   StyleImage,
 } from './style'
 
-class ConceptionsPostTemplate extends React.Component<
-  IPropsConceptionsPost,
-  {}
-> {
+class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
   render() {
-    const {
-      content,
-      gallery,
-      mainImage,
-      name,
-      next,
-      parentPath,
-    } = this.props.pageContext
+    const { content, gallery, name, next } = this.props.pageContext
     const html = content.childContentfulRichText.html
-    let nextLink =
-        next !== null ? '/conceptions' : `${parentPath}/${next.slug}`,
-      nextTitle = next !== null ? 'Koncepcje' : next.name
-
+    console.log(next)
     const $Gallery = gallery.map((image: FluidObject, index: number) => (
       <StyleImage key={index}>
         <Img fluid={image} />
@@ -40,16 +27,24 @@ class ConceptionsPostTemplate extends React.Component<
 
     return (
       <WrapperLayout
-        linkTo={nextLink}
-        linkText={nextTitle}
+        linkTo={next.path}
+        linkText={next.name}
         title={name}
         titleWithMargin={true}
         isDarkMode={false}
       >
         <SEO title={`Produkt: ${name}`} />
+        <StylePostWrapper>
+          <StyleContentWrapper
+            dangerouslySetInnerHTML={{
+              __html: html,
+            }}
+          ></StyleContentWrapper>
+          <StyleGalleryWrapper>{$Gallery}</StyleGalleryWrapper>
+        </StylePostWrapper>
       </WrapperLayout>
     )
   }
 }
 
-export default ConceptionsPostTemplate
+export default ProductPostTemplate

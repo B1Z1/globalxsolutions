@@ -3,9 +3,15 @@ const path = require('path')
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const productPost = path.resolve('./src/templates/ProductPost/index.tsx')
+  const productPostPath = path.resolve(
+    './src/templates/RealisationsPost/index.tsx'
+  )
+  const conceptionPostPath = path.resolve(
+    './src/templates/RealisationsPost/index.tsx'
+  )
+
   return graphql(`
-    query ProductsQuery {
+    query PagesQuery {
       allContentfulProducts {
         edges {
           node {
@@ -37,53 +43,105 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    }
-  `)
-    .then(result => {
-      if (result.errors) {
-        throw result.errors
-      }
-
-      const posts = result.data.allContentfulProducts.edges
-
-      posts.forEach((post, index) => {
-        const next = index === posts.length - 1 ? null : posts[index + 1].node
-        const { name, slug, content } = post.node
-        let { gallery, mainImage } = post.node
-
-        mainImage = mainImage.fluid
-
-        if (gallery !== null) {
-          gallery = gallery.map(image => {
-            return {
-              base64: image.fluid.base64,
-              src: image.fluid.src,
-              srcSet: image.fluid.srcSet,
-              sizes: image.fluid.sizes,
-              aspectRatio: image.fluid.aspectRatio,
+      allContentfulConceptions {
+        edges {
+          node {
+            name
+            slug
+            content {
+              childContentfulRichText {
+                html
+              }
             }
-          })
+            mainImage {
+              fluid {
+                base64
+                src
+                srcSet
+                sizes
+                aspectRatio
+              }
+            }
+            gallery {
+              fluid {
+                base64
+                src
+                srcSet
+                sizes
+                aspectRatio
+              }
+            }
+          }
         }
-
-        createPage({
-          path: `/products/${slug}`,
-          component: productPost,
-          context: {
-            name,
-            slug,
-            mainImage,
-            content,
-            gallery,
-            next,
-            parentPath: '/products',
-          },
-        })
-      })
-      return result
-    })
-    .then(result => {
-      if (result.errors) {
-        throw result.errors
       }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    const productPosts = result.data.allContentfulProducts.edges
+    const conceptionPosts = result.data.allContentfulConceptions.edges
+    generatePosts(
+      productPosts,
+      productPostPath,
+      '/products',
+      {
+        name: 'Koncepcje',
+        slug: '/conceptions',
+      },
+      createPage
+    )
+    generatePosts(
+      conceptionPosts,
+      conceptionPostPath,
+      '/conceptions',
+      {
+        name: 'Rozwiązania',
+        slug: '/solutions',
+      },
+      createPage
+    )
+  })
+}
+
+/**
+ * @description Here is start, where page generates
+ */
+
+function generatePosts(posts, templatePath, rootPath, nextPage, createPage) {
+  posts.forEach((post, index) => {
+    const next = index === posts.length - 1 ? nextPage : posts[index + 1].node
+    const { name, slug, content } = post.node
+    let { gallery, mainImage } = post.node
+
+    next['path'] =
+      index === posts.length - 1 ? `${next.slug}` : `${rootPath}/${next.slug}`
+    mainImage = mainImage.fluid
+
+    if (gallery !== null) {
+      gallery = gallery.map(image => {
+        return {
+          base64: image.fluid.base64,
+          src: image.fluid.src,
+          srcSet: image.fluid.srcSet,
+          sizes: image.fluid.sizes,
+          aspectRatio: image.fluid.aspectRatio,
+        }
+      })
+    }
+
+    createPage({
+      path: `${rootPath}/${slug}`,
+      component: templatePath,
+      context: {
+        name,
+        slug,
+        mainImage,
+        content,
+        gallery,
+        next,
+      },
     })
+  })
 }
