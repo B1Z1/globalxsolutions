@@ -161,7 +161,7 @@ exports.createPages = ({ graphql, actions }) => {
       realisationTemplatePath,
       '/products',
       {
-        name: 'Koncepcje',
+        title: 'Koncepcje',
         slug: '/conceptions',
       },
       createPage
@@ -171,7 +171,7 @@ exports.createPages = ({ graphql, actions }) => {
       realisationTemplatePath,
       '/conceptions',
       {
-        name: 'Rozwiązania',
+        title: 'Rozwiązania',
         slug: '/solutions',
       },
       createPage
@@ -181,7 +181,7 @@ exports.createPages = ({ graphql, actions }) => {
       realisationTemplatePath,
       '/solutions',
       {
-        name: 'Newsroom',
+        title: 'Newsroom',
         slug: '/newsroom',
       },
       createPage
@@ -191,8 +191,8 @@ exports.createPages = ({ graphql, actions }) => {
       blogTemplatePath,
       '/newsroom',
       {
-        name: 'Wydarzenia',
-        slug: '/wydarzenia',
+        title: 'Wydarzenia',
+        slug: '/events',
       },
       createPage
     )
@@ -201,7 +201,7 @@ exports.createPages = ({ graphql, actions }) => {
       realisationTemplatePath,
       '/events',
       {
-        name: 'Infotech',
+        title: 'Infotech',
         slug: '/infotech',
       },
       createPage

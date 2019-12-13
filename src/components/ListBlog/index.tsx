@@ -6,7 +6,7 @@ import Dash from '../Dash'
 import TextOnBlack from '../TextOnBlack'
 
 import { IPropsListBlog } from './interface'
-import { StyleElement, StyleTitle, StyleContent } from './style'
+import { StyleTitle, StyleContent } from './style'
 
 import { StyleListElementWithDots } from '../../shared/styles/components/List'
 
@@ -15,7 +15,7 @@ class ListBlog extends React.Component<IPropsListBlog, {}> {
     const isDarkMode = false
     const { elements } = this.props
     const $Elements = elements.map((element, index) => (
-      <StyleElement key={index}>
+      <StyleListElementWithDots dotPosition="start" key={index}>
         <Link to={element.link} style={{ display: 'inline-block' }}>
           <StyleTitle>
             <Dash
@@ -56,14 +56,10 @@ class ListBlog extends React.Component<IPropsListBlog, {}> {
             Czytaj dalej
           </TextOnBlack>
         </Link>
-      </StyleElement>
+      </StyleListElementWithDots>
     ))
 
-    return (
-      <StyleListElementWithDots dotPosition="start">
-        {$Elements}
-      </StyleListElementWithDots>
-    )
+    return <ul>{$Elements}</ul>
   }
 }
 
