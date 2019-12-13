@@ -22,7 +22,7 @@ class ContactPage extends React.Component {
           data-netlify="true"
           data-netlify-honeyspot="bot-field"
         >
-          <input type="text" />
+          <input name="fistname" type="text" />
           <button>Send</button>
         </form>
       </WrapperLayout>
