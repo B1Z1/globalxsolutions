@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
   const realisationTemplatePath = path.resolve(
     './src/templates/RealisationsPost/index.tsx'
   )
+  const blogTemplatePath = path.resolve('./src/templates/BlogPost/index.tsx')
 
   return graphql(`
     query PagesQuery {
@@ -102,6 +103,22 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulNewsroom {
+        edges {
+          node {
+            slug
+            title
+            excerption {
+              excerption
+            }
+            content {
+              childContentfulRichText {
+                html
+              }
+            }
+          }
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -111,6 +128,7 @@ exports.createPages = ({ graphql, actions }) => {
     const productPosts = result.data.allContentfulProducts.edges
     const conceptionPosts = result.data.allContentfulConceptions.edges
     const solutionsPosts = result.data.allContentfulSolutions.edges
+    const newsroomPosts = result.data.allContentfulNewsroom.edges
 
     generatePosts(
       productPosts,
@@ -142,6 +160,16 @@ exports.createPages = ({ graphql, actions }) => {
       },
       createPage
     )
+    generatePosts(
+      newsroomPosts,
+      blogTemplatePath,
+      '/newsroom',
+      {
+        name: 'Wydarzenia',
+        slug: '/wydarzenia',
+      },
+      createPage
+    )
   })
 }
 
@@ -152,15 +180,17 @@ exports.createPages = ({ graphql, actions }) => {
 function generatePosts(posts, templatePath, rootPath, nextPage, createPage) {
   posts.forEach((post, index) => {
     const next = index === posts.length - 1 ? nextPage : posts[index + 1].node
-    const { name, slug, content } = post.node
-    let { gallery, mainImage } = post.node
+    const { slug } = post.node
 
     next['path'] =
       index === posts.length - 1 ? `${next.slug}` : `${rootPath}/${next.slug}`
-    mainImage = mainImage.fluid
 
-    if (gallery !== null) {
-      gallery = gallery.map(image => {
+    if (post.node.mainImage !== undefined) {
+      post.node.mainImage = post.node.mainImage.fluid
+    }
+
+    if (post.node.gallery !== undefined) {
+      post.node.gallery = post.node.gallery.map(image => {
         return {
           base64: image.fluid.base64,
           src: image.fluid.src,
@@ -175,11 +205,7 @@ function generatePosts(posts, templatePath, rootPath, nextPage, createPage) {
       path: `${rootPath}/${slug}`,
       component: templatePath,
       context: {
-        name,
-        slug,
-        mainImage,
-        content,
-        gallery,
+        ...post.node,
         next,
       },
     })
