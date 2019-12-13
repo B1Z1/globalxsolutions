@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { styleVariables } from '../../variables'
 
+interface IStyleListProps {
+  dotPosition: string
+}
+
 const StyleListElementWithDots = styled.li`
   position: relative;
   padding-left: 32px;
@@ -9,7 +13,8 @@ const StyleListElementWithDots = styled.li`
   &:after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: ${(props: IStyleListProps) =>
+      props.dotPosition === 'start' ? '2px' : '50%'};
     background-color: ${styleVariables.colors.main};
     transform: translate(0, -50%);
   }

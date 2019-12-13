@@ -33,17 +33,19 @@ class StrategyAndCreation extends React.Component {
           </TextOnBlack>
         </h4>
         <ul>
-          <StyleListElementWithDots>Strategię marki</StyleListElementWithDots>
-          <StyleListElementWithDots>
+          <StyleListElementWithDots dotPosition="center">
+            Strategię marki
+          </StyleListElementWithDots>
+          <StyleListElementWithDots dotPosition="center">
             Strategię komunikacji
           </StyleListElementWithDots>
-          <StyleListElementWithDots>
+          <StyleListElementWithDots dotPosition="center">
             Architekturę informacji
           </StyleListElementWithDots>
-          <StyleListElementWithDots>
+          <StyleListElementWithDots dotPosition="center">
             Scenariusze użycia i interaktywny prototyp UX
           </StyleListElementWithDots>
-          <StyleListElementWithDots>
+          <StyleListElementWithDots dotPosition="center">
             Strategię wizualną
           </StyleListElementWithDots>
         </ul>

@@ -14,6 +14,11 @@ const StyleTextOnBlack = styled.span`
   margin-bottom: ${(props: IPropsTextOnBlack) =>
     props.withMargin ? '32px' : '0'};
   padding-right: ${(props: IPropsTextOnBlack) => props.paddingRight};
+  span {
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+  }
   &:before {
     content: '';
     position: absolute;
@@ -29,6 +34,30 @@ const StyleTextOnBlack = styled.span`
     animation-delay: 0.4s;
     animation-fill-mode: forwards;
   }
+  ${(props: IPropsTextOnBlack) => {
+    const { animationToggle } = props
+    if (animationToggle)
+      return `
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        background-color: ${styleVariables.colors.operate};
+        transition: width;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        z-index: 0;
+      }
+      &:hover {
+        &:after {
+          width: 100%;          
+        }
+      }
+    `
+  }}
   @keyframes toggleLine {
     0% {
       width: 100%;

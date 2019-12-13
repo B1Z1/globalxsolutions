@@ -19,7 +19,7 @@ if (pageName === undefined) {
     render() {
       return (
         <WrapperLayout
-          linkTo="/${pageName}"
+          linkTo="/${pageName.toLowerCase()}"
           linkText=""
           title=""
           titleWithMargin={false}
@@ -31,7 +31,7 @@ if (pageName === undefined) {
     }
   }
   
-  export default ${pageName}
+  export default ${pageName}Page
   `
 
   generateFile(filePath, pageName, pageContent)
