@@ -15,13 +15,14 @@ class ContactPage extends React.Component {
         titleWithMargin={true}
         isDarkMode={true}
       >
-        <SEO title="" />
+        <SEO title="Kontakt" />
         <form
           name="contact"
-          method="post"
+          method="POST"
           data-netlify="true"
-          netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
         >
+          <div data-netlify-recaptcha="true"></div>
           <input name="bot-field" type="hidden" />
           <input name="fistname" type="text" />
           <button>Send</button>
