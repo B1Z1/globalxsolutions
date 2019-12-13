@@ -16,7 +16,7 @@ import {
 
 class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
   render() {
-    const { content, gallery, name, next } = this.props.pageContext
+    const { content, gallery, title, next } = this.props.pageContext
     const html = content.childContentfulRichText.html
     console.log(next)
     const $Gallery = gallery.map((image: FluidObject, index: number) => (
@@ -28,12 +28,12 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
     return (
       <WrapperLayout
         linkTo={next.path}
-        linkText={next.name}
-        title={name}
+        linkText={next.title}
+        title={title}
         titleWithMargin={true}
         isDarkMode={false}
       >
-        <SEO title={`Produkt: ${name}`} />
+        <SEO title={`Produkt: ${title}`} />
         <StylePostWrapper>
           <StyleContentWrapper
             dangerouslySetInnerHTML={{

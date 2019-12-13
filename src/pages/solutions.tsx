@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-
-import { IElementWithImage } from '../components/ListWithImages/interface'
+import { FluidObject } from 'gatsby-image'
 
 import SEO from '../components/seo'
 import ListWithImages from '../components/ListWithImages'
@@ -11,14 +10,28 @@ import WrapperLayout from '../layouts/Wrapper'
 interface ISolutionsProps {
   data: {
     allContentfulSolutions: {
-      elements: IElementWithImage[]
+      elements: {
+        title: string
+        slug: string
+        mainImage: {
+          fluid: FluidObject
+        }
+      }[]
     }
   }
 }
 
 class SolutionsPage extends React.Component<ISolutionsProps, {}> {
   render() {
-    const { elements } = this.props.data.allContentfulSolutions
+    const elements = this.props.data.allContentfulSolutions.elements.map(
+      element => {
+        return {
+          linkText: element.title,
+          slug: element.slug,
+          mainImage: element.mainImage,
+        }
+      }
+    )
     return (
       <WrapperLayout
         linkTo="/newsroom"
@@ -40,7 +53,7 @@ export default props => (
       query SolutionsQuery {
         allContentfulSolutions {
           elements: nodes {
-            name
+            title
             slug
             mainImage {
               fluid {

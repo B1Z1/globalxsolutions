@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-
-import { IElementWithImage } from '../components/ListWithImages/interface'
+import { FluidObject } from 'gatsby-image'
 
 import SEO from '../components/seo'
 import ListWithImages from '../components/ListWithImages'
@@ -11,14 +10,28 @@ import WrapperLayout from '../layouts/Wrapper'
 interface IConceptionsProps {
   data: {
     allContentfulConceptions: {
-      elements: IElementWithImage[]
+      elements: {
+        title: string
+        slug: string
+        mainImage: {
+          fluid: FluidObject
+        }
+      }[]
     }
   }
 }
 
 class ConceptionsPage extends React.Component<IConceptionsProps, {}> {
   render() {
-    const { elements } = this.props.data.allContentfulConceptions
+    const elements = this.props.data.allContentfulConceptions.elements.map(
+      element => {
+        return {
+          linkText: element.title,
+          slug: element.slug,
+          mainImage: element.mainImage,
+        }
+      }
+    )
     return (
       <WrapperLayout
         linkTo="/solutions"
@@ -41,7 +54,7 @@ export default props => (
         allContentfulConceptions {
           elements: nodes {
             slug
-            name
+            title
             mainImage {
               fluid {
                 aspectRatio

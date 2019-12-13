@@ -25,7 +25,7 @@ class EventsPage extends React.Component<IEventsProps, {}> {
   render() {
     const elements = this.props.data.elements.nodes.map(element => {
       return {
-        link: `/newsroom/${element.slug}`,
+        link: `/events/${element.slug}`,
         title: element.title,
         excerption: element.excerption.excerption,
       }

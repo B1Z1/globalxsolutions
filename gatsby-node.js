@@ -13,14 +13,14 @@ exports.createPages = ({ graphql, actions }) => {
       allContentfulProducts {
         edges {
           node {
-            name: productName
-            slug: productSlug
-            content: productContent {
+            title
+            slug
+            content {
               childContentfulRichText {
                 html
               }
             }
-            mainImage: productMainImage {
+            mainImage {
               fluid(quality: 100) {
                 base64
                 src
@@ -29,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
                 aspectRatio
               }
             }
-            gallery: productGallery {
+            gallery {
               fluid(maxWidth: 320, quality: 100) {
                 base64
                 src
@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
       allContentfulConceptions {
         edges {
           node {
-            name
+            title
             slug
             content {
               childContentfulRichText {
@@ -75,7 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
       allContentfulSolutions {
         edges {
           node {
-            name
+            title
             slug
             content {
               childContentfulRichText {
@@ -119,6 +119,31 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulEvents {
+        edges {
+          node {
+            slug
+            title
+            excerption {
+              excerption
+            }
+            content {
+              childContentfulRichText {
+                html
+              }
+            }
+            gallery {
+              fluid {
+                base64
+                src
+                srcSet
+                sizes
+                aspectRatio
+              }
+            }
+          }
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -129,6 +154,7 @@ exports.createPages = ({ graphql, actions }) => {
     const conceptionPosts = result.data.allContentfulConceptions.edges
     const solutionsPosts = result.data.allContentfulSolutions.edges
     const newsroomPosts = result.data.allContentfulNewsroom.edges
+    const eventsPosts = result.data.allContentfulEvents.edges
 
     generatePosts(
       productPosts,
@@ -167,6 +193,16 @@ exports.createPages = ({ graphql, actions }) => {
       {
         name: 'Wydarzenia',
         slug: '/wydarzenia',
+      },
+      createPage
+    )
+    generatePosts(
+      eventsPosts,
+      realisationTemplatePath,
+      '/events',
+      {
+        name: 'Infotech',
+        slug: '/infotech',
       },
       createPage
     )

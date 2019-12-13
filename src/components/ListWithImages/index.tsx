@@ -15,7 +15,7 @@ class ListWithImages extends React.Component<IPropsListWithImages, {}> {
         <StyleElementWrapper>
           <StyleLink>
             <Link to={`${this.props.parentRoot}${element.slug}`}>
-              {element.name}
+              {element.linkText}
             </Link>
           </StyleLink>
           <StyleImage>

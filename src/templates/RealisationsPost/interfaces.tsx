@@ -2,7 +2,7 @@ import { FluidObject } from 'gatsby-image'
 
 interface IPropsProductPost {
   pageContext: {
-    name: string
+    title: string
     parentPath: string
     slug: string
     content: {
@@ -13,7 +13,7 @@ interface IPropsProductPost {
     gallery: FluidObject[]
     mainImage: FluidObject
     next: {
-      name: string
+      title: string
       slug: string
       path: string
     }

@@ -16,7 +16,7 @@ class ListBlog extends React.Component<IPropsListBlog, {}> {
     const { elements } = this.props
     const $Elements = elements.map((element, index) => (
       <StyleElement key={index}>
-        <Link to={element.link}>
+        <Link to={element.link} style={{ display: 'inline-block' }}>
           <StyleTitle>
             <Dash
               isDarkMode={isDarkMode}

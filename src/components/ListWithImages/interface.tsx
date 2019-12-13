@@ -1,7 +1,7 @@
 import { FluidObject } from 'gatsby-image'
 
 interface IElementWithImage {
-  name: string
+  linkText: string
   slug: string
   mainImage: {
     fluid: FluidObject
