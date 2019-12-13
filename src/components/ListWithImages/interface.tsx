@@ -1,6 +1,6 @@
 import { FluidObject } from 'gatsby-image'
 
-interface IProductElement {
+interface IElementWithImage {
   name: string
   slug: string
   mainImage: {
@@ -9,8 +9,8 @@ interface IProductElement {
 }
 
 interface IPropsListWithImages {
-  elements: IProductElement[]
+  elements: IElementWithImage[]
   parentRoot: string
 }
 
-export { IPropsListWithImages, IProductElement }
+export { IPropsListWithImages, IElementWithImage }

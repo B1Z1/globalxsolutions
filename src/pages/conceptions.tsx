@@ -8,27 +8,27 @@ import ListWithImages from '../components/ListWithImages'
 
 import WrapperLayout from '../layouts/Wrapper'
 
-interface IProductsProps {
+interface IConceptionsProps {
   data: {
-    allContentfulProducts: {
+    allContentfulConceptions: {
       elements: IElementWithImage[]
     }
   }
 }
 
-class Products extends React.Component<IProductsProps, {}> {
+class ConceptionsPage extends React.Component<IConceptionsProps, {}> {
   render() {
-    const { elements } = this.props.data.allContentfulProducts
+    const { elements } = this.props.data.allContentfulConceptions
     return (
       <WrapperLayout
-        linkTo="/conceptions"
-        linkText="Koncepcje"
-        title="Produkty"
+        linkTo="/solutions"
+        linkText="Rozwiązania"
+        title="Koncepcje"
         titleWithMargin={true}
         isDarkMode={false}
       >
-        <SEO title="Główna strona" />
-        <ListWithImages parentRoot="/products/" elements={elements} />
+        <SEO title="Koncepcje" />
+        <ListWithImages parentRoot="/conceptions/" elements={elements} />
       </WrapperLayout>
     )
   }
@@ -37,24 +37,27 @@ class Products extends React.Component<IProductsProps, {}> {
 export default props => (
   <StaticQuery
     query={graphql`
-      query ProductsQuery {
-        allContentfulProducts {
+      query ConceptionsQuery {
+        allContentfulConceptions {
           elements: nodes {
-            name: productName
-            slug: productSlug
-            mainImage: productMainImage {
+            slug
+            name
+            mainImage {
               fluid {
+                aspectRatio
                 base64
+                sizes
                 src
                 srcSet
-                sizes
-                aspectRatio
+                srcSetWebp
+                srcWebp
+                tracedSVG
               }
             }
           }
         }
       }
     `}
-    render={data => <Products data={data} {...props} />}
+    render={data => <ConceptionsPage data={data} {...props} />}
   />
 )

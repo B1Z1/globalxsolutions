@@ -63,10 +63,6 @@ module.exports = {
         path: '/solutions',
       },
       {
-        name: 'Rozwiązania',
-        path: '/solutions',
-      },
-      {
         name: 'Newsroom',
         path: '/newsroom',
       },

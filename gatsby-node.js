@@ -38,45 +38,52 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
-
-    const posts = result.data.allContentfulProducts.edges
-
-    posts.forEach((post, index) => {
-      const next = index === posts.length - 1 ? null : posts[index + 1].node
-      const { name, slug, content } = post.node
-      let { gallery, mainImage } = post.node
-
-      mainImage = mainImage.fluid
-
-      if (gallery !== null) {
-        gallery = gallery.map(image => {
-          return {
-            base64: image.fluid.base64,
-            src: image.fluid.src,
-            srcSet: image.fluid.srcSet,
-            sizes: image.fluid.sizes,
-            aspectRatio: image.fluid.aspectRatio,
-          }
-        })
+  `)
+    .then(result => {
+      if (result.errors) {
+        throw result.errors
       }
 
-      createPage({
-        path: `/products/${slug}`,
-        component: productPost,
-        context: {
-          name,
-          slug,
-          mainImage,
-          content,
-          gallery,
-          next,
-          parentPath: '/products',
-        },
+      const posts = result.data.allContentfulProducts.edges
+
+      posts.forEach((post, index) => {
+        const next = index === posts.length - 1 ? null : posts[index + 1].node
+        const { name, slug, content } = post.node
+        let { gallery, mainImage } = post.node
+
+        mainImage = mainImage.fluid
+
+        if (gallery !== null) {
+          gallery = gallery.map(image => {
+            return {
+              base64: image.fluid.base64,
+              src: image.fluid.src,
+              srcSet: image.fluid.srcSet,
+              sizes: image.fluid.sizes,
+              aspectRatio: image.fluid.aspectRatio,
+            }
+          })
+        }
+
+        createPage({
+          path: `/products/${slug}`,
+          component: productPost,
+          context: {
+            name,
+            slug,
+            mainImage,
+            content,
+            gallery,
+            next,
+            parentPath: '/products',
+          },
+        })
       })
+      return result
     })
-  })
+    .then(result => {
+      if (result.errors) {
+        throw result.errors
+      }
+    })
 }
