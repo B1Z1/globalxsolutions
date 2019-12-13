@@ -2,6 +2,7 @@ import React from 'react'
 import { IPropsContactForm, IStateContactForm } from './interface'
 import {} from './style'
 import { encode } from 'querystring'
+import Recaptcha from 'react-recaptcha'
 
 class ContactForm extends React.Component<
   IPropsContactForm,
@@ -47,35 +48,40 @@ class ContactForm extends React.Component<
 
   render() {
     const { email, name, phone } = this.state
-
     return (
-      <form
-        name="contact"
-        data-netlify="true"
-        method="POST"
-        onSubmit={this.handleSubmit}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <input
-          onChange={this.handleInputChange}
-          name="name"
-          value={name}
-          type="text"
+      <div>
+        <form
+          name="contact"
+          data-netlify="true"
+          method="POST"
+          onSubmit={this.handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input
+            onChange={this.handleInputChange}
+            name="name"
+            value={name}
+            type="text"
+          />
+          <input
+            onChange={this.handleInputChange}
+            name="email"
+            value={email}
+            type="text"
+          />
+          <input
+            onChange={this.handleInputChange}
+            name="phone"
+            value={phone}
+            type="text"
+          />
+          <button type="submit">Send</button>
+        </form>
+        <Recaptcha
+          sitekey="6Lfbp8cUAAAAAIoM44MiaZ5oGt5q2KticGVh2z0O"
+          size="visible"
         />
-        <input
-          onChange={this.handleInputChange}
-          name="email"
-          value={email}
-          type="text"
-        />
-        <input
-          onChange={this.handleInputChange}
-          name="phone"
-          value={phone}
-          type="text"
-        />
-        <button type="submit">Send</button>
-      </form>
+      </div>
     )
   }
 }
