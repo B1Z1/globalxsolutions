@@ -52,6 +52,7 @@ class ContactForm extends React.Component<
       <form
         name="contact"
         data-netlify="true"
+        data-netlify-recaptcha="true"
         method="POST"
         onSubmit={this.handleSubmit}
       >
