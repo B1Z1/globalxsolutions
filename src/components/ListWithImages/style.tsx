@@ -12,6 +12,7 @@ const StyleImage = styled.div`
   transition: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
 `
 
 const StyleLink = styled.span`
