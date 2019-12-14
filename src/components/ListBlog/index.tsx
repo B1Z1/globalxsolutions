@@ -15,7 +15,12 @@ class ListBlog extends React.Component<IPropsListBlog, {}> {
     const isDarkMode = false
     const { elements } = this.props
     const $Elements = elements.map((element, index) => (
-      <StyleListElementWithDots dotPosition="start" key={index}>
+      <StyleListElementWithDots
+        animateIt={true}
+        delay={index * 0.3}
+        dotPosition="start"
+        key={index}
+      >
         <Link to={element.link} style={{ display: 'inline-block' }}>
           <StyleTitle>
             <Dash

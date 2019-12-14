@@ -11,7 +11,12 @@ class ListWithImages extends React.Component<IPropsListWithImages, {}> {
   render() {
     const { elements } = this.props
     const $Items = elements.map((element, index) => (
-      <StyleListElementWithDots dotPosition="center" key={index}>
+      <StyleListElementWithDots
+        key={index}
+        animateIt={true}
+        delay={index * 0.3}
+        dotPosition="center"
+      >
         <StyleElementWrapper>
           <StyleLink>
             <Link to={`${this.props.parentRoot}${element.slug}`}>
