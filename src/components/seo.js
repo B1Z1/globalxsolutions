@@ -39,7 +39,11 @@ function SEO({ description, lang, meta, title }) {
           name: `description`,
           content: metaDescription,
         },
-        { name: 'keywords', content: "globalxsolutions, nowoczesne, rozwiązania, parp, technologie, wyzwania, wiedza" }
+        {
+          name: 'keywords',
+          content:
+            'globalxsolutions, nowoczesne, rozwiązania, parp, technologie, wyzwania, wiedza',
+        },
         {
           property: `og:title`,
           content: title,
