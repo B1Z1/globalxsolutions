@@ -29,7 +29,10 @@ class WhatWeDoPage extends React.Component {
         titleWithMargin={true}
         isDarkMode={false}
       >
-        <SEO title="Technologie" />
+        <SEO
+          title="Czym się zajmujemy"
+          description="Prowadzeniem prac projektowych w dziedzinie elektroniki (układy analogowe i cyfrowe, systemy wbudowane) i informatyki (aplikacje desktopowe, mobilne, chmurowe, webowe, systemy wykorzystujące metody sztucznej inteligencji i przetwarzania sygnałów)"
+        />
         <StyleP>
           <TextOnBlack isDarkMode={false} withMargin={false}>
             Prowadzeniem

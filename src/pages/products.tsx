@@ -40,7 +40,7 @@ class ProductsPage extends React.Component<IProductsProps, {}> {
         titleWithMargin={true}
         isDarkMode={false}
       >
-        <SEO title="Główna strona" />
+        <SEO title="Produkty" />
         <ListWithImages parentRoot="/products/" elements={elements} />
       </WrapperLayout>
     )

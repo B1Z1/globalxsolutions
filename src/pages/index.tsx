@@ -23,7 +23,10 @@ class IndexPage extends React.Component {
         titleWithMargin={false}
         isDarkMode={false}
       >
-        <SEO title="Główna strona" />
+        <SEO
+          title="Główna strona"
+          description="Ale przede wszystkim na profesjonalistów, którzy nie boją się wyzwań i nowatorskich rozwiązań, a wnoszą do projektu swoja najlepszą wiedzę."
+        />
         <StyleContentContainer>
           <Dash
             bottom="0"
