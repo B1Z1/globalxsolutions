@@ -15,7 +15,7 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let i = 0
     let interval = setInterval(() => {
       if (i >= 2) {

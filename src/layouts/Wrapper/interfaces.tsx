@@ -3,6 +3,7 @@ import { IPropsDash } from '../../components/Dash/interface'
 
 interface IStateWrapper {
   isSidebarActive: boolean
+  isInSessionStorage: boolean
 }
 
 interface IPropsWrapper {

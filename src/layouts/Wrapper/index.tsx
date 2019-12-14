@@ -27,17 +27,80 @@ import {
 } from './interfaces'
 
 class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
+  private circlesData: ICirclesDataWrapper = {
+    main: [
+      {
+        withDot: false,
+        top: '0',
+        left: '24px',
+      },
+    ],
+    link: [
+      { withDot: true, top: '50%', left: '8.5px' },
+      { withDot: true, top: '150%', left: '50%' },
+    ],
+  }
+  private dashesData: IDashesDataWrapper = {
+    main: [
+      {
+        top: '0',
+        left: '0',
+        dashWidth: '1px',
+        dashHeight: 'calc(100% - 13px)',
+      },
+      {
+        top: '0',
+        left: '0',
+        dashWidth: '24px',
+        dashHeight: '1px',
+      },
+      {
+        top: '0',
+        left: '32px',
+        dashWidth: '1px',
+        dashHeight: '24px',
+      },
+    ],
+    link: [
+      {
+        top: '50%',
+        left: '-8px',
+        dashWidth: '18px',
+        dashHeight: '1px',
+      },
+      {
+        top: '25%',
+        left: '16px',
+        dashWidth: '1px',
+        dashHeight: '126%',
+      },
+      {
+        bottom: '-14px',
+        left: '16px',
+        dashWidth: '45%',
+        dashHeight: '1px',
+      },
+    ],
+  }
+
   constructor(props) {
     super(props)
 
     this.state = {
       isSidebarActive: false,
+      isInSessionStorage: false,
     }
   }
 
   toggleSidebar() {
     this.setState({
       isSidebarActive: !this.state.isSidebarActive,
+    })
+  }
+
+  componentDidMount() {
+    this.setState({
+      isInSessionStorage: Boolean(sessionStorage.getItem('preload')),
     })
   }
 
@@ -50,78 +113,22 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
       titleWithMargin,
       isDarkMode,
     } = this.props
-    const { isSidebarActive } = this.state
-    const circlesData: ICirclesDataWrapper = {
-      main: [
-        {
-          isDarkMode: isDarkMode,
-          withDot: false,
-          top: '0',
-          left: '24px',
-        },
-      ],
-      link: [
-        { isDarkMode: isDarkMode, withDot: true, top: '50%', left: '8.5px' },
-        { isDarkMode: isDarkMode, withDot: true, top: '150%', left: '50%' },
-      ],
-    }
-    const dashesData: IDashesDataWrapper = {
-      main: [
-        {
-          top: '0',
-          left: '0',
-          dashWidth: '1px',
-          dashHeight: 'calc(100% - 13px)',
-          isDarkMode: isDarkMode,
-        },
-        {
-          top: '0',
-          left: '0',
-          dashWidth: '24px',
-          dashHeight: '1px',
-          isDarkMode: isDarkMode,
-        },
-        {
-          top: '0',
-          left: '32px',
-          dashWidth: '1px',
-          dashHeight: '24px',
-          isDarkMode: isDarkMode,
-        },
-      ],
-      link: [
-        {
-          isDarkMode: isDarkMode,
-          top: '50%',
-          left: '-8px',
-          dashWidth: '18px',
-          dashHeight: '1px',
-        },
-        {
-          isDarkMode: isDarkMode,
-          top: '25%',
-          left: '16px',
-          dashWidth: '1px',
-          dashHeight: '126%',
-        },
-        {
-          isDarkMode: isDarkMode,
-          bottom: '-14px',
-          left: '16px',
-          dashWidth: '45%',
-          dashHeight: '1px',
-        },
-      ],
-    }
+    const { isSidebarActive, isInSessionStorage } = this.state
     const $Circles = {
-      main: circlesData.main.map((el, index) => <Circle key={index} {...el} />),
-      links: circlesData.link.map((el, index) => (
+      main: this.circlesData.main.map((el, index) => (
+        <Circle key={index} isDarkMode={isDarkMode} {...el} />
+      )),
+      links: this.circlesData.link.map((el, index) => (
         <Circle key={index} {...el} />
       )),
     }
     const $Dashes = {
-      main: dashesData.main.map((el, index) => <Dash key={index} {...el} />),
-      links: dashesData.link.map((el, index) => <Dash key={index} {...el} />),
+      main: this.dashesData.main.map((el, index) => (
+        <Dash isDarkMode={isDarkMode} key={index} {...el} />
+      )),
+      links: this.dashesData.link.map((el, index) => (
+        <Dash isDarkMode={isDarkMode} key={index} {...el} />
+      )),
     }
 
     const $LinkWrapper =
@@ -135,7 +142,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
         <Circle isDarkMode={isDarkMode} withDot={true} bottom="0" left="-8px" />
       )
 
-    const $Preloader = sessionStorage.getItem('preload') ? null : <Preloader />
+    const $Preloader = isInSessionStorage ? null : <Preloader />
 
     return (
       <StyleWrapper isDarkMode={isDarkMode}>

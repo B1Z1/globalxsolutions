@@ -3,7 +3,7 @@ interface IPropsCircle {
   right?: string
   bottom?: string
   left?: string
-  isDarkMode: boolean
+  isDarkMode?: boolean
   withDot: boolean
 }
 
