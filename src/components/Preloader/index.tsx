@@ -23,7 +23,7 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
           isEnd: true,
         })
         clearInterval(interval)
-        window.sessionStorage.setItem('preload', 'true')
+        sessionStorage.setItem('preload', 'true')
       }
       this.changeSlide(i + 1, i)
       i++
