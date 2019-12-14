@@ -18,7 +18,6 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
   render() {
     const { content, gallery, title, next } = this.props.pageContext
     const html = content.childContentfulRichText.html
-    console.log(next)
     const $Gallery = gallery.map((image: FluidObject, index: number) => (
       <StyleImage key={index}>
         <Img fluid={image} />
