@@ -34,6 +34,7 @@ const StyleWrapper = styled.div`
   padding-right: 16px;
   padding-bottom: 128px;
   padding-left: 16px;
+  overflow-x: hidden;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     padding-top: 32px;
     padding-right: 32px;

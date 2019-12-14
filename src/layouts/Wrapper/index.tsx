@@ -8,6 +8,7 @@ import Circle from '../../components/Circle'
 import Dash from '../../components/Dash'
 import TextOnBlack from '../../components/TextOnBlack'
 import Preloader from '../../components/Preloader'
+import Particles from '../../components/Particles'
 
 import {
   StyleWrapper,
@@ -138,6 +139,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
       <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
         {!window.sessionStorage.getItem('preload') ? <Preloader /> : null}
+        <Particles />
         <StyleContentWrapper>
           {$Circles.main}
           {$Dashes.main}

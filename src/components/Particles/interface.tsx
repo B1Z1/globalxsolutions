@@ -1,0 +1,3 @@
+interface IPropsParticles {}
+
+export { IPropsParticles }

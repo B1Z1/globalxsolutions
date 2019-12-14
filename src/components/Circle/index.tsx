@@ -7,7 +7,7 @@ import { IPropsCircle } from './interface'
 class Circle extends React.Component<IPropsCircle, {}> {
   render() {
     const { top, right, left, bottom, withDot, isDarkMode } = this.props
-
+    console.log(this.props)
     return (
       <StyleCircle
         withDot={withDot}
