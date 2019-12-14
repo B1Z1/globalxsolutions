@@ -88,7 +88,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
 
     this.state = {
       isSidebarActive: false,
-      isInSessionStorage: false,
+      isInSessionStorage: true,
     }
   }
 
@@ -143,7 +143,6 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
       )
 
     const $Preloader = isInSessionStorage ? null : <Preloader />
-
     return (
       <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
