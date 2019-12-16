@@ -1,5 +1,6 @@
 import React from 'react'
 import { encode } from 'querystring'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import ClassicInput from '../ClassicInput'
 import TextOnBlack from '../TextOnBlack'
@@ -32,7 +33,8 @@ class ContactForm extends React.Component<
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', ...this.state }),
       })
-        .then(() => {
+        .then(res => {
+          console.log(res)
           this.setState({
             name: '',
             email: '',
@@ -107,6 +109,7 @@ class ContactForm extends React.Component<
           <input type="hidden" name="form-name" value="contact" />
           <div data-netlify-recaptcha="true"></div>
           {$Inputs}
+          <ReCAPTCHA sitekey="6Lfbp8cUAAAAAIoM44MiaZ5oGt5q2KticGVh2z0O" />
           <StyleButton type="submit">
             <TextOnBlack
               withMargin={false}
