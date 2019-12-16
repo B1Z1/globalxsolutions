@@ -3,6 +3,7 @@ import { styleVariables } from '../../shared/styles/variables'
 import { IPropsStylePreloader } from './interface'
 
 const HIDE = `opacity: 0; visibility: hidden; pointer-events: none;`
+const TRANSITION_HIDE = `transition: opacity, visibility; transition-duration: 0.6s; transition-timing-function: ease-in-out;`
 
 const StyleWrapper = styled.div`
   position: fixed;
@@ -13,9 +14,7 @@ const StyleWrapper = styled.div`
   background-color: ${styleVariables.colors.main2};
   color: ${styleVariables.colors.main};
   z-index: 100;
-  transition: opacity, visibility;
-  transition-duration: 0.6s;
-  transition-timing-function: ease-in-out;
+  ${TRANSITION_HIDE}
   ${(props: IPropsStylePreloader) => {
     if (props.isDone) return HIDE
   }}
@@ -35,9 +34,7 @@ const StyleSlide = styled.div`
     if (props.hidden) return HIDE
   }}
   transform: translate(-50%, -50%);
-  transition: opacity, visibility;
-  transition-duration: 0.6s;
-  transition-timing-function: ease-in-out;
+  ${TRANSITION_HIDE}
 `
 
 const StyleLogoWrapper = styled.div`
@@ -51,9 +48,7 @@ const StyleSlidesWrapper = styled.div`
   ${(props: IPropsStylePreloader) => {
     if (!props.activeSlidesWrapper) return HIDE
   }}
-  transition: opacity, visibility;
-  transition-duration: 0.6s;
-  transition-timing-function: ease-in-out;
+  ${TRANSITION_HIDE}
 `
 
 export { StyleWrapper, StyleSlide, StyleLogoWrapper, StyleSlidesWrapper }
