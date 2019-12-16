@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { styleVariables } from '../../shared/styles/variables'
 import { IPropsStylePreloader } from './interface'
 
+const HIDE = `opacity: 0; visibility: hidden; pointer-events: none;`
+
 const StyleWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -15,8 +17,7 @@ const StyleWrapper = styled.div`
   transition-duration: 0.6s;
   transition-timing-function: ease-in-out;
   ${(props: IPropsStylePreloader) => {
-    if (props.isEnd)
-      return `opacity: 0; visibility: hidden; pointer-events: none;`
+    if (props.isDone) return HIDE
   }}
 `
 
@@ -31,8 +32,7 @@ const StyleSlide = styled.div`
   width: 50%;
   text-align: center;
   ${(props: IPropsStylePreloader) => {
-    if (props.hidden)
-      return `opacity: 0; visibility: hidden; pointer-events: none;`
+    if (props.hidden) return HIDE
   }}
   transform: translate(-50%, -50%);
   transition: opacity, visibility;
@@ -47,4 +47,13 @@ const StyleLogoWrapper = styled.div`
   margin-bottom: 16px;
 `
 
-export { StyleWrapper, StyleSlide, StyleLogoWrapper }
+const StyleSlidesWrapper = styled.div`
+  ${(props: IPropsStylePreloader) => {
+    if (!props.activeSlidesWrapper) return HIDE
+  }}
+  transition: opacity, visibility;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+`
+
+export { StyleWrapper, StyleSlide, StyleLogoWrapper, StyleSlidesWrapper }

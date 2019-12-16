@@ -21,14 +21,16 @@ interface IPropsPreloader {
 }
 
 interface IStatePreloader {
-  isEnd: boolean
+  isDone: boolean
   slides: boolean[]
+  activeSlidesWrapper: boolean
 }
 
 interface IPropsStylePreloader {
   hidden?: boolean
   biggerLogo?: boolean
-  isEnd?: boolean
+  isDone?: boolean
+  activeSlidesWrapper?: boolean
 }
 
 export { IPropsPreloader, IPropsStylePreloader, IStatePreloader }

@@ -141,12 +141,10 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
       ) : (
         <Circle isDarkMode={isDarkMode} withDot={true} bottom="0" left="-8px" />
       )
-
-    const $Preloader = isInSessionStorage ? null : <Preloader />
     return (
       <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
-        {$Preloader}
+        <Preloader />
         <Particles />
         <StyleContentWrapper>
           {$Circles.main}
