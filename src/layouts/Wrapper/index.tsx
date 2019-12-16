@@ -119,15 +119,15 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
         <Circle key={index} isDarkMode={isDarkMode} {...el} />
       )),
       links: this.circlesData.link.map((el, index) => (
-        <Circle key={index} {...el} />
+        <Circle key={index} isDarkMode={isDarkMode} {...el} />
       )),
     }
     const $Dashes = {
       main: this.dashesData.main.map((el, index) => (
-        <Dash isDarkMode={isDarkMode} key={index} {...el} />
+        <Dash key={index} isDarkMode={isDarkMode} {...el} />
       )),
       links: this.dashesData.link.map((el, index) => (
-        <Dash isDarkMode={isDarkMode} key={index} {...el} />
+        <Dash key={index} isDarkMode={isDarkMode} {...el} />
       )),
     }
 
