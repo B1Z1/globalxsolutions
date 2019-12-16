@@ -105,12 +105,10 @@ class ContactForm extends React.Component<
         <form
           name="contact"
           data-netlify="true"
-          data-netlify-recaptcha="true"
           method="POST"
           onSubmit={this.handleSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
-          <div data-netlify-recaptcha="true"></div>
           {$Inputs}
           <GoogleReCaptchaProvider reCaptchaKey="6Lfbp8cUAAAAAIoM44MiaZ5oGt5q2KticGVh2z0O">
             <GoogleReCaptcha onVerify={token => console.log(token)} />
