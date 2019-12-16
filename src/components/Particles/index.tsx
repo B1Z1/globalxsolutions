@@ -19,10 +19,12 @@ class Particles extends React.Component<IPropsParticles, {}> {
   }
 
   componentDidMount() {
-    this.startCanvas()
-    window.addEventListener('resize', () => {
+    if (window) {
       this.startCanvas()
-    })
+      window.addEventListener('resize', () => {
+        this.startCanvas()
+      })
+    }
   }
 
   startCanvas() {
