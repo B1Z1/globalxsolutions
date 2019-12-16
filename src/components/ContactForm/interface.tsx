@@ -6,6 +6,12 @@ interface IStateContactForm {
   name: string
   email: string
   phone: string
+  lastAddedName: string
+  isSended: boolean
 }
 
-export { IPropsContactForm, IStateContactForm }
+interface IPropsStyleContactForm {
+  isSended: boolean
+}
+
+export { IPropsContactForm, IStateContactForm, IPropsStyleContactForm }

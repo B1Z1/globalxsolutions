@@ -9,7 +9,7 @@ import ClassicInput from '../ClassicInput'
 import TextOnBlack from '../TextOnBlack'
 
 import { IPropsContactForm, IStateContactForm } from './interface'
-import { StyleButton } from './style'
+import { StyleButton, StyleThankYou } from './style'
 
 class ContactForm extends React.Component<
   IPropsContactForm,
@@ -22,6 +22,8 @@ class ContactForm extends React.Component<
       name: '',
       email: '',
       phone: '',
+      lastAddedName: '',
+      isSended: false,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -37,12 +39,25 @@ class ContactForm extends React.Component<
         body: encode({ 'form-name': 'contact', ...this.state }),
       })
         .then(res => {
-          console.log(res)
+          this.setState({
+            lastAddedName: this.state.name,
+            isSended: true,
+          })
           this.setState({
             name: '',
             email: '',
             phone: '',
           })
+          setTimeout(() => {
+            this.setState({
+              isSended: false,
+            })
+          }, 3000)
+          setTimeout(() => {
+            this.setState({
+              lastAddedName: '',
+            })
+          }, 4000)
         })
         .catch(error => alert(error))
     }
@@ -54,12 +69,12 @@ class ContactForm extends React.Component<
     const name = target.name
     this.setState({
       [name]: value,
-    } as Pick<IStateContactForm, keyof IStateContactForm>)
+    } as Pick<IStateContactForm, 'email' | 'name' | 'phone'>)
   }
 
   render() {
     const { isDarkMode } = this.props
-    const { email, name, phone } = this.state
+    const { email, name, phone, lastAddedName, isSended } = this.state
     const inputData = [
       {
         name: 'name',
@@ -102,16 +117,19 @@ class ContactForm extends React.Component<
 
     return (
       <div>
+        <StyleThankYou isSended={isSended}>
+          Dziękujemy, {lastAddedName}, skontaktujemy się z tobą wkrótce
+        </StyleThankYou>
         <form
           name="contact"
           data-netlify="true"
           method="POST"
           onSubmit={this.handleSubmit}
         >
-          <input type="hidden" name="form-name" value="contact" />
           {$Inputs}
+          <input type="hidden" name="form-name" value="contact" />
           <GoogleReCaptchaProvider reCaptchaKey="6Lfbp8cUAAAAAIoM44MiaZ5oGt5q2KticGVh2z0O">
-            <GoogleReCaptcha onVerify={token => console.log(token)} />
+            <GoogleReCaptcha onVerify={token => {}} />
           </GoogleReCaptchaProvider>
           <StyleButton type="submit">
             <TextOnBlack
