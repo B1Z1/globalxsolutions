@@ -2,6 +2,7 @@ import React from 'react'
 import { encode } from 'querystring'
 
 import ClassicInput from '../ClassicInput'
+import TextOnBlack from '../TextOnBlack'
 
 import { IPropsContactForm, IStateContactForm } from './interface'
 import { StyleButton } from './style'
@@ -104,7 +105,15 @@ class ContactForm extends React.Component<
         >
           <input type="hidden" name="form-name" value="contact" />
           {$Inputs}
-          <StyleButton type="submit">Wyślij</StyleButton>
+          <StyleButton type="submit">
+            <TextOnBlack
+              withMargin={false}
+              paddingRight="16px"
+              isDarkMode={isDarkMode}
+            >
+              Wyślij
+            </TextOnBlack>
+          </StyleButton>
         </form>
       </div>
     )

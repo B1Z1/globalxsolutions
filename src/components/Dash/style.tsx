@@ -13,7 +13,7 @@ const StyleDash = styled.div`
   height: ${(props: IPropsDash) => props.dashHeight};
   background-color: ${(props: IPropsDash) =>
     props.isDarkMode
-      ? styleVariables.colors.operate
+      ? styleVariables.colors.main2
       : styleVariables.colors.main};
 `
 

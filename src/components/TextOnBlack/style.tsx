@@ -5,10 +5,13 @@ import { IPropsTextOnBlack } from './interfaces'
 const StyleTextOnBlack = styled.span`
   display: inline-block;
   position: relative;
-  color: ${styleVariables.colors.main2};
+  color: ${(props: IPropsTextOnBlack) =>
+    props.isDarkMode
+      ? styleVariables.colors.main
+      : styleVariables.colors.main2};
   background-color: ${(props: IPropsTextOnBlack) =>
     props.isDarkMode
-      ? styleVariables.colors.operate
+      ? styleVariables.colors.main2
       : styleVariables.colors.main};
   margin-top: 0;
   margin-bottom: ${(props: IPropsTextOnBlack) =>

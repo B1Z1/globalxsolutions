@@ -14,7 +14,7 @@ const StyleInput = styled.input`
   outline: none;
   border-bottom: 1px solid
     ${(props: IPropsStyleClassicInput) =>
-      props.isValide ? styleVariables.colors.operate : `red`};
+      props.isValide ? styleVariables.colors.main2 : `red`};
   background-color: transparent;
   color: ${styleVariables.colors.main2};
   font-size: ${styleVariables.fontSizes.mini};
