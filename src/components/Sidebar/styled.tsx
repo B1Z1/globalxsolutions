@@ -37,7 +37,6 @@ const StyleSidebar = styled.aside`
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     width: 36%;
     height: 100vh;
-    background-color: transparent;
     transform: translateX(0);
   }
 `
