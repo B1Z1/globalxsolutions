@@ -37,6 +37,7 @@ const StyleSidebar = styled.aside`
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
     width: 36%;
     height: 100vh;
+    background-color: transparent;
     transform: translateX(0);
   }
 `
@@ -71,8 +72,6 @@ const StyleNavigation = styled.nav`
     width: 50%;
   }
 `
-const StyleNavigationList = styled.ul``
-
 const StyleNavigationElement = styled.li`
   position: relative;
   padding-top: 8px;
@@ -136,7 +135,6 @@ export {
   StyleLogos,
   StyleLogoElement,
   StyleNavigation,
-  StyleNavigationList,
   StyleNavigationElement,
   StyleNavigationLink,
 }

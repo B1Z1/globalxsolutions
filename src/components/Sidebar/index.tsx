@@ -9,7 +9,6 @@ import {
   StyleSidebar,
   StyleLogoElement,
   StyleNavigation,
-  StyleNavigationList,
   StyleNavigationElement,
   StyleNavigationLink,
 } from './styled'
@@ -42,7 +41,7 @@ class Sidebar extends React.Component<IPropsSidebar, {}> {
       <StyleSidebar active={active}>
         <StyleLogos>{$Images}</StyleLogos>
         <StyleNavigation>
-          <StyleNavigationList>{$Links}</StyleNavigationList>
+          <ul>{$Links}</ul>
         </StyleNavigation>
       </StyleSidebar>
     )
