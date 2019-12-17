@@ -28,20 +28,26 @@ const StyleSlide = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50%;
+  width: 80%;
   text-align: center;
   ${(props: IPropsStylePreloader) => {
     if (props.hidden) return HIDE
   }}
   transform: translate(-50%, -50%);
   ${TRANSITION_HIDE}
+  @media only screen and (min-width: ${styleVariables.breakPoints.sm}) {
+    width: 50%;
+  }
 `
 
 const StyleLogoWrapper = styled.div`
   position: relative;
-  width: ${(props: IPropsStylePreloader) =>
-    props.biggerLogo ? '400px' : '200px'};
+  width: 80%;
   margin-bottom: 16px;
+  @media only screen and (min-width: ${styleVariables.breakPoints.sm}) {
+    width: ${(props: IPropsStylePreloader) =>
+      props.biggerLogo ? '400px' : '200px'};
+  }
 `
 
 const StyleSlidesWrapper = styled.div`
