@@ -19,6 +19,7 @@ class Particles extends React.Component<IPropsParticles, {}> {
   }
 
   componentDidMount() {
+    this.canvas = this.$CanvasRef.current
     if (window) {
       this.startCanvas()
       window.addEventListener('resize', () => {
@@ -28,13 +29,13 @@ class Particles extends React.Component<IPropsParticles, {}> {
   }
 
   startCanvas() {
+    this.circles = []
     clearInterval(this.globalInterval)
     const circle = {
       x: Math.floor((Math.random() * window.innerWidth) / 2),
       y: 300,
       direction: 'UP',
     }
-    this.canvas = this.$CanvasRef.current
     this.canvas.width = window.innerWidth
     this.canvas.height = document.body.scrollHeight
     this.ctx = this.canvas.getContext('2d')

@@ -56,12 +56,15 @@ export default props => (
             slug
             title
             mainImage {
-              fluid {
+              fluid(maxWidth: 320, maxHeight: 320, quality: 100) {
                 aspectRatio
                 base64
                 sizes
                 src
                 srcSet
+                srcSetWebp
+                srcWebp
+                tracedSVG
               }
             }
           }

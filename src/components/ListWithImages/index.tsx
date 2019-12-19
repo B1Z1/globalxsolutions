@@ -23,9 +23,11 @@ class ListWithImages extends React.Component<IPropsListWithImages, {}> {
               {element.linkText}
             </Link>
           </StyleLink>
-          <StyleImage>
-            <Img fluid={element.mainImage.fluid} />
-          </StyleImage>
+          {element.mainImage.fluid.src !== null ? (
+            <StyleImage>
+              <Img fluid={element.mainImage.fluid} />
+            </StyleImage>
+          ) : null}
         </StyleElementWrapper>
       </StyleListElementWithDots>
     ))
