@@ -20,7 +20,7 @@ class ListBlog extends React.Component<IPropsListBlog, {}> {
         delay={index * 0.3}
         dotPosition="start"
         key={index}
-        style={{ marginBottom: '64px' }}
+        style={{ marginBottom: 32 }}
       >
         <Link to={element.link} style={{ display: 'inline-block' }}>
           <StyleTitle>

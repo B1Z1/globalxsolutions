@@ -1,5 +1,6 @@
 import React from 'react'
 import Img, { FluidObject } from 'gatsby-image'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import SEO from '../../components/seo'
 
@@ -34,11 +35,7 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
       >
         <SEO title={`Produkt: ${title}`} />
         <StylePostWrapper>
-          <StyleContentWrapper
-            dangerouslySetInnerHTML={{
-              __html: html,
-            }}
-          ></StyleContentWrapper>
+          <StyleContentWrapper></StyleContentWrapper>
           <StyleGalleryWrapper>{$Gallery}</StyleGalleryWrapper>
         </StylePostWrapper>
       </WrapperLayout>
