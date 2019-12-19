@@ -81,7 +81,6 @@ module.exports = {
     ],
   },
   plugins: [
-    `@contentful/gatsby-transformer-contentful-richtext`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-typescript`,
