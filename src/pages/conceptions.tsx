@@ -62,9 +62,6 @@ export default props => (
                 sizes
                 src
                 srcSet
-                srcSetWebp
-                srcWebp
-                tracedSVG
               }
             }
           }
