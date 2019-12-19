@@ -2,13 +2,14 @@ backend:
   name: git-gateway
   branch: feature/netlify-cms
 
+publish_mode: editorial_workflow
+
 media_folder: static/img
-public_folder: img
 
 collections:
   - name: blog
     label: Blog
-    folder: blog
+    folder: static/content
     create: true
     fields:
       - { name: path, label: Path }
