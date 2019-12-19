@@ -1,7 +1,12 @@
 backend:
-  name: test-repo
-media_folder: static/assets
-public_folder: assets
+  name: git-gateway
+  branch: develop/netlify-cms
+
+publish_mode: editorial_workflow
+
+media_folder: static/img
+public_folder: img
+
 collections:
   - name: blog
     label: Blog
