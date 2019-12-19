@@ -3,14 +3,15 @@ backend:
   branch: feature/netlify-cms
   site_url: https://infallible-fermat-91477a.netlify.com/
 
-publish_mode: editorial_workflow
+display_url: https://infallible-fermat-91477a.netlify.com/
 
-media_folder: 'static/img'
+media_folder: static/img
+public_folder: /img
 
 collections:
   - name: blog
     label: Blog
-    folder: 'content'
+    folder: static/content
     create: true
     fields:
       - { name: path, label: Path }
