@@ -34,10 +34,15 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
         top: '0',
         left: '24px',
       },
+      {
+        withDot: true,
+        top: '100%',
+        left: '-8px',
+      },
     ],
     link: [
       { withDot: true, top: '50%', left: '8.5px' },
-      { withDot: true, top: '150%', left: '50%' },
+      { withDot: true, top: 'calc(100% + 16px)', left: '50%' },
     ],
   }
   private dashesData: IDashesDataWrapper = {
@@ -46,7 +51,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
         top: '0',
         left: '0',
         dashWidth: '1px',
-        dashHeight: 'calc(100% - 13px)',
+        dashHeight: '100%',
       },
       {
         top: '0',
@@ -69,15 +74,15 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
         dashHeight: '1px',
       },
       {
-        top: '25%',
+        top: '50%',
         left: '16px',
         dashWidth: '1px',
-        dashHeight: '126%',
+        dashHeight: 'calc(50% + 16px)',
       },
       {
-        bottom: '-14px',
+        top: 'calc(100% + 16px)',
         left: '16px',
-        dashWidth: '45%',
+        dashWidth: '50%',
         dashHeight: '1px',
       },
     ],
