@@ -27,7 +27,7 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
 
     return (
       <WrapperLayout
-        linkTo={next.path}
+        linkTo={next.url}
         linkText={next.title}
         title={title}
         titleWithMargin={true}

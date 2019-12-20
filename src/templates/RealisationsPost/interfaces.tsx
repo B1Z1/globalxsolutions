@@ -6,16 +6,14 @@ interface IPropsProductPost {
     parentPath: string
     slug: string
     content: {
-      childContentfulRichText: {
-        html: string
-      }
+      json: any
     }
     gallery: FluidObject[]
     mainImage: FluidObject
     next: {
       title: string
       slug: string
-      path: string
+      url: string
     }
   }
 }

@@ -208,7 +208,7 @@ function generatePosts(posts, templatePath, rootPath, nextPage, createPage) {
     const next = index === posts.length - 1 ? nextPage : posts[index + 1].node
     const { slug } = post.node
 
-    next['path'] =
+    next['url'] =
       index === posts.length - 1 ? `${next.slug}` : `${rootPath}/${next.slug}`
 
     if (post.node.mainImage !== undefined) {

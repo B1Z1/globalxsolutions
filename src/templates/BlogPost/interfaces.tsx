@@ -10,7 +10,7 @@ interface IPropsBlogPost {
     next: {
       name: string
       slug: string
-      path: string
+      url: string
     }
   }
 }

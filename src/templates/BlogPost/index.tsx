@@ -15,7 +15,7 @@ class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
     const { json } = content
     return (
       <WrapperLayout
-        linkTo={next.path}
+        linkTo={next.url}
         linkText={next.name}
         title={title}
         titleWithMargin={true}
