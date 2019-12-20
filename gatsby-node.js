@@ -76,7 +76,7 @@ exports.createPages = ({ graphql, actions }) => {
             content {
               json
             }
-            mainImage(quality: 100) {
+            mainImage {
               fluid(quality: 100) {
                 base64
                 src
@@ -97,7 +97,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulNewsroom(quality: 100) {
+      allContentfulNewsroom {
         edges {
           node {
             slug
