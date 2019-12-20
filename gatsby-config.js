@@ -75,6 +75,10 @@ module.exports = {
         path: '/infotech',
       },
       {
+        name: 'Dotacje Unijne',
+        path: '/eu-subsidies',
+      },
+      {
         name: 'Kontakt',
         path: '/contact',
       },

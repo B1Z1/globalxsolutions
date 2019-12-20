@@ -49,7 +49,7 @@ class InfotechPage extends React.Component<IInfotechProps, {}> {
           539321172
         </p>
         <StyleImage>
-          <Img fluid={imageFluid} />
+          <Img fluid={imageFluid} alt="Infotech Logo" />
         </StyleImage>
       </WrapperLayout>
     )

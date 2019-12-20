@@ -25,7 +25,7 @@ class ListWithImages extends React.Component<IPropsListWithImages, {}> {
           </StyleLink>
           {element.mainImage.fluid.src !== null ? (
             <StyleImage>
-              <Img fluid={element.mainImage.fluid} />
+              <Img alt={element.linkText} fluid={element.mainImage.fluid} />
             </StyleImage>
           ) : null}
         </StyleElementWrapper>

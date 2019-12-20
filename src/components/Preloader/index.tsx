@@ -63,7 +63,10 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
         <StyleSlidesWrapper activeSlidesWrapper={activeSlidesWrapper}>
           <StyleSlide hidden={slides[0]}>
             <StyleLogoWrapper>
-              <Img fluid={globalXLogo.childImageSharp.fluid} />
+              <Img
+                fluid={globalXLogo.childImageSharp.fluid}
+                alt="GlobalXSolutions Logo"
+              />
             </StyleLogoWrapper>
             <p>
               Rozwiązuj wyzwania technologiczne dzięki <br /> drużynie Global X
@@ -73,12 +76,15 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
           <StyleSlide hidden={slides[1]}>
             <p>Dziękujemy za wsparcie</p>
             <StyleLogoWrapper sizeLogo="lg">
-              <Img fluid={parpLogo.childImageSharp.fluid} />
+              <Img fluid={parpLogo.childImageSharp.fluid} alt="PARP Logo" />
             </StyleLogoWrapper>
           </StyleSlide>
           <StyleSlide hidden={slides[2]}>
             <StyleLogoWrapper sizeLogo="md">
-              <Img fluid={infotechLogo.childImageSharp.fluid} />
+              <Img
+                fluid={infotechLogo.childImageSharp.fluid}
+                alt="Infotech Logo"
+              />
             </StyleLogoWrapper>
             <p style={{ marginBottom: 8, marginTop: 8 }}>
               Global X Solutions jest członkiem European Commission AI Alliance
@@ -112,7 +118,7 @@ export default props => (
             }
           }
         }
-        parpLogo: file(relativePath: { eq: "Logos/ParpBigger.png" }) {
+        parpLogo: file(relativePath: { eq: "Logos/Parp.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 460, quality: 100) {
               ...GatsbyImageSharpFluid

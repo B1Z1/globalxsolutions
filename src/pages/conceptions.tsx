@@ -22,6 +22,12 @@ interface IConceptionsProps {
 }
 
 class ConceptionsPage extends React.Component<IConceptionsProps, {}> {
+  TITLE = 'Koncepcje'
+  LINK_TO = '/solutions'
+  LINK_TEXT = 'Rozwiązania'
+  TITLE_WITH_MARGIN = true
+  IS_DARK_MODE = false
+
   render() {
     const elements = this.props.data.allContentfulConceptions.elements.map(
       element => {
@@ -34,13 +40,22 @@ class ConceptionsPage extends React.Component<IConceptionsProps, {}> {
     )
     return (
       <WrapperLayout
-        linkTo="/solutions"
-        linkText="Rozwiązania"
-        title="Koncepcje"
-        titleWithMargin={true}
-        isDarkMode={false}
+        linkTo={this.LINK_TO}
+        linkText={this.LINK_TEXT}
+        title={this.TITLE}
+        titleWithMargin={this.TITLE_WITH_MARGIN}
+        isDarkMode={this.IS_DARK_MODE}
       >
-        <SEO title="Koncepcje" />
+        <SEO
+          title={this.TITLE}
+          description="Koncepcje tworzone przez nasz zespół"
+          meta={[
+            {
+              keywords:
+                'globalxsolutions koncepcje, koncepcje, prototypy, rozwiązania, s-pokój',
+            },
+          ]}
+        />
         <ListWithImages parentRoot="/conceptions/" elements={elements} />
       </WrapperLayout>
     )
