@@ -28,7 +28,7 @@ interface IStatePreloader {
 
 interface IPropsStylePreloader {
   hidden?: boolean
-  biggerLogo?: boolean
+  sizeLogo?: string
   isDone?: boolean
   activeSlidesWrapper?: boolean
 }

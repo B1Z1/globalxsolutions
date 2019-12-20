@@ -4,6 +4,11 @@ import { IPropsStylePreloader } from './interface'
 
 const HIDE = `opacity: 0; visibility: hidden; pointer-events: none;`
 const TRANSITION_HIDE = `transition: opacity, visibility; transition-duration: 0.6s; transition-timing-function: ease-in-out;`
+const LOGO_SIZES = {
+  sm: '200px',
+  md: '400px',
+  lg: '600px',
+}
 
 const StyleWrapper = styled.div`
   position: fixed;
@@ -45,8 +50,21 @@ const StyleLogoWrapper = styled.div`
   width: 80%;
   margin-bottom: 16px;
   @media only screen and (min-width: ${styleVariables.breakPoints.sm}) {
-    width: ${(props: IPropsStylePreloader) =>
-      props.biggerLogo ? '400px' : '200px'};
+    width: ${(props: IPropsStylePreloader) => {
+      let size = ''
+      switch (props.sizeLogo) {
+        case 'md':
+          size = LOGO_SIZES.md
+          break
+        case 'lg':
+          size = LOGO_SIZES.lg
+          break
+        default:
+          size = LOGO_SIZES.sm
+          break
+      }
+      return size
+    }};
   }
 `
 

@@ -28,7 +28,7 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
       })
     } else {
       this.setState({
-        activeSlidesWrapper: true
+        activeSlidesWrapper: true,
       })
       let i = 0
       let interval = setInterval(() => {
@@ -72,20 +72,25 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
           </StyleSlide>
           <StyleSlide hidden={slides[1]}>
             <p>Dziękujemy za wsparcie</p>
-            <StyleLogoWrapper biggerLogo={true}>
+            <StyleLogoWrapper sizeLogo="lg">
               <Img fluid={parpLogo.childImageSharp.fluid} />
             </StyleLogoWrapper>
           </StyleSlide>
           <StyleSlide hidden={slides[2]}>
-            <StyleLogoWrapper biggerLogo={true}>
+            <StyleLogoWrapper sizeLogo="md">
               <Img fluid={infotechLogo.childImageSharp.fluid} />
             </StyleLogoWrapper>
+            <p style={{ marginBottom: 8, marginTop: 8 }}>
+              Global X Solutions jest członkiem European Commission AI Alliance
+            </p>
+            <p style={{ marginBottom: 8, marginTop: 8 }}>
+              Global X Solutions jest dumnym członkiem Klastra Technologicznego
+              Infotech
+            </p>
             <p>
-              Global X Solutions jest członkiem Europejskiego Sojuszu Sztucznej
-              Inteligencji (European Commission AI Alliance). Global X Solutions
-              Sp. z.o.o. jest zarejestrowany w bazie danych Bisnode (współpraca
-              z Dun & Bradstreet) pod numerem D-U-N-S®: 539321172 Global X
-              Solutions jest dumnym członkiem klastra technologicznego Infotech
+              Global X Solutions Sp. z.o.o. jest zarejestrowany w bazie danych
+              Bisnode (współpraca z Dun & Bradstreet) pod numerem D-U-N-S®:
+              539321172
             </p>
           </StyleSlide>
         </StyleSlidesWrapper>

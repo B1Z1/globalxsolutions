@@ -15,9 +15,6 @@ exports.createPages = ({ graphql, actions }) => {
           node {
             title
             slug
-            excerption {
-              excerption
-            }
             content {
               json
             }
@@ -47,9 +44,6 @@ exports.createPages = ({ graphql, actions }) => {
           node {
             title
             slug
-            excerption {
-              excerption
-            }
             content {
               json
             }
@@ -79,9 +73,6 @@ exports.createPages = ({ graphql, actions }) => {
           node {
             title
             slug
-            excerption {
-              excerption
-            }
             content {
               json
             }

@@ -56,7 +56,7 @@ export default props => (
           nodes {
             id
             childImageSharp {
-              fixed(width: 164) {
+              fixed(width: 164, quality: 100) {
                 ...GatsbyImageSharpFixed
               }
             }
