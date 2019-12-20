@@ -138,13 +138,7 @@ export default props => (
               description
               name
               profession
-              featuredImage {
-                childImageSharp {
-                  fluid(maxWidth: 200) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+              featuredImage
             }
           }
         }
