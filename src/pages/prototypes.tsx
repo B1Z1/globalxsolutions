@@ -51,7 +51,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query ProductsQuery {
-        allContentfulProducts {
+        allContentfulPrototypes {
           elements: nodes {
             title
             slug

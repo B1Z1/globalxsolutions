@@ -143,7 +143,7 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    const prototypePosts = result.data.allContentfulProducts.edges
+    const prototypePosts = result.data.allContentfulPrototypes.edges
     const conceptionPosts = result.data.allContentfulConceptions.edges
     const solutionsPosts = result.data.allContentfulSolutions.edges
     const newsroomPosts = result.data.allContentfulNewsroom.edges
