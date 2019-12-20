@@ -135,7 +135,6 @@ export default props => (
         ) {
           nodes {
             frontmatter {
-              description
               profession
               featuredImage
             }
