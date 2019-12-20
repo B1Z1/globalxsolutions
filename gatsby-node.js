@@ -28,7 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             gallery {
-              fluid(maxWidth: 320, quality: 100) {
+              fluid(maxWidth: 2400, quality: 100) {
                 base64
                 src
                 srcSet
@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             gallery {
-              fluid(maxWidth: 320, quality: 100) {
+              fluid(maxWidth: 2400, quality: 100) {
                 base64
                 src
                 srcSet
@@ -76,7 +76,7 @@ exports.createPages = ({ graphql, actions }) => {
             content {
               json
             }
-            mainImage {
+            mainImage(quality: 100) {
               fluid(quality: 100) {
                 base64
                 src
@@ -86,7 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             gallery {
-              fluid(maxWidth: 320, quality: 100) {
+              fluid(maxWidth: 2400, quality: 100) {
                 base64
                 src
                 srcSet
@@ -97,7 +97,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulNewsroom {
+      allContentfulNewsroom(quality: 100) {
         edges {
           node {
             slug
@@ -126,7 +126,7 @@ exports.createPages = ({ graphql, actions }) => {
               json
             }
             gallery {
-              fluid {
+              fluid(quality: 100) {
                 base64
                 src
                 srcSet

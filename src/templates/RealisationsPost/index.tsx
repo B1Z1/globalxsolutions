@@ -20,9 +20,10 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
   render() {
     const { content, gallery, title, next } = this.props.pageContext
     const { json } = content
+    console.log(this.props.pageContext)
     const $Gallery = gallery.map((image: FluidObject, index: number) => (
       <StyleImage key={index}>
-        <Img fluid={image} />
+        <Img fluid={image} alt={title} />
       </StyleImage>
     ))
 
