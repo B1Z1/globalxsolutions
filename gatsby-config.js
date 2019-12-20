@@ -81,9 +81,6 @@ module.exports = {
     ],
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -105,6 +102,11 @@ module.exports = {
         path: `${__dirname}/posts`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -135,8 +137,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify-cms`,
     'gatsby-plugin-netlify',
     // this (optional) plugin enables Progressive Web App + Offline functionality
