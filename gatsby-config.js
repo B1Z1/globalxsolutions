@@ -86,16 +86,10 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-netlify-cms`,
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/shared/utils/typography`,
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/images/Uploads`,
         name: 'uploads',
+        path: `${__dirname}/static/images`,
       },
     },
     {
@@ -109,7 +103,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/shared/utils/typography`,
       },
     },
     {
@@ -131,9 +131,9 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-relative-images`,
+            resolve: 'gatsby-remark-relative-images',
             options: {
-              name: 'uploads', // Must match the source name ^
+              name: 'uploads',
             },
           },
           {
@@ -143,7 +143,12 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 2048,
-              markdownCaptions: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
             },
           },
         ],
