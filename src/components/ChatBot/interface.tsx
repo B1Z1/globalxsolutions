@@ -1,20 +1,13 @@
-import { FixedObject } from 'gatsby-image'
-
 interface IHero {
   name: string
+  description: string
   profession: string
-  id: string
-  description: {
-    description: string
-  }
-  photo: {
-    fixed: FixedObject
-  }
+  image: string
 }
 
 interface IPropsChatBot {
   data: {
-    allContentfulTeam: {
+    allMarkdownRemark: {
       nodes: IHero[]
     }
   }

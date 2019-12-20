@@ -51,7 +51,7 @@ class ChatBot extends React.Component<IPropsChatBot, IStateChatBot> {
 
   onSubmit(event) {
     event.preventDefault()
-    const heroes = this.props.data.allContentfulTeam.nodes
+    const heroes = this.props.data.allMarkdownRemark.nodes
     const finded = heroes.find(
       hero =>
         hero.name.toLowerCase().indexOf(this.state.message.toLowerCase()) !== -1
@@ -63,8 +63,8 @@ class ChatBot extends React.Component<IPropsChatBot, IStateChatBot> {
         ? this.generateNotFound()
         : this.generateHero({
             name: finded.name,
-            description: finded.description.description,
-            photo: finded.photo.fixed,
+            description: finded.description,
+            photo: finded.image.fixed,
             profession: finded.profession,
           })
     )
@@ -75,7 +75,7 @@ class ChatBot extends React.Component<IPropsChatBot, IStateChatBot> {
 
   changeMessage(event) {
     const { value } = event.target
-    const heroes = this.props.data.allContentfulTeam.nodes
+    const heroes = this.props.data.allMarkdownRemark.nodes
     const hero = heroes.find(
       hero => hero.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
     )
@@ -86,12 +86,13 @@ class ChatBot extends React.Component<IPropsChatBot, IStateChatBot> {
   }
 
   getAllHeroNames() {
-    return this.props.data.allContentfulTeam.nodes
+    return this.props.data.allMarkdownRemark.nodes
       .map(hero => hero.name)
       .join(', ')
   }
 
   render() {
+    console.log(this.props)
     const { message, messages, messagePlaceholder } = this.state
     const heroNames = this.getAllHeroNames()
 
@@ -129,22 +130,15 @@ export default props => (
   <StaticQuery
     query={graphql`
       query TeamQuery {
-        allContentfulTeam {
+        allMarkdownRemark(
+          filter: { frontmatter: { templateKey: { eq: "team-post" } } }
+        ) {
           nodes {
-            name
-            profession
-            id
-            photo {
-              fixed(width: 160, height: 265, quality: 100) {
-                src
-                base64
-                height
-                srcSet
-                width
-              }
-            }
-            description {
+            frontmatter {
               description
+              featuredImage
+              name
+              profession
             }
           }
         }
