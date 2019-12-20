@@ -7,9 +7,9 @@ import ListWithImages from '../components/ListWithImages'
 
 import WrapperLayout from '../layouts/Wrapper'
 
-interface IProductsProps {
+interface IPrototypesProps {
   data: {
-    allContentfulProducts: {
+    allContentfulPrototypes: {
       elements: {
         title: string
         slug: string
@@ -21,9 +21,9 @@ interface IProductsProps {
   }
 }
 
-class ProductsPage extends React.Component<IProductsProps, {}> {
+class PrototypesPage extends React.Component<IPrototypesProps, {}> {
   render() {
-    const elements = this.props.data.allContentfulProducts.elements.map(
+    const elements = this.props.data.allContentfulPrototypes.elements.map(
       element => {
         return {
           linkText: element.title,
@@ -41,7 +41,7 @@ class ProductsPage extends React.Component<IProductsProps, {}> {
         isDarkMode={false}
       >
         <SEO title="Produkty" />
-        <ListWithImages parentRoot="/products/" elements={elements} />
+        <ListWithImages parentRoot="/prototypes/" elements={elements} />
       </WrapperLayout>
     )
   }
@@ -50,7 +50,7 @@ class ProductsPage extends React.Component<IProductsProps, {}> {
 export default props => (
   <StaticQuery
     query={graphql`
-      query ProductsQuery {
+      query PrototypesQuery {
         allContentfulPrototypes {
           elements: nodes {
             title
@@ -68,6 +68,6 @@ export default props => (
         }
       }
     `}
-    render={data => <ProductsPage data={data} {...props} />}
+    render={data => <PrototypesPage data={data} {...props} />}
   />
 )
