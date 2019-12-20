@@ -1,5 +1,7 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS } from '@contentful/rich-text-types'
 
 import SEO from '../../components/seo'
 
@@ -22,7 +24,18 @@ class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
         isDarkMode={false}
       >
         <SEO title={`Newsroom - ${title}`} />
-        <div>{documentToReactComponents(json)}</div>
+        <div>
+          {documentToReactComponents(json, {
+            renderNode: {
+              [BLOCKS.EMBEDDED_ASSET]: node => (
+                <img
+                  src={node.data.target.fields.file['en-US']}
+                  alt={node.data.target.fields.title['en-US']}
+                />
+              ),
+            },
+          })}
+        </div>
       </WrapperLayout>
     )
   }
