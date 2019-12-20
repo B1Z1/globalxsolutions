@@ -29,7 +29,7 @@ class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
             renderNode: {
               [BLOCKS.EMBEDDED_ASSET]: node => (
                 <img
-                  src={node.data.target.fields.file['en-US']}
+                  src={node.data.target.fields.file['en-US'].url}
                   alt={node.data.target.fields.title['en-US']}
                 />
               ),
