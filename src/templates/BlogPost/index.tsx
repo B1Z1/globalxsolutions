@@ -12,7 +12,7 @@ import {} from './style'
 
 class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
   render() {
-    const { content, title, next } = this.props.pageContext
+    const { content, title, next, excerption } = this.props.pageContext
     const { json } = content
     return (
       <WrapperLayout
@@ -22,7 +22,10 @@ class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
         titleWithMargin={true}
         isDarkMode={false}
       >
-        <SEO title={`Newsroom - ${title}`} />
+        <SEO
+          title={`Newsroom - ${title}`}
+          description={excerption.excerption}
+        />
         <div>
           {documentToReactComponents(json, {
             renderNode: {

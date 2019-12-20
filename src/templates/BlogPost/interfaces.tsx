@@ -3,7 +3,9 @@ interface IPropsBlogPost {
     title: string
     parentPath: string
     slug: string
-    excerption: string
+    excerption: {
+      excerption: string
+    }
     content: {
       json: any
     }
