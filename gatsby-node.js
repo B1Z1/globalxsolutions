@@ -112,9 +112,7 @@ exports.createPages = ({ graphql, actions }) => {
               excerption
             }
             content {
-              childContentfulRichText {
-                html
-              }
+              json
             }
           }
         }

@@ -1,5 +1,3 @@
-import { FluidObject } from 'gatsby-image'
-
 interface IPropsBlogPost {
   pageContext: {
     title: string
@@ -7,9 +5,7 @@ interface IPropsBlogPost {
     slug: string
     excerption: string
     content: {
-      childContentfulRichText: {
-        html: string
-      }
+      json: any
     }
     next: {
       name: string

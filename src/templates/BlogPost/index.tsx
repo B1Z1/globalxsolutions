@@ -1,4 +1,5 @@
 import React from 'react'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import SEO from '../../components/seo'
 
@@ -11,8 +12,7 @@ import {} from './style'
 class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
   render() {
     const { content, title, next } = this.props.pageContext
-    const html = content.childContentfulRichText.html
-
+    const { json } = content
     return (
       <WrapperLayout
         linkTo={next.path}
@@ -22,11 +22,7 @@ class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
         isDarkMode={false}
       >
         <SEO title={`Newsroom - ${title}`} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: html,
-          }}
-        ></div>
+        <div>{documentToReactComponents(json)}</div>
       </WrapperLayout>
     )
   }
