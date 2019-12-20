@@ -10,7 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
     query PagesQuery {
-      allContentfulProducts {
+      allContentfulPrototypes {
         edges {
           node {
             title
