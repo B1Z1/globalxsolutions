@@ -16,9 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
             title
             slug
             content {
-              childContentfulRichText {
-                html
-              }
+              json
             }
             mainImage {
               fluid(quality: 100) {
@@ -47,9 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
             title
             slug
             content {
-              childContentfulRichText {
-                html
-              }
+              json
             }
             mainImage {
               fluid(quality: 100) {
@@ -78,9 +74,7 @@ exports.createPages = ({ graphql, actions }) => {
             title
             slug
             content {
-              childContentfulRichText {
-                html
-              }
+              json
             }
             mainImage {
               fluid(quality: 100) {
@@ -126,9 +120,7 @@ exports.createPages = ({ graphql, actions }) => {
               excerption
             }
             content {
-              childContentfulRichText {
-                html
-              }
+              json
             }
             gallery {
               fluid {

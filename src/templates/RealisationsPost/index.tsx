@@ -1,5 +1,6 @@
 import React from 'react'
 import Img, { FluidObject } from 'gatsby-image'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import SEO from '../../components/seo'
 
@@ -17,7 +18,7 @@ import {
 class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
   render() {
     const { content, gallery, title, next } = this.props.pageContext
-    const html = content.childContentfulRichText.html
+    const { json } = content
     const $Gallery = gallery.map((image: FluidObject, index: number) => (
       <StyleImage key={index}>
         <Img fluid={image} />
@@ -34,11 +35,9 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
       >
         <SEO title={`Produkt: ${title}`} />
         <StylePostWrapper>
-          <StyleContentWrapper
-            dangerouslySetInnerHTML={{
-              __html: html,
-            }}
-          ></StyleContentWrapper>
+          <StyleContentWrapper>
+            <div>{documentToReactComponents(json)}</div>
+          </StyleContentWrapper>
           <StyleGalleryWrapper>{$Gallery}</StyleGalleryWrapper>
         </StylePostWrapper>
       </WrapperLayout>
