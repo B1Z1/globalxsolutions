@@ -141,7 +141,7 @@ export default props => (
               featuredImage {
                 childImageSharp {
                   fluid(maxWidth: 200) {
-                    src
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
