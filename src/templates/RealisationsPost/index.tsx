@@ -12,8 +12,8 @@ import { IPropsProductPost } from './interfaces'
 import {
   StyleContentWrapper,
   StylePostWrapper,
-  StyleGalleryWrapper,
   StyleImage,
+  StyleGalleryWrapper,
 } from './style'
 
 class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
@@ -37,18 +37,16 @@ class ProductPostTemplate extends React.Component<IPropsProductPost, {}> {
         <SEO title={`Produkt: ${title}`} />
         <StylePostWrapper>
           <StyleContentWrapper>
-            <div>
-              {documentToReactComponents(json, {
-                renderNode: {
-                  [BLOCKS.EMBEDDED_ASSET]: node => (
-                    <img
-                      src={node.data.target.fields.file['en-US'].url}
-                      alt={node.data.target.fields.title['en-US']}
-                    />
-                  ),
-                },
-              })}
-            </div>
+            {documentToReactComponents(json, {
+              renderNode: {
+                [BLOCKS.EMBEDDED_ASSET]: node => (
+                  <img
+                    src={node.data.target.fields.file['en-US'].url}
+                    alt={node.data.target.fields.title['en-US']}
+                  />
+                ),
+              },
+            })}
           </StyleContentWrapper>
           <StyleGalleryWrapper>{$Gallery}</StyleGalleryWrapper>
         </StylePostWrapper>

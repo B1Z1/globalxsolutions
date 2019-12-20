@@ -36,7 +36,7 @@ class ProductsPage extends React.Component<IProductsProps, {}> {
       <WrapperLayout
         linkTo="/conceptions"
         linkText="Koncepcje"
-        title="Produkty"
+        title="Prototypy"
         titleWithMargin={true}
         isDarkMode={false}
       >

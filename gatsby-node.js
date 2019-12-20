@@ -143,16 +143,16 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    const productPosts = result.data.allContentfulProducts.edges
+    const prototypePosts = result.data.allContentfulProducts.edges
     const conceptionPosts = result.data.allContentfulConceptions.edges
     const solutionsPosts = result.data.allContentfulSolutions.edges
     const newsroomPosts = result.data.allContentfulNewsroom.edges
     const eventsPosts = result.data.allContentfulEvents.edges
 
     generatePosts(
-      productPosts,
+      prototypePosts,
       realisationTemplatePath,
-      '/products',
+      '/prototypes',
       {
         title: 'Koncepcje',
         slug: '/conceptions',

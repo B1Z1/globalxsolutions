@@ -26,7 +26,7 @@ class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
           title={`Newsroom - ${title}`}
           description={excerption.excerption}
         />
-        <div>
+        <div style={{ paddingBottom: 32 }}>
           {documentToReactComponents(json, {
             renderNode: {
               [BLOCKS.EMBEDDED_ASSET]: node => (

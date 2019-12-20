@@ -51,8 +51,8 @@ module.exports = {
         path: '/team',
       },
       {
-        name: 'Produkty',
-        path: '/products',
+        name: 'Prototypy',
+        path: '/prototypes',
       },
       {
         name: 'Koncepcje',

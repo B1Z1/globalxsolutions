@@ -36,12 +36,17 @@ class InfotechPage extends React.Component<IInfotechProps, {}> {
         isDarkMode={false}
       >
         <SEO title="Infotech" />
+        <p style={{ marginBottom: 8, marginTop: 8 }}>
+          Global X Solutions jest członkiem European Commission AI Alliance
+        </p>
+        <p style={{ marginBottom: 8, marginTop: 8 }}>
+          Global X Solutions jest dumnym członkiem Klastra Technologicznego
+          Infotech
+        </p>
         <p>
-          Global X Solutions jest członkiem Europejskiego Sojuszu Sztucznej
-          Inteligencji (European Commission AI Alliance). Global X Solutions Sp.
-          z.o.o. jest zarejestrowany w bazie danych Bisnode (współpraca z Dun &
-          Bradstreet) pod numerem D-U-N-S®: 539321172 Global X Solutions jest
-          dumnym członkiem klastra technologicznego Infotech
+          Global X Solutions Sp. z.o.o. jest zarejestrowany w bazie danych
+          Bisnode (współpraca z Dun & Bradstreet) pod numerem D-U-N-S®:
+          539321172
         </p>
         <StyleImage>
           <Img fluid={imageFluid} />

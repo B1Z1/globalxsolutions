@@ -35,7 +35,7 @@ const StyleSidebar = styled.aside`
   transition: transform 0.3s ease-in-out;
   z-index: 20;
   @media only screen and (min-width: ${styleVariables.breakPoints.lg}) {
-    width: 36%;
+    width: 40%;
     height: 100vh;
     transform: translateX(0);
   }
