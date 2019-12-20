@@ -49,6 +49,13 @@ class EuSubsidiesPage extends React.Component<IEsSubsidiesProps, {}> {
             },
           ]}
         />
+        <Img
+          style={{ maxWidth: '80%' }}
+          objectFit="fill"
+          objectPosition="50% 50%"
+          alt="PARP"
+          fluid={fluid}
+        />
         <p>
           W ramach Poddziałania 2 . 3 . 5 Design dla przedsiębiorców Programu
           Operacyjnego Inteligentny Rozwój 2014 - 2020 współfinansowanego ze
@@ -91,13 +98,6 @@ class EuSubsidiesPage extends React.Component<IEsSubsidiesProps, {}> {
             418 965, 00 zł
           </TextOnBlack>
         </h3>
-        <Img
-          style={{ maxWidth: '80%' }}
-          objectFit="fill"
-          objectPosition="50% 50%"
-          alt="PARP"
-          fluid={fluid}
-        />
       </WrapperLayout>
     )
   }
