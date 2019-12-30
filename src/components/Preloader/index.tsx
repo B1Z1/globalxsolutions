@@ -61,13 +61,13 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
     return (
       <StyleWrapper isDone={isDone}>
         <StyleSlidesWrapper activeSlidesWrapper={activeSlidesWrapper}>
-          <StyleSlide hidden={slides[1]}>
+          <StyleSlide hidden={slides[0]}>
             <p>Dziękujemy za wsparcie</p>
             <StyleLogoWrapper sizeLogo="lg">
               <Img fluid={parpLogo.childImageSharp.fluid} alt="PARP Logo" />
             </StyleLogoWrapper>
           </StyleSlide>
-          <StyleSlide hidden={slides[0]}>
+          <StyleSlide hidden={slides[1]}>
             <StyleLogoWrapper>
               <Img
                 fluid={globalXLogo.childImageSharp.fluid}
