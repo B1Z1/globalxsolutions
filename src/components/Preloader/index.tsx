@@ -61,6 +61,12 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
     return (
       <StyleWrapper isDone={isDone}>
         <StyleSlidesWrapper activeSlidesWrapper={activeSlidesWrapper}>
+          <StyleSlide hidden={slides[1]}>
+            <p>Dziękujemy za wsparcie</p>
+            <StyleLogoWrapper sizeLogo="lg">
+              <Img fluid={parpLogo.childImageSharp.fluid} alt="PARP Logo" />
+            </StyleLogoWrapper>
+          </StyleSlide>
           <StyleSlide hidden={slides[0]}>
             <StyleLogoWrapper>
               <Img
@@ -72,12 +78,6 @@ class Preloader extends React.Component<IPropsPreloader, IStatePreloader> {
               Rozwiązuj wyzwania technologiczne dzięki <br /> drużynie Global X
               Solutions.
             </p>
-          </StyleSlide>
-          <StyleSlide hidden={slides[1]}>
-            <p>Dziękujemy za wsparcie</p>
-            <StyleLogoWrapper sizeLogo="lg">
-              <Img fluid={parpLogo.childImageSharp.fluid} alt="PARP Logo" />
-            </StyleLogoWrapper>
           </StyleSlide>
           <StyleSlide hidden={slides[2]}>
             <StyleLogoWrapper sizeLogo="md">
