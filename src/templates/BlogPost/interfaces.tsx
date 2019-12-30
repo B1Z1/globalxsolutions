@@ -10,7 +10,7 @@ interface IPropsBlogPost {
       json: any
     }
     next: {
-      name: string
+      title: string
       slug: string
       url: string
     }
