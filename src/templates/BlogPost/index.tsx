@@ -13,7 +13,6 @@ import {} from './style'
 class ProductPostTemplate extends React.Component<IPropsBlogPost, {}> {
   render() {
     const { content, title, next, excerption } = this.props.pageContext
-    console.log(next)
     const { json } = content
     return (
       <WrapperLayout

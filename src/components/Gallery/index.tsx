@@ -57,7 +57,6 @@ class Gallery extends React.Component<IPropsGallery, IStateGallery> {
     let $ShowImg = null
 
     if (currentFluid !== null && currentAlt !== '') {
-      console.log(animation)
       $ShowImg = (
         <StyleShowWrapper
           ref={this.showWrapperRef}
