@@ -15,11 +15,41 @@ import {
 
 class Sidebar extends React.Component<IPropsSidebar, {}> {
   generateImages(elements) {
-    return elements.map(image => (
-      <StyleLogoElement key={image.id}>
-        <Img fixed={image.childImageSharp.fixed} />
-      </StyleLogoElement>
-    ))
+    return elements.map(image => {
+      const { name } = image
+      const GLOBALX_LOGO_NAME = 'GlobalXSolutions'
+      const PARP_LOGO_NAME = 'Parp'
+      const SAMSUNG_LOGO_NAME = 'samsung_inkubator_logo'
+      if (name === GLOBALX_LOGO_NAME)
+        return (
+          <StyleLogoElement key={image.id}>
+            <Link to="/">
+              <Img fixed={image.childImageSharp.fixed} />
+            </Link>
+          </StyleLogoElement>
+        )
+      else if (name === PARP_LOGO_NAME)
+        return (
+          <StyleLogoElement key={image.id}>
+            <Link to="/eu-subsidies">
+              <Img fixed={image.childImageSharp.fixed} />
+            </Link>
+          </StyleLogoElement>
+        )
+      else if (name === SAMSUNG_LOGO_NAME)
+        return (
+          <StyleLogoElement key={image.id}>
+            <Link to="/events/inkubacja-w-samsung">
+              <Img fixed={image.childImageSharp.fixed} />
+            </Link>
+          </StyleLogoElement>
+        )
+      return (
+        <StyleLogoElement key={image.id}>
+          <Img fixed={image.childImageSharp.fixed} />
+        </StyleLogoElement>
+      )
+    })
   }
 
   generateLinks(links) {
@@ -36,8 +66,8 @@ class Sidebar extends React.Component<IPropsSidebar, {}> {
     const { data, active } = this.props
     const $Links = this.generateLinks(data.site.siteMetadata.menuLinks)
     const $Images = this.generateImages(data.images.nodes)
+    console.log(data)
     return (
-      //@ts-ignore
       <StyleSidebar active={active}>
         <StyleLogos>{$Images}</StyleLogos>
         <StyleNavigation>
@@ -55,6 +85,7 @@ export default props => (
         images: allFile(filter: { relativeDirectory: { eq: "Logos" } }) {
           nodes {
             id
+            name
             childImageSharp {
               fixed(width: 164, quality: 100) {
                 ...GatsbyImageSharpFixed

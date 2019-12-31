@@ -110,7 +110,7 @@ export default props => (
     query={graphql`
       query PreloaderQuery {
         globalXLogo: file(
-          relativePath: { eq: "Logos/GlobalXSolutionsBigger.png" }
+          relativePath: { eq: "Logos/GlobalXSolutions.png" }
         ) {
           childImageSharp {
             fluid(maxWidth: 460, quality: 100) {
