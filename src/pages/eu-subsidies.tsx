@@ -107,7 +107,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query uSubsidiesQuery {
-        image: file(relativePath: { eq: "Logos/Parp.jpg" }) {
+        image: file(relativePath: { eq: "Parp.jpg" }) {
           childImageSharp {
             fluid(quality: 100) {
               ...GatsbyImageSharpFluid
