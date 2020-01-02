@@ -113,21 +113,21 @@ export default props => (
           relativePath: { eq: "Logos/GlobalXSolutions.png" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 460, quality: 100) {
+            fluid(quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        parpLogo: file(relativePath: { eq: "Logos/Parp.jpg" }) {
+        parpLogo: file(relativePath: { eq: "Parp.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 460, quality: 100) {
+            fluid(quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         infotechLogo: file(relativePath: { eq: "infotech.png" }) {
           childImageSharp {
-            fluid(maxWidth: 462, pngQuality: 100, fit: CONTAIN) {
+            fluid(fit: CONTAIN) {
               ...GatsbyImageSharpFluid
             }
           }

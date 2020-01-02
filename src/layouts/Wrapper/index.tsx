@@ -9,6 +9,7 @@ import Dash from '../../components/Dash'
 import TextOnBlack from '../../components/TextOnBlack'
 import Preloader from '../../components/Preloader'
 import Particles from '../../components/Particles'
+import BottomLogo from '../../components/BottomLogo'
 
 import {
   StyleWrapper,
@@ -151,6 +152,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
         <GlobalStyle />
         <Preloader />
         <Particles />
+        <BottomLogo />
         <StyleContentWrapper>
           {$Circles.main}
           {$Dashes.main}
