@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { IPropsBottomLogo } from './interface'
 import { StyleLogoWrapper } from './style'
@@ -9,7 +9,9 @@ class BottomLogo extends React.Component<IPropsBottomLogo, {}> {
     const { parpLogo } = this.props.data
     return (
       <StyleLogoWrapper>
-        <Img fluid={parpLogo.childImageSharp.fluid} />
+        <Link to="/eu-subsidies">
+          <Img fluid={parpLogo.childImageSharp.fluid} />
+        </Link>
       </StyleLogoWrapper>
     )
   }

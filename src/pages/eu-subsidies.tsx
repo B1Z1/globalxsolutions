@@ -23,8 +23,8 @@ class EuSubsidiesPage extends React.Component<IEsSubsidiesProps, {}> {
   TITLE = 'Dotacje unijne'
   DESCRIPTION =
     'Celem projektu jest rozwój przedsiębiorstwa poprzez wdrożenie autorskich wzorów budki terapeutycznej'
-  LINK_TO = '/contact'
-  LINK_TEXT = 'Kontakt'
+  LINK_TO = '/talk-about-us'
+  LINK_TEXT = 'Mówią o nas'
   TITLE_WITH_MARGIN = true
   IS_DARK_MODE = false
 
@@ -106,7 +106,7 @@ class EuSubsidiesPage extends React.Component<IEsSubsidiesProps, {}> {
 export default props => (
   <StaticQuery
     query={graphql`
-      query uSubsidiesQuery {
+      query SubsidiesQuery {
         image: file(relativePath: { eq: "Parp.jpg" }) {
           childImageSharp {
             fluid(quality: 100) {

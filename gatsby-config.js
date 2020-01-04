@@ -79,6 +79,10 @@ module.exports = {
         path: '/eu-subsidies',
       },
       {
+        name: 'Mówią o nas',
+        path: '/talk-about-us',
+      },
+      {
         name: 'Kontakt',
         path: '/contact',
       },

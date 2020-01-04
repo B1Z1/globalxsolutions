@@ -6,7 +6,7 @@ const StyleLogoWrapper = styled.div`
   bottom: 0;
   right: 1%;
   width: 98%;
-  z-index: 900;
+  z-index: 30;
   @media only screen and (min-width: ${styleVariables.breakPoints.sm}) {
     right: 20%;
     width: 60%;
