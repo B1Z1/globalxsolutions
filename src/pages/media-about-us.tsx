@@ -2,10 +2,11 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import SEO from '../components/seo'
-import ListBlog from '../components/ListBlog'
 import WrapperLayout from '../layouts/Wrapper'
+import { IPropsListBlog } from '../components/ListBlog/interface'
+import ListBlog from '../components/ListBlog'
 
-interface INewsroomProps {
+interface TalkAboutUsPageProps {
   data: {
     elements: {
       nodes: {
@@ -19,11 +20,18 @@ interface INewsroomProps {
   }
 }
 
-class NewsroomPage extends React.Component<INewsroomProps, {}> {
+class TalkAboutUsPage extends React.Component<TalkAboutUsPageProps, {}> {
+  TITLE = 'Mówią o nas'
+  DESCRIPTION = 'Co mówią media o GlobalXSolutions'
+  LINK_TO = '/contact'
+  LINK_TEXT = 'Kontakt'
+  TITLE_WITH_MARGIN = true
+  IS_DARK_MODE = false
+
   render() {
     const elements = this.props.data.elements.nodes.map(element => {
       return {
-        link: `/newsroom/${element.slug}`,
+        link: `/media-about-us/${element.slug}`,
         title: element.title,
         excerption: element.excerption.excerption,
       }
@@ -31,13 +39,13 @@ class NewsroomPage extends React.Component<INewsroomProps, {}> {
 
     return (
       <WrapperLayout
-        linkTo="/events"
-        linkText="Wydarzenia"
-        title="Newsroom"
-        titleWithMargin={true}
-        isDarkMode={false}
+        linkTo={this.LINK_TO}
+        linkText={this.LINK_TEXT}
+        title={this.TITLE}
+        titleWithMargin={this.TITLE_WITH_MARGIN}
+        isDarkMode={this.IS_DARK_MODE}
       >
-        <SEO title="Newsroom" />
+        <SEO title={this.TITLE} />
         <ListBlog elements={elements} />
       </WrapperLayout>
     )
@@ -47,8 +55,8 @@ class NewsroomPage extends React.Component<INewsroomProps, {}> {
 export default props => (
   <StaticQuery
     query={graphql`
-      query NewsroomQuery {
-        elements: allContentfulNewsroom {
+      query TalkAboutUsQuery {
+        elements: allContentfulMediaAboutUs {
           nodes {
             slug
             title
@@ -59,6 +67,6 @@ export default props => (
         }
       }
     `}
-    render={data => <NewsroomPage data={data} {...props} />}
+    render={data => <TalkAboutUsPage data={data} {...props} />}
   />
 )

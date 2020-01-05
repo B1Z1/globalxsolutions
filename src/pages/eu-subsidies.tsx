@@ -23,7 +23,7 @@ class EuSubsidiesPage extends React.Component<IEsSubsidiesProps, {}> {
   TITLE = 'Dotacje unijne'
   DESCRIPTION =
     'Celem projektu jest rozwój przedsiębiorstwa poprzez wdrożenie autorskich wzorów budki terapeutycznej'
-  LINK_TO = '/talk-about-us'
+  LINK_TO = '/media-about-us'
   LINK_TEXT = 'Mówią o nas'
   TITLE_WITH_MARGIN = true
   IS_DARK_MODE = false

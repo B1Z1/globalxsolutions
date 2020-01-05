@@ -30,6 +30,7 @@ const StyleSidebar = styled.aside`
   right: 0;
   width: 100vw;
   padding: 32px;
+  padding-bottom: 64px;
   background-color: ${styleVariables.colors.main2};
   overflow: auto;
   transform: translateX(

@@ -80,7 +80,7 @@ module.exports = {
       },
       {
         name: 'Mówią o nas',
-        path: '/talk-about-us',
+        path: '/media-about-us',
       },
       {
         name: 'Kontakt',

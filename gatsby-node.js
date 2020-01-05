@@ -1,8 +1,8 @@
+const postQueries = require('./src/shared/utils/queries/Posts')
 const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   const realisationTemplatePath = path.resolve(
     './src/templates/RealisationsPost/index.tsx'
   )
@@ -10,195 +10,79 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
     query PagesQuery {
-      allContentfulPrototypes {
-        edges {
-          node {
-            title
-            slug
-            content {
-              json
-            }
-            mainImage {
-              fluid(quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-            gallery {
-              fluid(maxWidth: 2400, quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-          }
-        }
-      }
-      allContentfulConceptions {
-        edges {
-          node {
-            title
-            slug
-            content {
-              json
-            }
-            mainImage {
-              fluid(quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-            gallery {
-              fluid(maxWidth: 2400, quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-          }
-        }
-      }
-      allContentfulSolutions {
-        edges {
-          node {
-            title
-            slug
-            content {
-              json
-            }
-            mainImage {
-              fluid(quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-            gallery {
-              fluid(maxWidth: 2400, quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-          }
-        }
-      }
-      allContentfulNewsroom {
-        edges {
-          node {
-            slug
-            title
-            excerption {
-              excerption
-            }
-            excerption {
-              excerption
-            }
-            content {
-              json
-            }
-          }
-        }
-      }
-      allContentfulEvents {
-        edges {
-          node {
-            slug
-            title
-            excerption {
-              excerption
-            }
-            content {
-              json
-            }
-            gallery {
-              fluid(quality: 100) {
-                base64
-                src
-                srcSet
-                sizes
-                aspectRatio
-              }
-            }
-          }
-        }
-      }
+      ${postQueries.contentfulPrototypes}
+      ${postQueries.contentfulConceptions}
+      ${postQueries.contentfulSolutions}
+      ${postQueries.contentfulNewsroom}
+      ${postQueries.contentfulEvents}
+      ${postQueries.contentfulMediaAboutUs}
     }
   `).then(result => {
     if (result.errors) {
       throw result.errors
     }
 
-    const prototypePosts = result.data.allContentfulPrototypes.edges
-    const conceptionPosts = result.data.allContentfulConceptions.edges
-    const solutionsPosts = result.data.allContentfulSolutions.edges
-    const newsroomPosts = result.data.allContentfulNewsroom.edges
-    const eventsPosts = result.data.allContentfulEvents.edges
+    const posts = [
+      {
+        edges: result.data.allContentfulPrototypes.edges,
+        templatePath: realisationTemplatePath,
+        rootPath: '/prototypes',
+        nextPage: {
+          title: 'Koncepcje',
+          slug: '/conceptions',
+        },
+      },
+      {
+        edges: result.data.allContentfulConceptions.edges,
+        templatePath: realisationTemplatePath,
+        rootPath: '/conceptions',
+        nextPage: {
+          title: 'Rozwiązania',
+          slug: '/solutions',
+        },
+      },
+      {
+        edges: result.data.allContentfulSolutions.edges,
+        templatePath: realisationTemplatePath,
+        rootPath: '/solutions',
+        nextPage: {
+          title: 'Newsroom',
+          slug: '/newsroom',
+        },
+      },
+      {
+        edges: result.data.allContentfulNewsroom.edges,
+        templatePath: blogTemplatePath,
+        rootPath: '/newsroom',
+        nextPage: {
+          title: 'Wydarzenia',
+          slug: '/events',
+        },
+      },
+      {
+        edges: result.data.allContentfulEvents.edges,
+        templatePath: blogTemplatePath,
+        rootPath: '/events',
+        nextPage: {
+          title: 'Infotech',
+          slug: '/infotech',
+        },
+      },
+      {
+        edges: result.data.allContentfulMediaAboutUs.edges,
+        templatePath: blogTemplatePath,
+        rootPath: '/media-about-us',
+        nextPage: {
+          title: 'Kontakt',
+          slug: '/contact',
+        },
+      },
+    ]
 
-    generatePosts(
-      prototypePosts,
-      realisationTemplatePath,
-      '/prototypes',
-      {
-        title: 'Koncepcje',
-        slug: '/conceptions',
-      },
-      createPage
-    )
-    generatePosts(
-      conceptionPosts,
-      realisationTemplatePath,
-      '/conceptions',
-      {
-        title: 'Rozwiązania',
-        slug: '/solutions',
-      },
-      createPage
-    )
-    generatePosts(
-      solutionsPosts,
-      realisationTemplatePath,
-      '/solutions',
-      {
-        title: 'Newsroom',
-        slug: '/newsroom',
-      },
-      createPage
-    )
-    generatePosts(
-      newsroomPosts,
-      blogTemplatePath,
-      '/newsroom',
-      {
-        title: 'Wydarzenia',
-        slug: '/events',
-      },
-      createPage
-    )
-    generatePosts(
-      eventsPosts,
-      realisationTemplatePath,
-      '/events',
-      {
-        title: 'Infotech',
-        slug: '/infotech',
-      },
-      createPage
-    )
+    posts.forEach(post => {
+      const { edges, templatePath, rootPath, nextPage } = post
+      generatePosts(edges, templatePath, rootPath, nextPage, createPage)
+    })
   })
 }
 
