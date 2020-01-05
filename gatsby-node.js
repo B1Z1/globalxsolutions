@@ -81,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     posts.forEach(post => {
       const { edges, templatePath, rootPath, nextPage } = post
-      generatePosts(edges, templatePath, rootPath, nextPage, createPage)
+      new PostGenerator(edges, templatePath, rootPath, nextPage, createPage)
     })
   })
 }
@@ -90,37 +90,83 @@ exports.createPages = ({ graphql, actions }) => {
  * @description Here is start, where page generates
  */
 
-function generatePosts(posts, templatePath, rootPath, nextPage, createPage) {
-  posts.forEach((post, index) => {
-    const next = index === posts.length - 1 ? nextPage : posts[index + 1].node
-    const { slug } = post.node
+class PostGenerator {
+  constructor(posts, templatePath, rootPath, nextPage, createPage) {
+    this.posts = posts
+    this.templatePath = templatePath
+    this.rootPath = rootPath
+    this.nextPage = nextPage
+    this.createPage = createPage
+    this.init()
+  }
 
-    next['url'] =
-      index === posts.length - 1 ? `${next.slug}` : `${rootPath}/${next.slug}`
+  init() {
+    this.generatePosts()
+  }
 
-    if (post.node.mainImage !== undefined) {
-      post.node.mainImage = post.node.mainImage.fluid
-    }
+  generatePosts() {
+    this.posts.forEach((post, index) => {
+      const postsLength = this.posts.length - 1
+      const next = this.getNextPage(
+        this.isNextPageLast(index, postsLength),
+        index
+      )
+      const { node } = post
+      const { slug, mainImage, gallery } = node
+      let mainImageFluid = {}
+      let normalizedGallery = {}
 
-    if (post.node.gallery !== undefined) {
-      post.node.gallery = post.node.gallery.map(image => {
-        return {
-          base64: image.fluid.base64,
-          src: image.fluid.src,
-          srcSet: image.fluid.srcSet,
-          sizes: image.fluid.sizes,
-          aspectRatio: image.fluid.aspectRatio,
-        }
+      next['url'] = this.generateUrlForNextPage(
+        this.isNextPageLast(index, postsLength),
+        next.slug
+      )
+
+      if (this.isElementExist(mainImage)) {
+        mainImageFluid = mainImage.fluid
+        node.mainImage = mainImageFluid
+      }
+
+      if (this.isElementExist(gallery)) {
+        normalizedGallery = this.getNormalizedGallery(gallery)
+        node.gallery = normalizedGallery
+      }
+
+      this.createPage({
+        path: `${this.rootPath}/${slug}`,
+        component: this.templatePath,
+        context: {
+          ...node,
+          next,
+        },
       })
-    }
-
-    createPage({
-      path: `${rootPath}/${slug}`,
-      component: templatePath,
-      context: {
-        ...post.node,
-        next,
-      },
     })
-  })
+  }
+
+  isElementExist(element) {
+    return element !== undefined
+  }
+
+  generateUrlForNextPage(isLastPage, nextPageSlug) {
+    return isLastPage ? nextPageSlug : `${this.rootPath}/${nextPageSlug}`
+  }
+
+  getNextPage(isLastPage, currentIndex) {
+    return isLastPage ? this.nextPage : this.posts[currentIndex + 1].node
+  }
+
+  isNextPageLast(index, length) {
+    return index === length
+  }
+
+  getNormalizedGallery(gallery) {
+    return gallery.map(image => {
+      return {
+        base64: image.fluid.base64,
+        src: image.fluid.src,
+        srcSet: image.fluid.srcSet,
+        sizes: image.fluid.sizes,
+        aspectRatio: image.fluid.aspectRatio,
+      }
+    })
+  }
 }
