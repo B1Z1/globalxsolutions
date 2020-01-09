@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import TextOnBlack from '../TextOnBlack'
 import { IPropsSidebar, IMenuLink } from './interfaces'
 
 import {
@@ -48,13 +47,7 @@ class Sidebar extends React.Component<IPropsSidebar, {}> {
   generateNavigationSecondLevel(children) {
     let $childrenElements = children.map((childElement, index) => (
       <StyleSecondLevelMenuElement key={index}>
-        <TextOnBlack
-          isDarkMode={false}
-          withMargin={false}
-          animationToggle={true}
-        >
-          <Link to={childElement.path}>{childElement.name}</Link>
-        </TextOnBlack>
+        <Link to={childElement.path}>{childElement.name}</Link>
       </StyleSecondLevelMenuElement>
     ))
 
