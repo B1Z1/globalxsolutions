@@ -44,6 +44,10 @@ const menuLinks = [
     path: '/events',
   },
   {
+    name: 'Nasze zaangażowanie',
+    path: '/our-engagement',
+  },
+  {
     name: 'Dotacje Unijne',
     path: '/eu-subsidies',
   },

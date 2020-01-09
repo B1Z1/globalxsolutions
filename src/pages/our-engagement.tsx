@@ -23,7 +23,7 @@ class OurEngagementPage extends React.Component<IOurEngagementPageProps> {
   linkTo = '/eu-sbsidies'
   linkText = 'Dotacje Unijne'
   title = 'Nasze zaangażowanie'
-  titleWithMargin = false
+  titleWithMargin = true
   isDarkMode = false
 
   render() {
@@ -54,9 +54,13 @@ export default props => (
   <StaticQuery
     query={graphql`
       query OurEngagementQuery {
-        site {
-          siteMetadata {
+        elements: allContentfulOurEngagement {
+          nodes {
+            slug
             title
+            excerption {
+              excerption
+            }
           }
         }
       }

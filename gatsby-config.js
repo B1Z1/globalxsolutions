@@ -1,4 +1,4 @@
-const localData = require('./src/localData')
+const localData = require('./src/shared/utils/localdata/index')
 const menuLinks = localData.menuLinks
 
 module.exports = {

@@ -9,8 +9,8 @@ class Team extends React.Component {
   render() {
     return (
       <WrapperLayout
-        linkText="Prototypy"
-        linkTo="/prototypes"
+        linkText="Infotech"
+        linkTo="/infotech"
         title="Zapoznaj się z zespołem"
         titleWithMargin={true}
         isDarkMode={true}

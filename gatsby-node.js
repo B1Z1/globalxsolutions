@@ -16,6 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
       ${postQueries.contentfulNewsroom}
       ${postQueries.contentfulEvents}
       ${postQueries.contentfulMediaAboutUs}
+      ${postQueries.contentfulOurEngagement}
     }
   `).then(result => {
     if (result.errors) {
@@ -64,8 +65,17 @@ exports.createPages = ({ graphql, actions }) => {
         templatePath: blogTemplatePath,
         rootPath: '/events',
         nextPage: {
-          title: 'Infotech',
-          slug: '/infotech',
+          title: 'Nasze zaangażowanie',
+          slug: '/our-engagement',
+        },
+      },
+      {
+        edges: result.data.allContentfulOurEngagement.edges,
+        templatePath: blogTemplatePath,
+        rootPath: '/our-engagement',
+        nextPage: {
+          title: 'Dotacje Unijne',
+          slug: '/eu-subsidies',
         },
       },
       {

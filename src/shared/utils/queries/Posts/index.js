@@ -4,6 +4,7 @@ const contentfulSolutions = require('./contentful-solutions')
 const contentfulNewsroom = require('./contentful-newsroom')
 const contentfulEvents = require('./contentful-events')
 const contentfulMediaAboutUs = require('./contentful-media-about-us')
+const contentfulOurEngagement = require('./contentful-our-engagement')
 
 module.exports = {
   contentfulPrototypes,
@@ -12,4 +13,5 @@ module.exports = {
   contentfulNewsroom,
   contentfulEvents,
   contentfulMediaAboutUs,
+  contentfulOurEngagement,
 }

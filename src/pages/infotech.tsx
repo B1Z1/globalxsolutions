@@ -29,8 +29,8 @@ class InfotechPage extends React.Component<IInfotechProps, {}> {
 
     return (
       <WrapperLayout
-        linkTo="/eu-subsidies"
-        linkText="Dotacje Unijne"
+        linkTo="/prototypes"
+        linkText="Prototypy"
         title="Infotech"
         titleWithMargin={true}
         isDarkMode={false}

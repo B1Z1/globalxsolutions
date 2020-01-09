@@ -22,6 +22,12 @@ interface IEventsProps {
 }
 
 class EventsPage extends React.Component<IEventsProps, {}> {
+  linkTo = '/our-engagement'
+  linkText = 'Nasze zaangażowanie'
+  title = 'Wydarzenia'
+  titleWithMargin = true
+  isDarkMode = false
+
   render() {
     const elements = this.props.data.elements.nodes.map(element => {
       return {
@@ -33,13 +39,13 @@ class EventsPage extends React.Component<IEventsProps, {}> {
 
     return (
       <WrapperLayout
-        linkTo="/infotech"
-        linkText="Infotech"
-        title="Wydarzenia"
-        titleWithMargin={true}
-        isDarkMode={false}
+        linkTo={this.linkTo}
+        linkText={this.linkText}
+        title={this.title}
+        titleWithMargin={this.titleWithMargin}
+        isDarkMode={this.isDarkMode}
       >
-        <SEO title="Wydarzenia" />
+        <SEO title={this.title} />
         <ListBlog elements={elements} />
       </WrapperLayout>
     )
