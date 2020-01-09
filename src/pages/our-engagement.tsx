@@ -52,7 +52,15 @@ class OurEngagementPage extends React.Component<IOurEngagementPageProps> {
 
 export default props => (
   <StaticQuery
-    query={graphql``}
+    query={graphql`
+      query OurEngagementQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
     render={data => <OurEngagementPage data={data} {...props} />}
   />
 )
