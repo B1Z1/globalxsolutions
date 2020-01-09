@@ -1,8 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-
-import { IPropsSidebar } from './interfaces'
+import TextOnBlack from '../TextOnBlack'
+import { IPropsSidebar, IMenuLink } from './interfaces'
 
 import {
   StyleLogos,
@@ -11,6 +11,8 @@ import {
   StyleNavigation,
   StyleNavigationElement,
   StyleNavigationLink,
+  StyleSecondLevelMenu,
+  StyleSecondLevelMenuElement,
 } from './styled'
 
 class Sidebar extends React.Component<IPropsSidebar, {}> {
@@ -43,20 +45,51 @@ class Sidebar extends React.Component<IPropsSidebar, {}> {
     })
   }
 
-  generateLinks(links) {
-    return links.map((link, index) => (
-      <StyleNavigationElement key={index}>
-        <Link to={link.path}>
-          <StyleNavigationLink>{link.name}</StyleNavigationLink>
-        </Link>
-      </StyleNavigationElement>
+  generateNavigationSecondLevel(children) {
+    let $childrenElements = children.map((childElement, index) => (
+      <StyleSecondLevelMenuElement key={index}>
+        <TextOnBlack
+          isDarkMode={false}
+          withMargin={false}
+          animationToggle={true}
+        >
+          <Link to={childElement.path}>{childElement.name}</Link>
+        </TextOnBlack>
+      </StyleSecondLevelMenuElement>
     ))
+
+    return (
+      <StyleSecondLevelMenu>
+        <ul>{$childrenElements}</ul>
+      </StyleSecondLevelMenu>
+    )
+  }
+
+  generateLinks(links: IMenuLink[]) {
+    return links.map((link: IMenuLink, index) => {
+      const { path, name } = link
+      const children = link?.children
+      let $childrenElementsWrapper =
+        children !== null && children.length > 0
+          ? this.generateNavigationSecondLevel(children)
+          : []
+
+      return (
+        <StyleNavigationElement key={index}>
+          <Link to={path}>
+            <StyleNavigationLink>{name}</StyleNavigationLink>
+          </Link>
+          {$childrenElementsWrapper}
+        </StyleNavigationElement>
+      )
+    })
   }
 
   render() {
     const { data, active } = this.props
     const $Links = this.generateLinks(data.site.siteMetadata.menuLinks)
     const $Images = this.generateImages(data.images.nodes)
+
     return (
       <StyleSidebar active={active}>
         <StyleLogos>{$Images}</StyleLogos>
@@ -88,6 +121,10 @@ export default props => (
             menuLinks {
               name
               path
+              children {
+                name
+                path
+              }
             }
           }
         }

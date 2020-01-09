@@ -17,8 +17,8 @@ class IndexPage extends React.Component {
   render() {
     return (
       <WrapperLayout
-        linkTo="/what-we-do"
-        linkText="Czym się zajmujemy"
+        linkTo="/about-us"
+        linkText="O nas"
         title="Stawiamy na wiedzę i doświadczenie"
         titleWithMargin={false}
         isDarkMode={false}

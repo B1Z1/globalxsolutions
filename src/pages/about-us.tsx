@@ -19,18 +19,18 @@ const StyleP = styled.p`
   }
 `
 
-class WhatWeDoPage extends React.Component {
+class AboutUsPage extends React.Component {
   render() {
     return (
       <WrapperLayout
         linkTo="/technologies"
         linkText="Technologie"
-        title="Czym się zajmujemy"
+        title="O nas"
         titleWithMargin={true}
         isDarkMode={false}
       >
         <SEO
-          title="Czym się zajmujemy"
+          title="O nas"
           description="Prowadzeniem prac projektowych w dziedzinie elektroniki (układy analogowe i cyfrowe, systemy wbudowane) i informatyki (aplikacje desktopowe, mobilne, chmurowe, webowe, systemy wykorzystujące metody sztucznej inteligencji i przetwarzania sygnałów)"
         />
         <StyleP>
@@ -95,4 +95,4 @@ class WhatWeDoPage extends React.Component {
   }
 }
 
-export default WhatWeDoPage
+export default AboutUsPage

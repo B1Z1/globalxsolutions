@@ -22,6 +22,31 @@ const AnimationLink = keyframes`
     opacity: 1;
   }
 `
+const StyleSecondLevelMenu = styled.div`
+  position: relative;
+  padding: 16px;
+  background-color: ${styleVariables.colors.operate};
+  @media only screen and (min-width: ${styleVariables.breakPoints.md}) {
+    position: absolute;
+    top: 10px;
+    left: calc(-100% - 8px);
+    width: 320px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 20;
+    transform: translate(-10px, -15px);
+    transition: opacity, visibility, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+`
+
+const StyleSecondLevelMenuElement = styled.li`
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: ${styleVariables.colors.main2};
+`
 
 const StyleSidebar = styled.aside`
   position: fixed;
@@ -84,7 +109,7 @@ const StyleNavigationElement = styled.li`
     &:before {
       content: '';
       position: absolute;
-      top: 50%;
+      top: 20px;
       left: 0;
       width: 1px;
       height: 100%;
@@ -93,6 +118,14 @@ const StyleNavigationElement = styled.li`
   }
   &:last-child {
     margin-bottom: 0;
+  }
+  @media only screen and (min-width: ${styleVariables.breakPoints.md}) {
+    &:hover ${StyleSecondLevelMenu} {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      transform: translate(0);
+    }
   }
 `
 const StyleNavigationLink = styled.span`
@@ -113,7 +146,7 @@ const StyleNavigationLink = styled.span`
   &:after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 14px;
     left: -32px;
     width: 8px;
     height: 8px;
@@ -140,4 +173,6 @@ export {
   StyleNavigation,
   StyleNavigationElement,
   StyleNavigationLink,
+  StyleSecondLevelMenu,
+  StyleSecondLevelMenuElement,
 }

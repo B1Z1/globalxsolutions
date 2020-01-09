@@ -5480,10 +5480,10 @@ gatsby-cli@^2.8.14:
     ink "^2.5.0"
     ink-spinner "^3.0.1"
 
-gatsby-cli@^2.8.22:
-  version "2.8.22"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.8.22.tgz#3c3ccb228767f329ff29047935595a1a1414ef96"
-  integrity sha512-uZix0CalIzZ6Wx5pbu5VoWA7KalWdWdfofm+thXRe4VlyJ9VnKmHAslBB03NOl707JoMsBLshHsGYynHwp0jdA==
+gatsby-cli@^2.8.25:
+  version "2.8.25"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.8.25.tgz#d958b4e76a3a68f6ec0b590d825172e1710616d5"
+  integrity sha512-UgZdiqUgeD/4sUDD98eqqYb75pJAj+s/0ZZ4rJ7JEFBphA3sik+MdFG0//dyrh9K47vJJ+Po+YgvpKS4zClJ0g==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/runtime" "^7.7.6"

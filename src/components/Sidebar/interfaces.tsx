@@ -1,8 +1,12 @@
 import { FixedObject } from 'gatsby-image'
 
-interface MenuLink {
+interface IMenuLink {
   name: string
-  path: string
+  path?: string
+  children?: {
+    name: string
+    path: string
+  }[]
 }
 
 interface ImageQuery {
@@ -17,7 +21,7 @@ interface IPropsSidebar {
   data: {
     site: {
       siteMetadata: {
-        menuLinks: MenuLink[]
+        menuLinks: IMenuLink[]
       }
     }
     images: {
@@ -31,4 +35,4 @@ interface IStylePropsSidebar {
   active: boolean
 }
 
-export { IPropsSidebar, IStylePropsSidebar }
+export { IPropsSidebar, IStylePropsSidebar, IMenuLink }

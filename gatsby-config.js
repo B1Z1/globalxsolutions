@@ -1,3 +1,6 @@
+const localData = require('./src/localData')
+const menuLinks = localData.menuLinks
+
 module.exports = {
   siteMetadata: {
     title: `GlobalXSolutions`,
@@ -33,60 +36,7 @@ module.exports = {
         title: 'Układy cyfrowe',
       },
     ],
-    menuLinks: [
-      {
-        name: 'Czym się zajmujemy',
-        path: '/what-we-do',
-      },
-      {
-        name: 'Technologie',
-        path: '/technologies',
-      },
-      {
-        name: 'Strategia i Kreacja',
-        path: '/strategy-and-creation',
-      },
-      {
-        name: 'Zespół',
-        path: '/team',
-      },
-      {
-        name: 'Prototypy',
-        path: '/prototypes',
-      },
-      {
-        name: 'Koncepcje',
-        path: '/conceptions',
-      },
-      {
-        name: 'Rozwiązania',
-        path: '/solutions',
-      },
-      {
-        name: 'Newsroom',
-        path: '/newsroom',
-      },
-      {
-        name: 'Wydarzenia',
-        path: '/events',
-      },
-      {
-        name: 'Infotech',
-        path: '/infotech',
-      },
-      {
-        name: 'Dotacje Unijne',
-        path: '/eu-subsidies',
-      },
-      {
-        name: 'Mówią o nas',
-        path: '/media-about-us',
-      },
-      {
-        name: 'Kontakt',
-        path: '/contact',
-      },
-    ],
+    menuLinks: menuLinks,
   },
   plugins: [
     `@contentful/gatsby-transformer-contentful-richtext`,
