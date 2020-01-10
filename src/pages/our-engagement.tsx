@@ -20,7 +20,7 @@ interface IOurEngagementPageProps {
 }
 
 class OurEngagementPage extends React.Component<IOurEngagementPageProps> {
-  linkTo = '/eu-sbsidies'
+  linkTo = '/eu-subsidies'
   linkText = 'Dotacje Unijne'
   title = 'Nasze zaangażowanie'
   titleWithMargin = true
