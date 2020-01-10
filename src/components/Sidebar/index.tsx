@@ -1,94 +1,47 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
-import { IPropsSidebar, IMenuLink } from './interfaces'
+import Img, { FixedObject } from 'gatsby-image'
+import { IPropsSidebar } from './interfaces'
+import ClassicNavigation from '../ClassicNavigation'
 
-import {
-  StyleLogos,
-  StyleSidebar,
-  StyleLogoElement,
-  StyleNavigation,
-  StyleNavigationElement,
-  StyleNavigationLink,
-  StyleSecondLevelMenu,
-  StyleSecondLevelMenuElement,
-} from './styled'
+import { StyleLogos, StyleSidebar, StyleLogoElement } from './styled'
 
 class Sidebar extends React.Component<IPropsSidebar, {}> {
+  GLOBALXSOLUTIONS_PATH = '/'
+  SAMSUNG_INCUBATION_PATH = '/events/inkubacja-w-samsung'
+  GLOBALX_LOGO_NAME = 'GlobalXSolutions'
+  SAMSUNG_LOGO_NAME = 'samsung_inkubator_logo'
+
   generateImages(elements) {
     return elements.map(image => {
       const { name } = image
-      const GLOBALX_LOGO_NAME = 'GlobalXSolutions'
-      const SAMSUNG_LOGO_NAME = 'samsung_inkubator_logo'
-      if (name === GLOBALX_LOGO_NAME)
-        return (
-          <StyleLogoElement key={image.id}>
-            <Link to="/">
-              <Img fixed={image.childImageSharp.fixed} />
-            </Link>
-          </StyleLogoElement>
-        )
-      else if (name === SAMSUNG_LOGO_NAME)
-        return (
-          <StyleLogoElement key={image.id}>
-            <Link to="/events/inkubacja-w-samsung">
-              <Img fixed={image.childImageSharp.fixed} />
-            </Link>
-          </StyleLogoElement>
-        )
-      return (
-        <StyleLogoElement key={image.id}>
-          <Img fixed={image.childImageSharp.fixed} />
-        </StyleLogoElement>
-      )
-    })
-  }
+      const fixedImage: FixedObject = image.childImageSharp.fixed
+      let $Image, path: string
 
-  generateNavigationSecondLevel(children) {
-    let $childrenElements = children.map((childElement, index) => (
-      <StyleSecondLevelMenuElement key={index}>
-        <Link to={childElement.path}>{childElement.name}</Link>
-      </StyleSecondLevelMenuElement>
-    ))
+      if (name === this.GLOBALX_LOGO_NAME) path = this.GLOBALXSOLUTIONS_PATH
+      else if (name === this.SAMSUNG_LOGO_NAME)
+        path = this.SAMSUNG_INCUBATION_PATH
 
-    return (
-      <StyleSecondLevelMenu>
-        <ul>{$childrenElements}</ul>
-      </StyleSecondLevelMenu>
-    )
-  }
-
-  generateLinks(links: IMenuLink[]) {
-    return links.map((link: IMenuLink, index) => {
-      const { path, name } = link
-      const children = link?.children
-      let $childrenElementsWrapper =
-        children !== null && children.length > 0
-          ? this.generateNavigationSecondLevel(children)
-          : []
-
-      return (
-        <StyleNavigationElement key={index}>
+      if (path)
+        $Image = (
           <Link to={path}>
-            <StyleNavigationLink>{name}</StyleNavigationLink>
+            <Img fixed={fixedImage} />
           </Link>
-          {$childrenElementsWrapper}
-        </StyleNavigationElement>
-      )
+        )
+      else $Image = <Img fixed={fixedImage} />
+      return <StyleLogoElement key={image.id}>{$Image}</StyleLogoElement>
     })
   }
 
   render() {
     const { data, active } = this.props
-    const $Links = this.generateLinks(data.site.siteMetadata.menuLinks)
+    const linkElements = data.site.siteMetadata.menuLinks
     const $Images = this.generateImages(data.images.nodes)
 
     return (
       <StyleSidebar active={active}>
         <StyleLogos>{$Images}</StyleLogos>
-        <StyleNavigation>
-          <ul>{$Links}</ul>
-        </StyleNavigation>
+        <ClassicNavigation elements={linkElements} />
       </StyleSidebar>
     )
   }

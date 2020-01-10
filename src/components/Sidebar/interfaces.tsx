@@ -2,7 +2,7 @@ import { FixedObject } from 'gatsby-image'
 
 interface IMenuLink {
   name: string
-  path?: string
+  path: string
   children?: {
     name: string
     path: string

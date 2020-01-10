@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const localData = require('./src/shared/utils/localdata/index')
 const menuLinks = localData.menuLinks
 
@@ -73,9 +77,9 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `pkra10ekc99f`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: 'yyG2TdBVXKDodrFR0R6RVjNp37NajEPs2DNhTMBqIzY',
+        accessToken: process.env.CONTENTFUL_KEY,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
