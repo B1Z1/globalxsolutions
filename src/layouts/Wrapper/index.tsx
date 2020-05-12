@@ -150,7 +150,7 @@ class WrapperLayout extends React.Component<IPropsWrapper, IStateWrapper> {
     return (
       <StyleWrapper isDarkMode={isDarkMode}>
         <GlobalStyle />
-        <Preloader />
+        {this.props.withPreview ? <Preloader /> : null}
         <Particles />
         <BottomLogo />
         <StyleContentWrapper>

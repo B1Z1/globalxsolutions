@@ -22,6 +22,7 @@ class IndexPage extends React.Component {
         title="Stawiamy na wiedzę i doświadczenie"
         titleWithMargin={false}
         isDarkMode={false}
+        withPreview
       >
         <SEO
           title="Główna strona"
