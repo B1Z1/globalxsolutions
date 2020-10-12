@@ -56,6 +56,10 @@ const menuLinks = [
     path: '/media-about-us',
   },
   {
+    name: 'Cobe',
+    path: 'http://botcobe.pl/',
+  },
+  {
     name: 'Kontakt',
     path: '/contact',
   },
