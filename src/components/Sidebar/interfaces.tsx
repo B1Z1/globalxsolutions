@@ -2,9 +2,11 @@ import { FixedObject } from 'gatsby-image'
 
 interface IMenuLink {
   name: string
+  fullPath: boolean
   path: string
   children?: {
     name: string
+    fullPath: boolean
     path: string
   }[]
 }
