@@ -66,10 +66,12 @@ export default props => (
           siteMetadata {
             menuLinks {
               name
-              path
+              path 
+              fullPath
               children {
                 name
                 path
+                fullPath
               }
             }
           }
