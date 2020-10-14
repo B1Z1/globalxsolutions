@@ -27,7 +27,7 @@ class ClassicNavigation extends React.Component<IPropsClassicNavigation, {}> {
       <Link to={path}>
         <StyleNavigationLink>{name}</StyleNavigationLink>
       </Link>
-
+    console.log(fullPath, path);
     return (
       <StyleNavigationElement key={key}>
         {$FullLink}
