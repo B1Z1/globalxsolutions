@@ -1,17 +1,18 @@
 import React from 'react'
-import { graphql, StaticQuery, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql, StaticQuery } from 'gatsby'
 import { IPropsBottomLogo } from './interface'
-import { StyleLogoWrapper } from './style'
+import { StyleLogoWrapper, StyleParpLink, StyleUprpLogo } from './style'
+import Img from 'gatsby-image'
 
 class BottomLogo extends React.Component<IPropsBottomLogo, {}> {
   render() {
-    const { parpLogo } = this.props.data
+    const { parpLogo, uprpLogo } = this.props.data
     return (
       <StyleLogoWrapper>
-        <Link to="/eu-subsidies">
-          <Img fluid={parpLogo.childImageSharp.fluid} />
-        </Link>
+        <StyleUprpLogo fluid={uprpLogo.childImageSharp.fluid}/>
+        <StyleParpLink to="/eu-subsidies">
+          <Img fluid={parpLogo.childImageSharp.fluid}/>
+        </StyleParpLink>
       </StyleLogoWrapper>
     )
   }
@@ -22,6 +23,13 @@ export default props => (
     query={graphql`
       query BottomLogoQuery {
         parpLogo: file(relativePath: { eq: "Parp.jpg" }) {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        uprpLogo: file(relativePath: { eq: "Logo_UPRP.png" }) {
           childImageSharp {
             fluid(quality: 100) {
               ...GatsbyImageSharpFluid
