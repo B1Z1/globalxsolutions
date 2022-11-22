@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: '.env.${process.env.NODE_ENV}',
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const localData = require('./src/shared/utils/localdata/index')
@@ -71,19 +71,15 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        // icon: 'src/images/icon.png',
+        icon: `${__dirname}/src/images/icon.png`,
       },
     },
     {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_KEY,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // "gatsby-plugin-offline",
   ],
 }
